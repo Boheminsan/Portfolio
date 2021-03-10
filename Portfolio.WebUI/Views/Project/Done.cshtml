@@ -1,0 +1,47 @@
+@model ProjectCategoryViewModel
+@* start portfolio section*@
+<section class="project-area">
+    <div class="container">
+        <div class="project-title pb-5">
+            <h1 class="letterspaced text-uppercase text-center title-h1">Yapılmış projeler</h1>
+        </div>
+    </div>
+    <div class="button-group">
+    @foreach (var type in Model.Categories.Where(k => k.CType == CategoryType.Lang))
+    {
+        <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
+        </button>
+    }
+    </div>
+    <div class="button-group">
+    @foreach (var type in Model.Categories.Where(k => k.CType == CategoryType.Tech))
+    {
+            <button type="button" class="" id="btn1" data-filter="@type.CType">@type.CategoryName </button>
+    }
+    </div>
+    <div class="row grid">
+        @foreach (var item in Model.Projects)
+        {
+            @*
+                @foreach (var cat in item.CategoryList)
+                {
+                @cat.CategoryName
+                }
+            *@
+            <div class="col-lg-4 col-md-6 col-sm-12 element-item">
+                <div class="our-project">
+                    <div class="img">
+                        <a class="test-popup-link" href="~/assets/img/portfolio/kucuk/@item.Image">
+                            <img src="~/assets/img/portfolio/kucuk/@item.Image" alt="@item.Title" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="title py-4">
+                        <h4 class="text-uppercase">@item.Title</h4>
+                        <span class="text-secondary">@item.Text</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+@* end portfolio section*@

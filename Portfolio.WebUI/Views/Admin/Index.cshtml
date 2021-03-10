@@ -1,0 +1,307 @@
+﻿@model AdminViewModel
+@{
+    ViewData["Title"] = "Admin Anasayfa";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+@* buraları düzenle *@
+<div class="row" style="margin-right:0;">
+    <div class="col-md-2">
+        @await Html.PartialAsync("_adminSideBar",Model.SideBar)
+    </div>
+    <div class="col-md-10">
+        <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+                <div class="col-md-9">
+                    <h2 style="display:inline">Kategoriler</h2>
+                </div>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width:3%">#</th>
+                        <th scope="col">Kategori Adı</th>
+                        <th scope="col">Kategori Türü</th>
+                        <th scope="col" style="width: 25%;">İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <tr>
+                            <th scope="row">@item.CategoryId</th>
+                            <td>@item.CategoryName</td>
+                            <td>@item.CType</td>
+                            <td class="text-center">
+                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
+                                <button class="btn btn-danger btn-admin">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @* <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+            <div class="col-md-9">
+            <h2 style="display:inline">İletişim</h2>
+            </div>
+            <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+            </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+            <thead>
+            <tr>
+            <th scope="col" style="width:3%">#</th>
+            <th scope="col">Adı</th>
+            <th scope="col">Soyadı</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Metin</th>
+            <th scope="col" style="width: 25%;">İşlemler</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var contact in Model.Contacts)
+            {
+            <tr>
+            <th scope="row">@contact.ContactId</th>
+            <td>@contact.Name</td>
+            <td>@contact.Surname</td>
+            <td>@contact.Mail</td>
+            <td>@contact.Title</td>
+            <td>@contact.Text</td>
+            <td class="text-center">
+            <button class="btn btn-info öe-2 btn-admin">Düzenle</button>
+            <button class="btn btn-danger btn-admin">Sil</button></td>
+            </tr>
+            }
+            </tbody>
+            </table>
+            </div> *@
+        <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+                <div class="col-md-9">
+                    <h2 style="display:inline">Menü</h2>
+                </div>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">#</th>
+                        <th scope="col">Menü Adı</th>
+                        <th scope="col">Link</th>
+                        <th scope="col" style="width: 25%;">İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MenuItems)
+                    {
+                        <tr>
+                            <th scope="row">@item.MenuItemId</th>
+                            <td>@item.MenuItemName</td>
+                            <td>@item.Link</td>
+                            <td class="text-center">
+                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
+                                <button class="btn btn-danger btn-admin">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @* <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+            <div class="col-md-9">
+            <h2 style="display:inline">Resimler</h2>
+            </div>
+            <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+            </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+            <thead>
+            <tr class="text-center">
+            <th scope="col" style="width:3%">#</th>
+            <th scope="col">Resim Adı</th>
+            <th scope="col" style="width: 25%;">İşlemler</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var img in Model.Images)
+            {
+            <tr>
+            <th scope="row">@img.ImageId</th>
+            <td>@img.ImageName</td>
+            <td class="text-center">
+            <button class="btn btn-info">Düzenle</button>
+            <button class="btn btn-danger">Sil</button></td>
+            </tr>
+            }
+            </tbody>
+            </table>
+            </div> *@
+        <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+                <div class="col-md-9">
+                    <h2 style="display:inline">Projeler</h2>
+                </div>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width:3%">#</th>
+                        <th scope="col">Resim</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col" style="width:40%">Metin</th>
+                        @* <th scope="col">Kategoriler</th> *@
+                        <th scope="col">isDone</th>
+                        <th scope="col">isHome</th>
+                        <th scope="col" style="width: 25%;">İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var project in Model.Projects)
+                    {
+                        <tr>
+                            <th scope="row">@project.ProjectId</th>
+                            <td>@project.Image</td>
+                            <td>@project.Title</td>
+                            <td>@project.Text</td>
+                            @* <td>
+                                @foreach (var item in project.CategoryList)
+                                {
+                                <td>@item.CategoryName</td>
+                                <td>@item.CType</td>
+                                }</td> *@
+                            <td>@project.isDone</td>
+                            <td>@project.isHome</td>
+                            <td class="text-center">
+                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
+                                <button class="btn btn-danger btn-admin">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+                <div class="col-md-9">
+                    <h2 style="display:inline">Slider</h2>
+                </div>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width:3%">#</th>
+                        <th scope="col">Resim</th>
+                        <th scope="col">isHome</th>
+                        <th scope="col" style="width: 25%;">İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var slider in Model.Sliders)
+                    {
+                        <tr>
+                            <th scope="row">@slider.SliderId</th>
+                            <td>@slider.Image</td>
+                            <td>@slider.isHome</td>
+                            <td class="text-center">
+                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
+                                <button class="btn btn-danger btn-admin">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+                <div class="col-md-9">
+                    <h2 style="display:inline">Servisler</h2>
+                </div>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width:3%">#</th>
+                        <th scope="col">Resim</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Metin</th>
+                        <th scope="col">isHome</th>
+                        <th scope="col" style="width: 25%;">İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var service in Model.Services)
+                    {
+                        <tr>
+                            <th scope="row">@service.ServiceId</th>
+                            <td>@service.Image</td>
+                            <td>@service.Title</td>
+                            <td>@service.Text</td>
+                            <td>@service.isHome</td>
+                            <td class="text-center">
+                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
+                                <button class="btn btn-danger btn-admin">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12 mt-2 border border-primary">
+            <div class="title-text text-center row mb-1">
+                <div class="col-md-9">
+                    <h2 style="display:inline">Yorumlar</h2>
+                </div>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover table-text admin">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width:3%">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Yazı</th>
+                        <th scope="col">isHome</th>
+                        <th scope="col" style="width: 25%;">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var test in Model.Testimonials)
+                    {
+                        <tr>
+                            <th scope="row">@test.TestimonialId</th>
+                            <td>@test.Image</td>
+                            <td>@test.Title</td>
+                            <td>@test.Text</td>
+                            <td>@test.isHome</td>
+                            <td class="text-center">
+                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
+                                <button class="btn btn-danger btn-admin">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

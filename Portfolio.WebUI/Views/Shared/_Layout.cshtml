@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/modules/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/modules/@@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="~/lib/Magnific-Popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="~/lib/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/lib/OwlCarousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+</head>
+
+<body>
+    @* start header *@
+    @* @await Html.PartialAsync("_menu",Model.MenuItems); *@
+    @await Component.InvokeAsync("Menu")
+    @* end header *@
+    @* start main area *@
+    <main class="site-main">
+        @RenderBody();
+    </main>
+    @* end main area *@
+    @* start footer section *@
+    @await Html.PartialAsync("_footer");
+    @* end footer section *@
+    @* Start Script area *@
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/modules/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/js/isotope.min.js"></script>
+    <script src="~/lib/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="~/lib/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script src="~/js/myscript.js"></script>
+    @* End Script area *@
+</body>
+
+</html>

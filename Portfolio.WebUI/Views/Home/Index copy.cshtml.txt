@@ -1,0 +1,252 @@
+﻿@model IEnumerable<Main>
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+@* start banner *@
+<section class="site-banner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 site-title">
+                <h1 class="title-text text-uppercase">Ben Batuhan.</h1>
+                <h4 class="title-text">Yazılım geliştiriciyim.</h4>
+                <div class="side-buttons">
+                    <div class="d-flex flex-row flex-wrap">
+                        <button type="button" class="btn button primary-button">İletişim</button>
+                        <button type="button" class="btn button secondary-button ml-4">Hakkımda</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 banner-img">
+                <img src="~/assets/img/banner-image.png" alt="banner" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+@* end banner *@
+@* start ide section*@
+<section class="brand-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="ide-area">
+                    <div class="ide-title text-center mb-2">
+                        <h2 class="letterspaced">
+                            <span>ÇALIŞTIĞIM ORTAMLAR</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="first-row row">
+                    <div class="container carousel py-lg-4">
+                        <div class="owl-carousel owl-theme">
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide1.png" alt="ide1">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide2.png" alt="ide2">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide3.png" alt="ide3">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide4.png" alt="ide4 ">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide5.png" alt="ide5">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide6.png" alt="ide6">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide7.png" alt="ide7">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide8.png" alt="ide8">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="single-brand">
+                                    <img src="~/assets/img/ides/ide9.png" alt="ide9">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* end ide section*@
+@* start services section*@
+<section class="services-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center services-title">
+                <h1 class="letterspaced">SERVİSLER</h1>
+                <p class="para">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt eveniet eum perspiciatis
+                    harum corrupti?
+                </p>
+            </div>
+        </div>
+        <div class="container services-list">
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <div class="services">
+                        <div class="services-img text-center py-4">
+                            <img src="~/assets/img/prog.png" width="75px" alt="services1">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Deneme</h5>
+                            <p class="card-text text-secondary">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, ipsam! </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <div class="services">
+                        <div class="services-img text-center py-4">
+                            <img src="~/assets/img/prog.png" width="75px" alt="services1">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Deneme</h5>
+                            <p class="card-text text-secondary">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, ipsam!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <div class="services">
+                        <div class="services-img text-center py-4">
+                            <img src="~/assets/img/prog.png" width="75px" alt="services1">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Deneme</h5>
+                            <p class="card-text text-secondary">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, ipsam!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <div class="services">
+                        <div class="services-img text-center py-4">
+                            <img src="~/assets/img/prog.png" width="75px" alt="services1">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Deneme</h5>
+                            <p class="card-text text-secondary">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, ipsam!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* end services section*@
+@* start clients section*@
+<section class="client-area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="client-title">
+                    <h1 class="letterspaced title-h1">MÜŞTERİ YORUMLARI</h1>
+                    <p class="para">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda voluptates
+                        adipisci dolore quis blanditiis neque iusto consequatur ratione repudiandae?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container carousel py-lg-4">
+        <div class="owl-carousel owl-theme">
+            <div class="client row">
+                <div class="col-lg-4 col-md-12 client-img">
+                    <img src="~/assets/img/clients/client1.jpg" alt="img-1" class="img-fluid">
+                </div>
+                <div class="col-lg-8 col-md-12 about-client">
+                    <h4 class="text-uppercase">Hede Hodo</h4>
+                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui quod
+                        saepe rerum vel in?</p>
+                </div>
+            </div>
+            <div class="client row">
+                <div class="col-lg-4 col-md-12 client-img">
+                    <img src="~/assets/img/clients/client2.jpg" alt="img-2" class="img-fluid">
+                </div>
+                <div class="col-lg-8 col-md-12 about-client">
+                    <h4 class="text-uppercase">Hede Hodo</h4>
+                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui quod
+                        saepe rerum vel in?</p>
+                </div>
+            </div>
+            <div class="client row">
+                <div class="col-lg-4 col-md-12 client-img">
+                    <img src="~/assets/img/clients/client3.jpg" alt="img-3" class="img-fluid">
+                </div>
+                <div class="col-lg-8 col-md-12 about-client">
+                    <h4 class="text-uppercase">Hede Hodo</h4>
+                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui quod
+                        saepe rerum vel in?</p>
+                </div>
+            </div>
+            <div class="client row">
+                <div class="col-lg-4 col-md-12 client-img">
+                    <img src="~/assets/img/clients/client4.jpg" alt="img-4" class="img-fluid">
+                </div>
+                <div class="col-lg-8 col-md-12 about-client">
+                    <h4 class="text-uppercase">Hede Hodo</h4>
+                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui quod
+                        saepe rerum vel in?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* end clients section*@
+@* subscribe section*@
+<section class="subscribe-area">
+    <div class="container subscribe">
+        <div class="row">
+            <div class="col-lg-12 text-center subscribe-title">
+                <h4 class="text-uppercase letterspaced">Abone olun</h4>
+                <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, vero.</p>
+            </div>
+        </div>
+        <div class="d-sm-flex justify-content-center">
+            <form action="" class="">
+                <div class="row d-flex flex-row flex-wrap">
+                    <div class="col-xl-9 col-md-12 col-sm-12 input-textbox">
+                        <input type="text" id="txtemail" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="col col-xl-3 col-md-12 col-sm-12">
+                        <div class="btn-submit">
+                            <button type="submit" class="btn btn-outline-success float-right">Kayıt ol</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+@* end subscribe section*@
