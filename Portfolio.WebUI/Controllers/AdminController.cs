@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Data.Abstract;
+using Portfolio.Data.Concrete;
 using Portfolio.Entity;
 using Portfolio.WebUI.Models;
 
@@ -26,17 +27,9 @@ namespace Portfolio.WebUI.Controllers {
             repoCat = _repoCat;
             repoPro = _repoPro;
         }
-        public IActionResult Index () {
-            var sideMenuList = new List<MenuItem> () {
-                new MenuItem () { MenuItemName = "Category", Link = "#" },
-                new MenuItem () { MenuItemName = "Contact", Link = "#" },
-                new MenuItem () { MenuItemName = "Images", Link = "#" },
-                new MenuItem () { MenuItemName = "Slider", Link = "#" },
-                new MenuItem () { MenuItemName = "Project", Link = "#" },
-                new MenuItem () { MenuItemName = "Menu", Link = "#" },
-                new MenuItem () { MenuItemName = "Service", Link = "#" },
-                new MenuItem () { MenuItemName = "Testimonials", Link = "#" },
-            };
+        public IActionResult Index (int? id) {
+            var sideMenuList = AdminSideBarRepository.SideItems;
+            var sideBarId = RouteData.Values["id"];
             var adminGonder = new AdminViewModel () {
                 Categories = repoCat.GetAll ().ToList (),
                 //Contacts = repoCon.GetAll ().ToList (),
@@ -48,6 +41,12 @@ namespace Portfolio.WebUI.Controllers {
                 SideBar = sideMenuList,
                 Testimonials = repoTest.GetAll ().ToList ()
             };
+
+            if (id != null) {
+                //napacaksın id ile 
+                //gelen idye göre Admin/Details/1 --> Categories
+                //tipinde bir şey oluştur
+            }
             return View (adminGonder);
         }
 

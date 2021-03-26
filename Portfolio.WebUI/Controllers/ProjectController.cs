@@ -17,10 +17,15 @@ namespace Portfolio.WebUI.Controllers {
         }
 
         public IActionResult Done () {
-            var projectModel = repository.GetAll ().Where (p => p.isDone == true);
-            var categoryModel = repoCat.GetAll (); //.Where (WHERE DOLDUR)
+            //category filter null çöz
 
-            return View (projectModel);
+            var projectModel = repository.GetAll ().Where (p => p.isDone == true).ToList ();
+            var categoryModel = repoCat.GetAll ().ToList ();
+            var proCat = new ProjectCategoryViewModel () {
+                Categories = categoryModel,
+                Projects = projectModel
+            };
+            return View (proCat);
         }
 
         public IActionResult Draft () {

@@ -10,189 +10,7 @@ namespace Portfolio.Data.Concrete.EFCore {
         public static void EnsurePopulated (IApplicationBuilder app) {
             var context = app.ApplicationServices.GetRequiredService<PortfolioContext> ();
             context.Database.Migrate ();
-            if (!context.MyProjects.Any () || !context.SliderImages.Any () || !context.Categories.Any ()) {
-                var projects = new [] {
-                    //kategorileri ekle
-                    new Project () {
-                    Title = "Proje1", Image = "prt1.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-                    },
-                    new Category {
-                    CategoryName = "JS/JQ", CType = CategoryType.Tech, Filter = ".js"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje2", Image = "prt2.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Machine Learning", CType = CategoryType.Lang, Filter = ".machine"
-                    },
-                    new Category {
-                    CategoryName = "Python", CType = CategoryType.Lang, Filter = ".py"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje3", Image = "prt3.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-                    },
-                    new Category {
-                    CategoryName = "JS/JQ", CType = CategoryType.Lang, Filter = ".js"
-                    },
-                    new Category {
-                    CategoryName = "PHP", CType = CategoryType.Lang, Filter = ".php"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje4", Image = "prt4.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-                    },
-                    new Category {
-                    CategoryName = "Diğer", CType = CategoryType.Tech, Filter = ".etc"
-                    },
-                    new Category {
-                    CategoryName = "Diğer", CType = CategoryType.Lang, Filter = ".etclang"
-                    },
-                    new Category {
-                    CategoryName = "JS/JQ", CType = CategoryType.Lang, Filter = ".js"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje5", Image = "prt5.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Data", CType = CategoryType.Tech, Filter = ".web"
-                    },
-                    new Category {
-                    CategoryName = "Diğer", CType = CategoryType.Lang, Filter = ".etclang"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje6", Image = "prt6.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-                    },
-                    new Category {
-                    CategoryName = "Makine Öğrenmesi", CType = CategoryType.Tech, Filter = ".machine"
-                    },
-                    new Category {
-                    CategoryName = "Python", CType = CategoryType.Lang, Filter = ".py"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje7", Image = "prt7.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Data", CType = CategoryType.Tech, Filter = ".data"
-                    },
-                    new Category {
-                    CategoryName = "Diğer", CType = CategoryType.Tech, Filter = ".etc"
-                    },
-                    new Category {
-                    CategoryName = "C#", CType = CategoryType.Lang, Filter = ".cs"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje8", Image = "prt8.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-                    },
-                    new Category {
-                    CategoryName = "Diğer", CType = CategoryType.Tech, Filter = ".etc"
-                    },
-                    new Category {
-                    CategoryName = "PHP", CType = CategoryType.Lang, Filter = ".php"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje9", Image = "prt9.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Data", CType = CategoryType.Tech, Filter = ".data"
-                    },
-                    new Category {
-                    CategoryName = "Makine Öğrenmesi", CType = CategoryType.Tech, Filter = ".machine"
-                    },
-                    new Category {
-                    CategoryName = "Python", CType = CategoryType.Lang, Filter = ".py"
-                    }
-                    }
-                    },
-                    new Project () {
-                    Title = "Proje10", Image = "prt10.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", CategoryList = new List<Category> () {
-                    new Category {
-                    CategoryName = "Data", CType = CategoryType.Tech, Filter = ".data"
-                    },
-                    new Category {
-                    CategoryName = "Makine Öğrenmesi", CType = CategoryType.Tech, Filter = ".machine"
-                    },
-                    new Category {
-                    CategoryName = "C#", CType = CategoryType.Lang, Filter = ".cs"
-                    }
-                    }
-                    }
-                };
-                context.MyProjects.AddRange (projects);
-
-                //images çoğul olunca
-                var images = new Image[] {
-                    new Image () { ImageName = "Project1_1.jpg", Project = projects[0] },
-                    new Image () { ImageName = "Project1_2.jpg", Project = projects[0] },
-                    new Image () { ImageName = "Project1_3.jpg", Project = projects[0] },
-                    new Image () { ImageName = "Project1_4.jpg", Project = projects[0] },
-
-                    new Image () { ImageName = "Project2_1.jpg", Project = projects[1] },
-                    new Image () { ImageName = "Project2_2.jpg", Project = projects[1] },
-                    new Image () { ImageName = "Project2_3.jpg", Project = projects[1] },
-                    new Image () { ImageName = "Project2_4.jpg", Project = projects[1] },
-
-                    new Image () { ImageName = "Project3_1.jpg", Project = projects[2] },
-                    new Image () { ImageName = "Project3_2.jpg", Project = projects[2] },
-                    new Image () { ImageName = "Project3_3.jpg", Project = projects[2] },
-                    new Image () { ImageName = "Project3_4.jpg", Project = projects[2] },
-
-                    new Image () { ImageName = "Project4_1.jpg", Project = projects[3] },
-                    new Image () { ImageName = "Project4_2.jpg", Project = projects[3] },
-                    new Image () { ImageName = "Project4_3.jpg", Project = projects[3] },
-                    new Image () { ImageName = "Project4_4.jpg", Project = projects[3] },
-
-                    new Image () { ImageName = "Project5_1.jpg", Project = projects[4] },
-                    new Image () { ImageName = "Project5_2.jpg", Project = projects[4] },
-                    new Image () { ImageName = "Project5_3.jpg", Project = projects[4] },
-                    new Image () { ImageName = "Project5_4.jpg", Project = projects[4] },
-
-                    new Image () { ImageName = "Project6_1.jpg", Project = projects[5] },
-                    new Image () { ImageName = "Project6_2.jpg", Project = projects[5] },
-                    new Image () { ImageName = "Project6_3.jpg", Project = projects[5] },
-                    new Image () { ImageName = "Project6_4.jpg", Project = projects[5] },
-
-                    new Image () { ImageName = "Project7_1.jpg", Project = projects[6] },
-                    new Image () { ImageName = "Project7_2.jpg", Project = projects[6] },
-                    new Image () { ImageName = "Project7_3.jpg", Project = projects[6] },
-                    new Image () { ImageName = "Project7_4.jpg", Project = projects[6] },
-
-                    new Image () { ImageName = "Project8_1.jpg", Project = projects[7] },
-                    new Image () { ImageName = "Project8_2.jpg", Project = projects[7] },
-                    new Image () { ImageName = "Project8_3.jpg", Project = projects[7] },
-                    new Image () { ImageName = "Project8_4.jpg", Project = projects[7] },
-
-                    new Image () { ImageName = "Project9_1.jpg", Project = projects[8] },
-                    new Image () { ImageName = "Project9_2.jpg", Project = projects[8] },
-                    new Image () { ImageName = "Project9_3.jpg", Project = projects[8] },
-                    new Image () { ImageName = "Project9_4.jpg", Project = projects[8] },
-
-                    new Image () { ImageName = "Project10_1.jpg", Project = projects[9] },
-                    new Image () { ImageName = "Project10_2.jpg", Project = projects[9] },
-                    new Image () { ImageName = "Project10_3.jpg", Project = projects[9] },
-                    new Image () { ImageName = "Project10_4.jpg", Project = projects[9] },
-                };
-                context.Images.AddRange (images);
+            if (!context.Projects.Any () && !context.Categories.Any ()) {
                 var categories = new [] {
                     new Category () {
                     CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
@@ -223,6 +41,103 @@ namespace Portfolio.Data.Concrete.EFCore {
                     }
                 };
                 context.Categories.AddRange (categories);
+                /*, Categories = new List<Category> () {
+                new Category {
+                CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
+                },
+                new Category {
+                CategoryName = "JS/JQ", CType = CategoryType.Tech, Filter = ".js"
+                }
+                }*/
+
+                var projects = new [] {
+                    new Project () {
+                    Title = "Proje1", Image = "prt1.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje2", Image = "prt2.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje3", Image = "prt3.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje4", Image = "prt4.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje5", Image = "prt5.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje6", Image = "prt6.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje7", Image = "prt7.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje8", Image = "prt8.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje9", Image = "prt9.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    },
+                    new Project () {
+                    Title = "Proje10", Image = "prt10.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
+                    }
+                };
+                context.Projects.AddRange (projects);
+
+                //images çoğul olunca
+                // if (!context.Images.Any ()) {
+                //     var images = new Image[] {
+                //         new Image () { ImageName = "Project1_1.jpg", Project = projects[0] },
+                //         new Image () { ImageName = "Project1_2.jpg", Project = projects[0] },
+                //         new Image () { ImageName = "Project1_3.jpg", Project = projects[0] },
+                //         new Image () { ImageName = "Project1_4.jpg", Project = projects[0] },
+
+                //         new Image () { ImageName = "Project2_1.jpg", Project = projects[1] },
+                //         new Image () { ImageName = "Project2_2.jpg", Project = projects[1] },
+                //         new Image () { ImageName = "Project2_3.jpg", Project = projects[1] },
+                //         new Image () { ImageName = "Project2_4.jpg", Project = projects[1] },
+
+                //         new Image () { ImageName = "Project3_1.jpg", Project = projects[2] },
+                //         new Image () { ImageName = "Project3_2.jpg", Project = projects[2] },
+                //         new Image () { ImageName = "Project3_3.jpg", Project = projects[2] },
+                //         new Image () { ImageName = "Project3_4.jpg", Project = projects[2] },
+
+                //         new Image () { ImageName = "Project4_1.jpg", Project = projects[3] },
+                //         new Image () { ImageName = "Project4_2.jpg", Project = projects[3] },
+                //         new Image () { ImageName = "Project4_3.jpg", Project = projects[3] },
+                //         new Image () { ImageName = "Project4_4.jpg", Project = projects[3] },
+
+                //         new Image () { ImageName = "Project5_1.jpg", Project = projects[4] },
+                //         new Image () { ImageName = "Project5_2.jpg", Project = projects[4] },
+                //         new Image () { ImageName = "Project5_3.jpg", Project = projects[4] },
+                //         new Image () { ImageName = "Project5_4.jpg", Project = projects[4] },
+
+                //         new Image () { ImageName = "Project6_1.jpg", Project = projects[5] },
+                //         new Image () { ImageName = "Project6_2.jpg", Project = projects[5] },
+                //         new Image () { ImageName = "Project6_3.jpg", Project = projects[5] },
+                //         new Image () { ImageName = "Project6_4.jpg", Project = projects[5] },
+
+                //         new Image () { ImageName = "Project7_1.jpg", Project = projects[6] },
+                //         new Image () { ImageName = "Project7_2.jpg", Project = projects[6] },
+                //         new Image () { ImageName = "Project7_3.jpg", Project = projects[6] },
+                //         new Image () { ImageName = "Project7_4.jpg", Project = projects[6] },
+
+                //         new Image () { ImageName = "Project8_1.jpg", Project = projects[7] },
+                //         new Image () { ImageName = "Project8_2.jpg", Project = projects[7] },
+                //         new Image () { ImageName = "Project8_3.jpg", Project = projects[7] },
+                //         new Image () { ImageName = "Project8_4.jpg", Project = projects[7] },
+
+                //         new Image () { ImageName = "Project9_1.jpg", Project = projects[8] },
+                //         new Image () { ImageName = "Project9_2.jpg", Project = projects[8] },
+                //         new Image () { ImageName = "Project9_3.jpg", Project = projects[8] },
+                //         new Image () { ImageName = "Project9_4.jpg", Project = projects[8] },
+
+                //         new Image () { ImageName = "Project10_1.jpg", Project = projects[9] },
+                //         new Image () { ImageName = "Project10_2.jpg", Project = projects[9] },
+                //         new Image () { ImageName = "Project10_3.jpg", Project = projects[9] },
+                //         new Image () { ImageName = "Project10_4.jpg", Project = projects[9] },
+                //     };
+                //     context.Images.AddRange (images);
             }
 
             if (!context.MenuItems.Any ()) {
@@ -276,7 +191,6 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Slider () { Image = "ide15.png", isHome = true }
                 };
                 context.SliderImages.AddRange (sImages);
-
             }
             if (!context.Services.Any ()) {
                 var services = new [] {
@@ -301,7 +215,10 @@ namespace Portfolio.Data.Concrete.EFCore {
                 };
                 context.Testimonials.AddRange (test);
             }
-            context.SaveChanges ();
         }
     }
 }
+// if (!context.Contact.Any ()) {
+
+// }
+context.SaveChanges ();

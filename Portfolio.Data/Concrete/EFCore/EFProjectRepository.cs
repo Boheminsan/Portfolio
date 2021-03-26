@@ -12,9 +12,9 @@ namespace Portfolio.Data.Concrete.EFCore {
         }
 
         public void DeleteById (int portId) {
-            var port = PortfolioContext.MyProjects.FirstOrDefault (p => p.ProjectId == portId);
+            var port = PortfolioContext.Projects.FirstOrDefault (p => p.ProjectId == portId);
             if (port != null) {
-                PortfolioContext.MyProjects.Remove (port);
+                PortfolioContext.Projects.Remove (port);
                 PortfolioContext.SaveChanges ();
             }
         }
@@ -32,7 +32,7 @@ namespace Portfolio.Data.Concrete.EFCore {
             if (port != null) {
                 port.Text = entity.Text;
                 port.Title = entity.Title;
-                port.CategoryList = entity.CategoryList;
+                // port.Categories = entity.Categories;
                 port.isDone = entity.isDone;
                 if (!(entity.Image is null)) {
                     port.Image = entity.Image;

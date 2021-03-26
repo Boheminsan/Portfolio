@@ -13550,6 +13550,23 @@
         }
       },
       {
+        "HashCode": 2104607891,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__AdminSideBarViewComponentTagHelper",
+        "AssemblyName": "Portfolio.WebUI",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:admin-side-bar"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__AdminSideBarViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "AdminSideBar"
+        }
+      },
+      {
         "HashCode": -1532498735,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__MenuViewComponentTagHelper",
@@ -15630,8 +15647,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\_adminSideBar.cshtml",
-      "TargetPath": "Views\\Admin\\_adminSideBar.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Project\\Details.cshtml",
+      "TargetPath": "Views\\Project\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15682,6 +15699,11 @@
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\Components\\Menu\\Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\Menu\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\Components\\AdminSideBar\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\AdminSideBar\\Default.cshtml",
       "FileKind": "mvc"
     },
     {

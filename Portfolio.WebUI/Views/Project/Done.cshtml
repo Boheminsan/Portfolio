@@ -22,13 +22,13 @@
     <div class="row grid">
         @foreach (var item in Model.Projects)
         {
-            @*
-                @foreach (var cat in item.CategoryList)
+            var classes="";
+                @* @foreach (var cat in item.Categories)
                 {
-                @cat.CategoryName
-                }
-            *@
-            <div class="col-lg-4 col-md-6 col-sm-12 element-item">
+                classes=@cat.Filter+" ";
+                } *@
+            <div class="col-lg-4 col-md-6 col-sm-12 element-item @classes">
+                @* kategoriler class *@
                 <div class="our-project">
                     <div class="img">
                         <a class="test-popup-link" href="~/assets/img/portfolio/kucuk/@item.Image">
@@ -45,3 +45,4 @@
     </div>
 </section>
 @* end portfolio section*@
+
