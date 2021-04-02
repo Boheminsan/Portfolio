@@ -17,10 +17,10 @@ namespace Portfolio.WebUI.Controllers {
         private ITestimonialRepository repoTest;
         private ISliderRepository repoSlider;
 
-        public AdminController (IProjectRepository _repoPro, ICategoryRepository _repoCat, IMenuItemRepository _repoMenu, IContactRepository _repoCon, IServiceRepository _repoSer, IImageRepository _repoImg, ITestimonialRepository _repoTest, ISliderRepository _repoSlider) {
+        public AdminController (IProjectRepository _repoPro, ICategoryRepository _repoCat, IMenuItemRepository _repoMenu, IContactRepository _repoCon, IServiceRepository _repoSer, ITestimonialRepository _repoTest, ISliderRepository _repoSlider) {
             repoSlider = _repoSlider;
             repoTest = _repoTest;
-            repoImg = _repoImg;
+            // repoImg = _repoImg;
             repoSer = _repoSer;
             repoCon = _repoCon;
             repoMenu = _repoMenu;
@@ -33,7 +33,7 @@ namespace Portfolio.WebUI.Controllers {
             var adminGonder = new AdminViewModel () {
                 Categories = repoCat.GetAll ().ToList (),
                 //Contacts = repoCon.GetAll ().ToList (),
-                Images = repoImg.GetAll ().ToList (),
+                // Images = repoImg.GetAll ().ToList (),
                 MenuItems = repoMenu.GetAll ().ToList (),
                 Projects = repoPro.GetAll ().ToList (),
                 Services = repoSer.GetAll ().ToList (),

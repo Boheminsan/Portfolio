@@ -215,10 +215,10 @@ namespace Portfolio.Data.Concrete.EFCore {
                 };
                 context.Testimonials.AddRange (test);
             }
+            context.SaveChanges ();
         }
     }
 }
 // if (!context.Contact.Any ()) {
 
 // }
-context.SaveChanges ();
