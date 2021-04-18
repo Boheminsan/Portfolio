@@ -1,10 +1,10 @@
 @model List<MenuItem>
 
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action @(ViewBag.Selected==null?"active":"") ">Tüm Kategoriler</a>
+  <a href="#" class="list-group-item list-group-item-action">Tüm Kategoriler</a>
   @foreach (var side in Model)
   {
-    <a href="Admin/Index/@side.MenuItemId"
-      class="list-group-item list-group-item-action @(ViewBag.Selected==side.MenuItemId.ToString()?"active":"") ">@side.MenuItemName</a>
+    <a href="#" id="@side.MenuItemName.ToLower()" onclick="clickedMe(this)"
+      class="list-group-item list-group-item-action">@side.MenuItemName</a>
   }
 </div>

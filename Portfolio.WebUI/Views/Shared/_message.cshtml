@@ -1,0 +1,15 @@
+@if (TempData["Code"] != null)
+{
+    @if (TempData["Code"].ToString() == "1")
+    {
+        <div class="alert alert-success mb-0 text-center" role="alert">
+            Mesaj başarıyla gönderildi.
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger mb-0 text-center" role="alert">
+            Mesaj gönderilmedi.
+        </div>
+    }
+}

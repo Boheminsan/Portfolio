@@ -10,8 +10,8 @@ namespace Portfolio.Data.Concrete.EFCore {
         public static void EnsurePopulated (IApplicationBuilder app) {
             var context = app.ApplicationServices.GetRequiredService<PortfolioContext> ();
             context.Database.Migrate ();
-            if (!context.Projects.Any () && !context.Categories.Any ()) {
-                var categories = new [] {
+            if (!context.Categories.Any ()) {
+                var categories = new List<Category> {
                     new Category () {
                     CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
                     },
@@ -41,16 +41,17 @@ namespace Portfolio.Data.Concrete.EFCore {
                     }
                 };
                 context.Categories.AddRange (categories);
-                /*, Categories = new List<Category> () {
-                new Category {
-                CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-                },
-                new Category {
-                CategoryName = "JS/JQ", CType = CategoryType.Tech, Filter = ".js"
-                }
-                }*/
-
-                var projects = new [] {
+            }
+            /*, Categories = new List<Category> () {
+            new Category {
+            CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
+            },
+            new Category {
+            CategoryName = "JS/JQ", CType = CategoryType.Tech, Filter = ".js"
+            }
+            }*/
+            if (!context.Projects.Any ()) {
+                var projects = new List<Project> {
                     new Project () {
                     Title = "Proje1", Image = "prt1.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum."
                     },
@@ -141,39 +142,20 @@ namespace Portfolio.Data.Concrete.EFCore {
             }
 
             if (!context.MenuItems.Any ()) {
-                var menu = new [] {
-                    new MenuItem () {
-                    MenuItemName = "Anasayfa",
-                    Link = "/"
-                    },
-                    new MenuItem () {
-                    MenuItemName = "Hakkımda",
-                    Link = "/Home/about"
-                    },
-                    new MenuItem () {
-                    MenuItemName = "Projeler",
-                    Link = "#",
-                    },
-                    new MenuItem () {
-                    MenuItemName = "Yapılmış",
-                    Link = "/Project/done",
-                    ParentId = 4
-                    },
-                    new MenuItem () {
-                    MenuItemName = "Taslak",
-                    Link = "/Project/draft",
-                    ParentId = 4
-                    },
-                    new MenuItem () {
-                    MenuItemName = "İletişim",
-                    Link = "/Home/contact"
-                    }
+                var menu = new List<MenuItem> {
+                    new MenuItem () { MenuItemName = "Anasayfa", Link = "/" },
+                    new MenuItem () { MenuItemName = "Hakkımda", Link = "/Home/about" },
+                    new MenuItem () { MenuItemName = "Projeler", Link = "#" },
+                    new MenuItem () { MenuItemName = "Yapılmış", Link = "/Project/done", ParentId = 3 },
+                    new MenuItem () { MenuItemName = "Taslak", Link = "/Project/draft", ParentId = 3 },
+                    new MenuItem () { MenuItemName = "İletişim", Link = "/Home/contact" }
                 };
+
                 context.MenuItems.AddRange (menu);
             }
 
             if (!context.SliderImages.Any ()) {
-                var sImages = new [] {
+                var sImages = new List<Slider> {
                     new Slider () { Image = "ide1.png", isHome = true },
                     new Slider () { Image = "ide2.png", isHome = false },
                     new Slider () { Image = "ide3.png", isHome = true },
@@ -193,7 +175,7 @@ namespace Portfolio.Data.Concrete.EFCore {
                 context.SliderImages.AddRange (sImages);
             }
             if (!context.Services.Any ()) {
-                var services = new [] {
+                var services = new List<Service> {
                     new Service () { Title = "Title1", Image = "service1.jpg", Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true },
                     new Service () { Title = "Title2", Image = "service2.jpg", Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false },
                     new Service () { Title = "Title3", Image = "service3.jpg", Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true },
@@ -202,6 +184,25 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Service () { Title = "Title6", Image = "service6.jpg", Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true }
                 };
                 context.Services.AddRange (services);
+            }
+            if (!context.Contacts.Any ()) {
+                var contact = new [] {
+                    new Contact () {
+                    Name = "Ali Pınar",
+                    Mail = "yazarbozar6969@hmail.com",
+                    Title = "Naptın kanka",
+                    Text = "Consectetur adipisicing elit. Modi veniam dignissimos omnis repudiandae quis ipsum at beatae obcaecati, saepe facere.",
+                    isRead = false
+                    },
+                    new Contact () {
+                    Name = "Ali Sınar",
+                    Mail = "yazbozar6969@hmail.com",
+                    Title = "Nördün kanka",
+                    Text = "Consecteur adi pislicking elit. Modi veniam dignissimos omnis repudiandae quis ipsum at beatae obcaecati, saepe facere.",
+                    isRead = false
+                    }
+                };
+                context.Contacts.AddRange (contact);
             }
             if (!context.Testimonials.Any ()) {
 
@@ -219,6 +220,3 @@ namespace Portfolio.Data.Concrete.EFCore {
         }
     }
 }
-// if (!context.Contact.Any ()) {
-
-// }

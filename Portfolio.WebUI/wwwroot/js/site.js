@@ -1,4 +1,8 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function clickedMe(item) {
+    var id = $(item).attr("id");
+    if (!$("#" + id).hasClass("active")) {
+        alert("doesnt");
+    } else {
+        alert("have!");
+    }
+}

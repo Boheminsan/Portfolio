@@ -35,6 +35,7 @@ namespace Portfolio.WebUI {
             services.AddScoped<IServiceRepository, EFServiceRepository> ();
             services.AddScoped<ISliderRepository, EFSliderRepository> ();
             services.AddScoped<ITestimonialRepository, EFTestimonialRepository> ();
+            services.AddScoped<IUnitOfWork, EFUnitOfWork> ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +67,9 @@ namespace Portfolio.WebUI {
                 endpoints.MapControllerRoute (
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
-
+                endpoints.MapControllerRoute (
+                    name: "admin",
+                    pattern: "{controller=Admin}/{action=Index}/{id?}");
             });
 
             SeedData.EnsurePopulated (app);

@@ -9,24 +9,17 @@ using Portfolio.WebUI.Models;
 namespace Portfolio.WebUI.Controllers {
     public class HomeController : Controller {
 
-        // private IProjectRepository repository;
-        private ISliderRepository repoSlider;
-        private IServiceRepository repoService;
-        private ITestimonialRepository repoTest;
-        public HomeController (ISliderRepository _repoSlider, IServiceRepository _repoService, ITestimonialRepository _repoTest, IMenuItemRepository _repoMenu) {
-            repoSlider = _repoSlider;
-            repoService = _repoService;
-            repoTest = _repoTest;
+        private IUnitOfWork unitOfWork;
+        public HomeController (IUnitOfWork _unitOfWork) {
+            unitOfWork = _unitOfWork;
         }
         public IActionResult Index () {
             //bu kadar ebesinin amı değildi sanki
-            var sliderModel = repoSlider.GetAll ().ToList ();
-            var serviceModel = repoService.GetAll ().ToList ();
-            var testModel = repoTest.GetAll ().ToList ();
+
             var model = new MainViewModel () {
-                Sliders = sliderModel,
-                Services = serviceModel,
-                Testimonials = testModel,
+                Sliders = unitOfWork.Sliders.GetAll ().ToList (),
+                Services = unitOfWork.Services.GetAll ().ToList (),
+                Testimonials = unitOfWork.Testimonials.GetAll ().ToList ()
             };
             return View (model);
         }
@@ -34,7 +27,22 @@ namespace Portfolio.WebUI.Controllers {
         public IActionResult About () {
             return View ();
         }
+
+        [HttpGet]
         public IActionResult Contact () {
+            TempData["Code"] = null;
+            return View ();
+        }
+
+        [HttpPost]
+        public IActionResult Contact (Contact model) {
+            if (ModelState.IsValid) {
+                unitOfWork.Contacts.Add (model);
+                TempData["Code"] = "1";
+                unitOfWork.SaveChanges ();
+                return View ();
+            }
+            TempData["Code"] = "0";
             return View ();
         }
     }

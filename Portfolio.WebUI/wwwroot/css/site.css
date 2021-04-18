@@ -258,51 +258,17 @@ button:hover,
 
 /* end client */
 
-/* start subscribe */
-.site-main .subscribe-area {
-    padding: 10%;
+/* start contact */
+.site-main .contact-area {
+    padding: 8%;
+    background: var(--gradient-color);
+    color: var(--bs-light);
+    font: normal 200 24px/50px var(--ralewaylight);
 }
 
-.site-main .subscribe-area .subscribe {
-    background: var(--primary-color);
-    padding: 6rem 0;
-    margin: 4rem auto;
-}
-
-.site-main .subscribe-area .subscribe .subscribe-title h4 {
-    font: normal 700 30px/30px var(--raleway);
-    color: whitesmoke;
-}
-
-.site-main .subscribe-area .subscribe .subscribe-title p {
-    color: whitesmoke;
-    padding: 1rem 4rem;
-}
-
-.site-main .subscribe-area .subscribe form .input-textbox input {
-    width: 400px;
-    padding: 1rem 1rem;
-    border: 1px solid whitesmoke;
-    background: transparent;
-    color: white;
-    font: normal 500 17px/20px var(--raleway);
-
-}
-
-.site-main .subscribe-area .subscribe form .input-textbox input::placeholder {
-    color: whitesmoke;
-}
-
-.site-main .subscribe-area .subscribe form .btn-submit button {
-    background: whitesmoke;
-    width: 100%;
-    color: #000;
-    padding: .9rem 1rem;
-    margin-left: 3px;
-}
+/* end contact  */
 
 
-/* end subscribe  */
 /* footer*/
 
 footer.footer-area {

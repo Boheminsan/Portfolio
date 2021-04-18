@@ -8,7 +8,6 @@
     <div class="col-md-2">
         @* @await Html.PartialAsync("_adminSideBar",Model.SideBar) *@
         @await Component.InvokeAsync("AdminSideBar")
-
     </div>
     <div class="col-md-10">
         <div class="col-md-12 mt-2 border border-primary">
@@ -16,7 +15,8 @@
                 <div class="col-md-9">
                     <h2 style="display:inline">Kategoriler</h2>
                 </div>
-                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                <div class="col-md-3">
+                    <a href="/Admin/CategoryCreate" class="btn btn-success me-2 btn-md">Yeni</a>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -25,8 +25,8 @@
                         <th scope="col" style="width:3%">#</th>
                         <th scope="col">Kategori Adı</th>
                         <th scope="col">Kategori Türü</th>
+                        <th scope="col">Filtre</th>
                         <th scope="col" style="width: 25%;">İşlemler</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -36,60 +36,66 @@
                             <th scope="row">@item.CategoryId</th>
                             <td>@item.CategoryName</td>
                             <td>@item.CType</td>
-                            <td class="text-center">
-                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
-                                <button class="btn btn-danger btn-admin">Sil</button>
+                            <td>@item.Filter</td>
+                            <td class="d-flex justify-content-center">
+                                <a href="/Admin/CategoryUpdate/@item.CategoryId"
+                                class="btn btn-outline-info me-2 btn-md">Düzenle</a>
+                                <form action="/Admin/CategoryDelete/" method="POST">
+                                    <input type="hidden" name="CategoryId" value="@item.CategoryId">
+                                    <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                                </form>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-        @* <div class="col-md-12 mt-2 border border-primary">
+        <div class="col-md-12 mt-2 border border-primary">
             <div class="title-text text-center row mb-1">
-            <div class="col-md-9">
-            <h2 style="display:inline">İletişim</h2>
-            </div>
-            <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
-            </div>
+                <div class="col-md-9">
+                    <h2 style="display:inline">İletişim</h2>
+                </div>
+                @* <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
+                    </div> *@
             </div>
             <table class="table table-bordered table-hover table-text admin">
-            <thead>
-            <tr>
-            <th scope="col" style="width:3%">#</th>
-            <th scope="col">Adı</th>
-            <th scope="col">Soyadı</th>
-            <th scope="col">Mail</th>
-            <th scope="col">Başlık</th>
-            <th scope="col">Metin</th>
-            <th scope="col" style="width: 25%;">İşlemler</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var contact in Model.Contacts)
-            {
-            <tr>
-            <th scope="row">@contact.ContactId</th>
-            <td>@contact.Name</td>
-            <td>@contact.Surname</td>
-            <td>@contact.Mail</td>
-            <td>@contact.Title</td>
-            <td>@contact.Text</td>
-            <td class="text-center">
-            <button class="btn btn-info öe-2 btn-admin">Düzenle</button>
-            <button class="btn btn-danger btn-admin">Sil</button></td>
-            </tr>
-            }
-            </tbody>
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:3%">#</th>
+                        <th scope="col">Adı</th>
+                        <th scope="col">Mail</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Metin</th>
+                        <th scope="col" style="width: 15%;">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var contact in Model.Contacts)
+                    {
+                        <tr>
+                            <th scope="row">@contact.ContactId</th>
+                            <td>@contact.Name</td>
+                            <td>@contact.Mail</td>
+                            <td>@contact.Title</td>
+                            <td>@contact.Text</td>
+                            <td class="d-flex justify-content-center">
+                                <form action="/Admin/ContactyDelete/" method="POST">
+                                    <input type="hidden" name="ContactId" value="@contact.ContactId">
+                                    <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                                </form>
+                                <a href="/Admin/CategoryRead/@contact.ContactId" class="btn btn-info btn-md">Okundu</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
             </table>
-            </div> *@
+        </div>
         <div class="col-md-12 mt-2 border border-primary">
             <div class="title-text text-center row mb-1">
                 <div class="col-md-9">
                     <h2 style="display:inline">Menü</h2>
                 </div>
-                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -98,6 +104,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Menü Adı</th>
                         <th scope="col">Link</th>
+                        <th scope="col">ParentId</th>
                         <th scope="col" style="width: 25%;">İşlemler</th>
 
                     </tr>
@@ -109,9 +116,15 @@
                             <th scope="row">@item.MenuItemId</th>
                             <td>@item.MenuItemName</td>
                             <td>@item.Link</td>
-                            <td class="text-center">
-                                <button class="btn btn-outline-primary me-2 btn-admin">Düzenle</button>
-                                <button class="btn btn-danger btn-admin">Sil</button>
+                            <td>@item.ParentId</td>
+                            <td class="d-flex justify-content-center">
+                                <a href="/Admin/MenuItemUpdate/@item.MenuItemId"
+                                class="btn btn-outline-info me-2 btn-md">Düzenle</a>
+                                <form action="/Admin/MenuItemDelete/" method="POST">
+                                    <input type="hidden" name="MenuItemId" value="@item.MenuItemId">
+                                    <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                                </form>
+
                             </td>
                         </tr>
                     }
@@ -123,7 +136,7 @@
             <div class="col-md-9">
             <h2 style="display:inline">Resimler</h2>
             </div>
-            <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+            <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
             </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -141,8 +154,9 @@
             <tr>
             <th scope="row">@img.ImageId</th>
             <td>@img.ImageName</td>
-            <td class="text-center">
-            <button class="btn btn-info">Düzenle</button>
+            <td class="d-flex justify-content-center">
+            <button class="btn btn-outline-info me-2 btn-md">Düzenle</button>
+
             <button class="btn btn-danger">Sil</button></td>
             </tr>
             }
@@ -154,7 +168,7 @@
                 <div class="col-md-9">
                     <h2 style="display:inline">Projeler</h2>
                 </div>
-                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -187,9 +201,10 @@
                                 }</td> *@
                             <td>@project.isDone</td>
                             <td>@project.isHome</td>
-                            <td class="text-center">
-                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
-                                <button class="btn btn-danger btn-admin">Sil</button>
+                            <td class="d-flex justify-content-center">
+                                <a href="/Admin/ProjectUpdate/@project.ProjectId"
+                                class="btn btn-outline-info me-2 btn-md">Düzenle</a>
+                                <a href="/Admin/ProjectDelete/@project.ProjectId" class="btn btn-danger btn-md">Sil</a>
                             </td>
                         </tr>
                     }
@@ -201,7 +216,7 @@
                 <div class="col-md-9">
                     <h2 style="display:inline">Slider</h2>
                 </div>
-                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -221,9 +236,10 @@
                             <th scope="row">@slider.SliderId</th>
                             <td>@slider.Image</td>
                             <td>@slider.isHome</td>
-                            <td class="text-center">
-                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
-                                <button class="btn btn-danger btn-admin">Sil</button>
+                            <td class="d-flex justify-content-center">
+                                <a href="/Admin/SliderUpdate/@slider.SliderId"
+                                class="btn btn-outline-info me-2 btn-md">Düzenle</a>
+                                <a href="/Admin/SliderDelete/@slider.SliderId" class="btn btn-danger btn-md">Sil</a>
                             </td>
                         </tr>
                     }
@@ -235,7 +251,7 @@
                 <div class="col-md-9">
                     <h2 style="display:inline">Servisler</h2>
                 </div>
-                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -259,9 +275,10 @@
                             <td>@service.Title</td>
                             <td>@service.Text</td>
                             <td>@service.isHome</td>
-                            <td class="text-center">
-                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
-                                <button class="btn btn-danger btn-admin">Sil</button>
+                            <td class="d-flex justify-content-center">
+                                <a href="/Admin/ServiceUpdate/@service.ServiceId"
+                                class="btn btn-outline-info me-2 btn-md">Düzenle</a>
+                                <a href="/Admin/ServiceDelete/@service.ServiceId" class="btn btn-danger btn-md">Sil</a>
                             </td>
                         </tr>
                     }
@@ -273,7 +290,7 @@
                 <div class="col-md-9">
                     <h2 style="display:inline">Yorumlar</h2>
                 </div>
-                <div class="col-md-3"><button class="btn btn-success me-2 btn-admin">Yeni</button>
+                <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-text admin">
@@ -296,9 +313,10 @@
                             <td>@test.Title</td>
                             <td>@test.Text</td>
                             <td>@test.isHome</td>
-                            <td class="text-center">
-                                <button class="btn btn-info me-2 btn-admin">Düzenle</button>
-                                <button class="btn btn-danger btn-admin">Sil</button>
+                            <td class="d-flex justify-content-center">
+                                <a href="/Admin/TestimonialUpdate/@test.TestimonialId"
+                                class="btn btn-outline-info me-2 btn-md">Düzenle</a>
+                                <a href="/Admin/TestimonialDelete/@test.TestimonialId" class="btn btn-danger btn-md">Sil</a>
                             </td>
                         </tr>
                     }

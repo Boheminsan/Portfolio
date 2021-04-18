@@ -1,31 +1,46 @@
+@model Contact
 @{
     ViewData["Title"] = "İletişim";
 }
 
 <section class="site-banner">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12">
-                <form action="" class="form-group">
-                    <div class="mb-3">
-                        <label class="form-label" for="name">Adınız:</label>
-                        <input type="text" class="form-control" name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="surname" class="form-label">Soyadınız:</label>
-                        <input type="text" class="form-control" name="surname">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-mail:</label>
-                        <input type="text" class="form-control" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="text" class="form-label">Mesajınız:</label>
-                        <textarea name="message" class="form-control" cols="40" rows="20"></textarea>
-                    </div>
-                    <input type="submit" class="btn button primary-button ml-4" value="Gönder">
-                </form>
+    <div class="contact-area">
+        <div class="container text-start">
+            <div class="row">
+
+                <h2 class="fs-2 text-capitalize text-center"> İletişim </h2>
+                <div class="col-md-10">
+                    <div asp-validation-for="All"></div>
+                    <form asp-controller="Home" asp-action="Contact" class="form-group">
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="Name">Adınız:</label>
+                            <input type="text" class="form-control" asp-for="Name">
+                            <span asp-validation-for="Name"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="Mail">E-mail:</label>
+                            <input class="form-control" asp-for="Mail">
+                            <span asp-validation-for="Mail"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="Title">Başlık:</label>
+                            <input class="form-control" asp-for="Title">
+                            <span asp-validation-for="Title"></span>
+
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="Text">Mesajınız:</label>
+                            <textarea class="form-control" cols="20" rows="10" asp-for="Text"></textarea>
+                            <span asp-validation-for="Text"></span>
+                        </div>
+                        <button type="submit" class="btn button primary-button ml-4">Gönder</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+@section message{
+@await Html.PartialAsync("_message");
+}

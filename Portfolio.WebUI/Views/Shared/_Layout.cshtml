@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    @RenderSection("message",false)
     @* start header *@
     @* @await Html.PartialAsync("_menu",Model.MenuItems); *@
     @await Component.InvokeAsync("Menu")

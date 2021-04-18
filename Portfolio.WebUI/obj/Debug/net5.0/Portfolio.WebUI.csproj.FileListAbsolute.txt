@@ -86,3 +86,10 @@ D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.dl
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\ref\Portfolio.WebUI.dll
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.pdb
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.genruntimeconfig.cache
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_message.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\CategoryCreate.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\CategoryUpdate.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\MenuItemCreate.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\MenuItemUpdate.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\SliderCreate.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\SliderUpdate.cshtml.g.cs
