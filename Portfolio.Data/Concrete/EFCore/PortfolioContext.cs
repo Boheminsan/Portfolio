@@ -9,7 +9,7 @@ namespace Portfolio.Data.Concrete.EFCore {
         public DbSet<Slider> SliderImages { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-        // public DbSet<Image> Images { get; set; }
+        public DbSet<Image> Images { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
         public PortfolioContext (DbContextOptions<PortfolioContext> options) : base (options) { }
 

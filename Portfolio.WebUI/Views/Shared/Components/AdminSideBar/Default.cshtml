@@ -1,10 +1,9 @@
 @model List<MenuItem>
 
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action">Tüm Kategoriler</a>
   @foreach (var side in Model)
   {
-    <a href="#" id="@side.MenuItemName.ToLower()" onclick="clickedMe(this)"
-      class="list-group-item list-group-item-action">@side.MenuItemName</a>
+    <a href="/Admin/@side.Link/Index/" id="@side.MenuItemName.ToLower()" onclick="clickedMe(this)"
+    class="list-group-item list-group-item-action">@side.MenuItemName</a>
   }
 </div>

@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Menüler Anasayfa";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<MenuItem>
+<div class="col-md-12 mt-2 border border-primary">
+    <div class="title-text text-center row mb-1">
+        <div class="col-md-9">
+            <h2 style="display:inline">Menü</h2>
+        </div>
+        <div class="col-md-3">
+            <a href="/Admin/MenuItem/Create/" class="btn btn-success me-2 btn-md">Yeni</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-text admin">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Menü Adı</th>
+                <th scope="col">Link</th>
+                <th scope="col">ParentId</th>
+                <th scope="col" style="width: 25%;">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.MenuItemId</th>
+                    <td>@item.MenuItemName</td>
+                    <td>@item.Link</td>
+                    <td>@item.ParentId</td>
+                    <td class="d-flex justify-content-center">
+                        <a href="/Admin/MenuItem/Update/@item.MenuItemId"
+                        class="btn btn-info text-light me-2 btn-md">Düzenle</a>
+                        <form action="/Admin/MenuItem/Delete/" method="POST">
+                            <input type="hidden" name="MenuItemId" value="@item.MenuItemId">
+                            <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

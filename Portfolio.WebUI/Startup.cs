@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +37,10 @@ namespace Portfolio.WebUI {
             services.AddScoped<ISliderRepository, EFSliderRepository> ();
             services.AddScoped<ITestimonialRepository, EFTestimonialRepository> ();
             services.AddScoped<IUnitOfWork, EFUnitOfWork> ();
+            services.Configure<RazorViewEngineOptions> (o => {
+                o.ViewLocationFormats.Add ("/Views/Admin/{1}/{0}" + RazorViewEngine.ViewExtension);
+                //o.ViewLocationFormats.Add ("/MyViewsFolder/Shared/{0}" + RazorViewEngine.ViewExtension);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,8 +73,8 @@ namespace Portfolio.WebUI {
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
                 endpoints.MapControllerRoute (
-                    name: "admin",
-                    pattern: "{controller=Admin}/{action=Index}/{id?}");
+                    name: "Admin",
+                    pattern: "Admin/{controller}/{action=Index}/{id?}");
             });
 
             SeedData.EnsurePopulated (app);

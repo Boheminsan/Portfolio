@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Portfolio.Data.Abstract;
@@ -12,12 +13,8 @@ namespace Portfolio.WebUI.Controllers {
         }
 
         public IActionResult Index () {
-            return View ();
-        }
-
-        public IActionResult List () {
-            var catlist = repository.GetAll ();
-            return View (catlist);
+            var model = repository.GetAll ().ToList ();
+            return View (model);
         }
 
         [HttpGet]
@@ -26,40 +23,48 @@ namespace Portfolio.WebUI.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Create (Category entity) {
+        public IActionResult Create (Category model) {
             if (ModelState.IsValid) {
+                Category entity = new Category () {
+                    CategoryName = model.CategoryName,
+                    CType = model.CType,
+                    Filter = model.Filter
+                };
                 repository.Add (entity);
-                return RedirectToAction ("List");
+                repository.Save ();
+                return RedirectToAction ("Index");
             }
-            return View (entity);
+            return View ();
         }
 
         [HttpGet]
-        public IActionResult AddOrUpdate (int? id) {
-            if (id == null) {
-                return View (new Category ());
-            } else {
-                ViewBag.Categories = new SelectList (repository.GetAll (), "CategoryId", "CategoryName");
-                var entity = repository.GetById ((int) id);
-                return View (entity);
-            }
+        public IActionResult Update (int id) {
+            Category entity = repository.GetById (id);
+            return View (entity);
         }
 
         [HttpPost]
-        public IActionResult AddOrUpdate (Category entity) {
+        public IActionResult Update (Category model) {
             if (ModelState.IsValid) {
-                repository.Save2 (entity);
+                Category entity = repository.GetById (model.CategoryId);
+                entity.CategoryName = model.CategoryName;
+                entity.CType = model.CType;
+                entity.Filter = model.Filter;
+                repository.Save ();
                 ViewData["message"] = $"{entity.CategoryName} kaydedildi." + $"{DateTime.Now}";
-                return RedirectToAction ("List");
+                return RedirectToAction ("Index");
             }
-            ViewBag.Categories = new SelectList (repository.GetAll (), "CategoryId", "Name");
-            return View (entity);
+            return View (model);
         }
 
-        [HttpGet]
-        public IActionResult Delete (int id) {
-            repository.DeleteCategory (id);
-            return RedirectToAction ("List");
+        [HttpPost]
+        public IActionResult Delete (int CategoryId) {
+            Category entity = repository.GetById (CategoryId);
+            if (entity != null) {
+                repository.Delete (entity);
+                repository.Save ();
+            }
+            return RedirectToAction ("Index");
         }
     }
 }

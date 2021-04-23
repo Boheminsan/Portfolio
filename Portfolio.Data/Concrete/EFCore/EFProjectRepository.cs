@@ -34,8 +34,8 @@ namespace Portfolio.Data.Concrete.EFCore {
                 port.Title = entity.Title;
                 // port.Categories = entity.Categories;
                 port.isDone = entity.isDone;
-                if (!(entity.Image is null)) {
-                    port.Image = entity.Image;
+                if (!(entity.CoverImage is null)) {
+                    port.CoverImage = entity.CoverImage;
                 }
                 // if (entity.Images.Count != 0) {
                 //     port.Images = entity.Images;

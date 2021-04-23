@@ -1,6 +1,6 @@
 ﻿@model MainViewModel
 @{
-ViewData["Title"] = "Anasayfa";
+    ViewData["Title"] = "Anasayfa";
 }
 
 
@@ -44,11 +44,11 @@ ViewData["Title"] = "Anasayfa";
 
                             @foreach (var item in Model.Sliders)
                             {
-                            <div class="col">
-                                <div class="single-brand">
-                                    <img src="~/assets/img/ides/@item.Image" alt="@item.Image">
+                                <div class="col">
+                                    <div class="single-brand">
+                                        <img src="~/assets/@item.Image.Path/@item.Image.ImageName" alt="@item.Image">
+                                    </div>
                                 </div>
-                            </div>
                             }
                         </div>
                     </div>
@@ -74,21 +74,21 @@ ViewData["Title"] = "Anasayfa";
             <div class="row">
                 @foreach (var item in Model.Services)
                 {
-                @if (item.isHome==true)
-                {
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                    <div class="services">
-                        <div class="services-img text-center py-4">
-                            <img src="~/assets/img/prog.png" width="75px" alt="services1">
+                    @if (item.isHome == true)
+                    {
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                            <div class="services">
+                                <div class="services-img text-center py-4">
+                                    <img src="~/assets/@item.Image.Path/@item.Image.ImageName" width="75px" alt="services1">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase">@item.Title</h5>
+                                    <p class="card-text text-secondary">
+                                        @item.Text</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase">@item.Title</h5>
-                            <p class="card-text text-secondary">
-                                @item.Text</p>
-                        </div>
-                    </div>
-                </div>
-                }
+                    }
                 }
             </div>
         </div>
@@ -116,7 +116,7 @@ ViewData["Title"] = "Anasayfa";
             {
                 <div class="client row">
                     <div class="col-lg-4 col-md-12 client-img">
-                        <img src="~/assets/img/clients/@item.Image" alt="img-1" class="img-fluid">
+                        <img src="~/assets/@item.Image.Path/@item.Image.ImageName" alt="img-1" class="img-fluid">
                     </div>
                     <div class="col-lg-8 col-md-12 about-client">
                         <h4 class="text-uppercase">@item.Title</h4>

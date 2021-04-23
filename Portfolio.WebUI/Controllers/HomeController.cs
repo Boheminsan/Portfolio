@@ -14,8 +14,6 @@ namespace Portfolio.WebUI.Controllers {
             unitOfWork = _unitOfWork;
         }
         public IActionResult Index () {
-            //bu kadar ebesinin amı değildi sanki
-
             var model = new MainViewModel () {
                 Sliders = unitOfWork.Sliders.GetAll ().ToList (),
                 Services = unitOfWork.Services.GetAll ().ToList (),

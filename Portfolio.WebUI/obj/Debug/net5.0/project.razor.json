@@ -15653,13 +15653,13 @@
   "RootNamespace": "Portfolio.WebUI",
   "Documents": [
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\About.cshtml",
-      "TargetPath": "Views\\Home\\About.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Service\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Service\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\_AdminLayout.cshtml",
-      "TargetPath": "Views\\Admin\\_AdminLayout.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\About.cshtml",
+      "TargetPath": "Views\\Home\\About.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15668,13 +15668,28 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItemUpdate.cshtml",
-      "TargetPath": "Views\\Admin\\MenuItemUpdate.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Testimonial\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Testimonial\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\hakkimdayedek.cshtml",
       "TargetPath": "Views\\Home\\hakkimdayedek.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItem\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\MenuItem\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Project\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Project\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Slider\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Slider\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15693,8 +15708,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Category\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Category\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\_footer.cshtml",
       "TargetPath": "Views\\Shared\\_footer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Images\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Images\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItem\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\MenuItem\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15703,13 +15733,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_AdminLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SliderUpdate.cshtml",
-      "TargetPath": "Views\\Admin\\SliderUpdate.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Testimonial\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Testimonial\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15728,8 +15763,28 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItemCreate.cshtml",
-      "TargetPath": "Views\\Admin\\MenuItemCreate.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Service\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Service\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Contact\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Contact\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItem\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\MenuItem\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Category\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Category\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Category\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Category\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15738,8 +15793,23 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\CategoryUpdate.cshtml",
-      "TargetPath": "Views\\Admin\\CategoryUpdate.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Slider\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Slider\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Slider\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Slider\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Service\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Service\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Testimonial\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Testimonial\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15748,8 +15818,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SliderCreate.cshtml",
-      "TargetPath": "Views\\Admin\\SliderCreate.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Images\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Images\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15758,13 +15828,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Images\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Images\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\CategoryCreate.cshtml",
-      "TargetPath": "Views\\Admin\\CategoryCreate.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
   ],

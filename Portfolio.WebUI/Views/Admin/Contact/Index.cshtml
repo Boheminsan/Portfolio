@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Mesajlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<Contact>
+<div class="col-md-12 mt-2 border border-primary">
+    <div class="title-text text-center row mb-1">
+        <div class="col-md-9">
+            <h2 style="display:inline">İletişim</h2>
+        </div>
+        @* <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
+            </div> *@
+    </div>
+    <table class="table table-bordered table-hover table-text admin">
+        <thead>
+            <tr>
+                <th scope="col" style="width:3%">#</th>
+                <th scope="col">Adı</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Metin</th>
+                <th scope="col" style="width: 25%;">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    @if (!@contact.isRead)
+                    {
+                        <th scope="row" class=" bg-danger text-white">@contact.ContactId</th>
+                        <td class="fw-bold">@contact.Name</td>
+                        <td class="fw-bold">@contact.Mail</td>
+                        <td class=" fw-bold">@contact.Title</td>
+                        <td class="fw-bold text-wrap">@contact.Text</td>
+                    }
+                    else
+                    {
+                        <th scope="row">@contact.ContactId</th>
+                        <td>@contact.Name</td>
+                        <td>@contact.Mail</td>
+                        <td>@contact.Title</td>
+                        <td>@contact.Text</td>
+                    }
+                    <td class="d-flex justify-content-center">
+                        <form asp-controller="Contact" asp-action="MarkAsRead" method="post">
+                            <input type="hidden" name="ContactId" value="@contact.ContactId">
+                            <input type="hidden" name="isRead" value="true">
+                            <button type="submit" class="btn btn-warning btn-md">Okundu</button>
+                        </form>
+                        <form asp-controller="Contact" asp-action="MarkAsRead" method="post">
+                            <input type="hidden" name="ContactId" value="@contact.ContactId">
+                            <input type="hidden" name="isRead" value="false">
+                            <button type="submit" class="btn btn-secondary btn-md">Okunmadı</button>
+                        </form>
+                        <form asp-controller="Contact" asp-action="Delete" method="POST">
+                            <input type="hidden" name="ContactId" value="@contact.ContactId">
+                            <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

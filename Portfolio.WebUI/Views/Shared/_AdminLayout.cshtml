@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/modules/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/modules/@@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="~/lib/Magnific-Popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="~/lib/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/lib/OwlCarousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+</head>
+
+<body>
+    @* start header *@
+    @await Component.InvokeAsync("Menu")
+    @* adminMenu üret *@
+    @* end header *@
+    @* start main area *@
+    <main class="site-main">
+        <div class="row" style="margin-right:0;">
+            <div class="col-md-2">
+                @* @await Html.PartialAsync("_adminSideBar",Model.SideBar) *@
+                @await Component.InvokeAsync("AdminSideBar")
+            </div>
+            <div class="col-md-10">
+                @RenderBody()
+            </div>
+            @* start footer section*@
+            @* end footer section*@
+    </main>
+    @* end main area *@
+
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/modules/bootstrap/js/bootstrap.bundle.min.js"></script>
+    @* <script src="~/js/isotope.min.js"></script> *@
+    @* <script src="~/lib/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script> *@
+    @* <script src="~/lib/OwlCarousel/dist/owl.carousel.min.js"></script> *@
+    <script src="~/js/myscript.js"></script>
+    @* <script src="~/js/site.js"></script> *@
+
+</body>
+
+</html>
