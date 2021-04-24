@@ -41,12 +41,12 @@
                 <div class="first-row row">
                     <div class="container carousel py-lg-4">
                         <div class="owl-carousel owl-theme">
-
                             @foreach (var item in Model.Sliders)
                             {
                                 <div class="col">
                                     <div class="single-brand">
-                                        <img src="~/assets/@item.Image.Path/@item.Image.ImageName" alt="@item.Image">
+                                        <img src="~/assets/@item.Image.Path/@item.Image.ImageName"
+                                        alt="@item.Image.ImageName">
                                     </div>
                                 </div>
                             }

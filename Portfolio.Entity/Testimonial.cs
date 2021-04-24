@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Portfolio.Entity {
     public class Testimonial {
         public int TestimonialId { get; set; }

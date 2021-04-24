@@ -14,6 +14,7 @@ namespace Portfolio.Data.Concrete.EFCore {
         IProjectRepository _projects;
         IServiceRepository _services;
         ISliderRepository _sliders;
+        IImageRepository _images;
         ITestimonialRepository _testimonials;
         public IProjectRepository Projects {
             get {
@@ -52,6 +53,11 @@ namespace Portfolio.Data.Concrete.EFCore {
         public ITestimonialRepository Testimonials {
             get {
                 return _testimonials??(_testimonials = new EFTestimonialRepository (dbContext));
+            }
+        }
+        public IImageRepository Images {
+            get {
+                return _images??(_images = new EFImageRepository (dbContext));
             }
         }
         public void Dispose () {

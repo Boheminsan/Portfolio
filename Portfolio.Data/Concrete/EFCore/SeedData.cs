@@ -42,81 +42,74 @@ namespace Portfolio.Data.Concrete.EFCore {
                 };
                 context.Categories.AddRange (categories);
             }
-            /*, Categories = new List<Category> () {
-            new Category {
-            CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
-            },
-            new Category {
-            CategoryName = "JS/JQ", CType = CategoryType.Tech, Filter = ".js"
-            }
-            }*/
+
             if (!context.Projects.Any ()) {
                 var projects = new List<Project> {
                     new Project () {
-                    Title = "Proje1", CoverImage = new Image () { ImageName = "prt1.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje1", CoverImage = "prt1.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt1.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt2.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt3.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje2", CoverImage = new Image () { ImageName = "prt2.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje2", CoverImage = "prt2.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt4.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt5.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt6.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje3", CoverImage = new Image () { ImageName = "prt3.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje3", CoverImage = "prt3.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt7.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt8.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt9.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje4", CoverImage = new Image () { ImageName = "prt4.jpg", Path = "img/portfolio" }, isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje4", CoverImage = "prt4.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt10.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt11.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt12.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje5", CoverImage = new Image () { ImageName = "prt5.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje5", CoverImage = "prt5.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt13.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt14.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt15.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje6", CoverImage = new Image () { ImageName = "prt6.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje6", CoverImage = "prt6.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt16.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt17.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt18.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje7", CoverImage = new Image () { ImageName = "prt7.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje7", CoverImage = "prt7.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt19.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt20.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt21.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje8", CoverImage = new Image () { ImageName = "prt8.jpg", Path = "img/portfolio" }, isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje8", CoverImage = "prt8.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt22.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt23.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt24.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje9", CoverImage = new Image () { ImageName = "prt9.jpg", Path = "img/portfolio" }, isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje9", CoverImage = "prt9.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt25.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt26.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt27.jpg", Path = "img/portfolio" }
                     }
                     },
                     new Project () {
-                    Title = "Proje10", CoverImage = new Image () { ImageName = "prt10.jpg", Path = "img/portfolio" }, isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
+                    Title = "Proje10", CoverImage = "prt10.jpg", isDone = false, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
                     new Image () { ImageName = "prt28.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt29.jpg", Path = "img/portfolio" },
                     new Image () { ImageName = "prt30.jpg", Path = "img/portfolio" }
@@ -138,7 +131,7 @@ namespace Portfolio.Data.Concrete.EFCore {
                 context.MenuItems.AddRange (menu);
             }
 
-            if (!context.SliderImages.Any ()) {
+            if (!context.Sliders.Any ()) {
                 var sImages = new List<Slider> {
                     new Slider () { Image = new Image { ImageName = "ide1.png", Path = "img/ides" }, isHome = true },
                     new Slider () { Image = new Image { ImageName = "ide2.png", Path = "img/ides" }, isHome = false },
@@ -156,7 +149,7 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Slider () { Image = new Image { ImageName = "ide14.png", Path = "img/ides" }, isHome = false },
                     new Slider () { Image = new Image { ImageName = "ide15.png", Path = "img/ides" }, isHome = true }
                 };
-                context.SliderImages.AddRange (sImages);
+                context.Sliders.AddRange (sImages);
             }
             if (!context.Services.Any ()) {
                 var services = new List<Service> {

@@ -1,0 +1,22 @@
+@model Image
+<div class="container mt-4 pt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Admin" asp-action="Update" method="post">
+                <input type="hidden" name="ImageId" value="@Model.ImageId">
+                <div class="mb-3">
+                    <label class="form-label" asp-for="ImageName"></label>
+                    <input asp-for="ImageName" class="form-control" value="@Model.ImageName">
+                    <span asp-validation-for="ImageName"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Path"></label>
+                    <input asp-for="Path" class="form-control" value="@Model.Path">
+                    <span asp-validation-for="Path"></span>
+                </div>
+                @* upload ;) *@
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

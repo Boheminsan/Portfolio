@@ -3,7 +3,9 @@ namespace Portfolio.Entity {
         public int ImageId { get; set; }
         public string ImageName { get; set; }
         public string Path { get; set; }
-        public int ProjectId { get; set; }
         public Project Project { get; set; }
+        public Service Service { get; set; }
+        public Slider Slider { get; set; }
+        public Testimonial Testimonial { get; set; }
     }
 }

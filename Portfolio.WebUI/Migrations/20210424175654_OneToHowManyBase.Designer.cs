@@ -10,8 +10,8 @@ using Portfolio.Data.Concrete.EFCore;
 namespace Portfolio.WebUI.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    [Migration("20210418120559_InitCreate")]
-    partial class InitCreate
+    [Migration("20210424175654_OneToHowManyBase")]
+    partial class OneToHowManyBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,6 +76,29 @@ namespace Portfolio.WebUI.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("Portfolio.Entity.Image", b =>
+                {
+                    b.Property<int>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImageId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("Portfolio.Entity.MenuItem", b =>
                 {
                     b.Property<int>("MenuItemId")
@@ -104,7 +127,7 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Image")
+                    b.Property<string>("CoverImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
@@ -136,7 +159,7 @@ namespace Portfolio.WebUI.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ProjectCategory");
+                    b.ToTable("ProjectCategories");
                 });
 
             modelBuilder.Entity("Portfolio.Entity.Service", b =>
@@ -146,8 +169,8 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ImageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
@@ -160,6 +183,9 @@ namespace Portfolio.WebUI.Migrations
 
                     b.HasKey("ServiceId");
 
+                    b.HasIndex("ImageId")
+                        .IsUnique();
+
                     b.ToTable("Services");
                 });
 
@@ -170,15 +196,21 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Caption")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ImageId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("isHome")
                         .HasColumnType("bit");
 
                     b.HasKey("SliderId");
 
-                    b.ToTable("SliderImages");
+                    b.HasIndex("ImageId")
+                        .IsUnique();
+
+                    b.ToTable("Sliders");
                 });
 
             modelBuilder.Entity("Portfolio.Entity.Testimonial", b =>
@@ -188,8 +220,8 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ImageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
@@ -202,26 +234,71 @@ namespace Portfolio.WebUI.Migrations
 
                     b.HasKey("TestimonialId");
 
+                    b.HasIndex("ImageId")
+                        .IsUnique();
+
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("Portfolio.Entity.Image", b =>
+                {
+                    b.HasOne("Portfolio.Entity.Project", "Project")
+                        .WithMany("Images")
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("Portfolio.Entity.ProjectCategory", b =>
                 {
-                    b.HasOne("Portfolio.Entity.Category", "CategoryName")
+                    b.HasOne("Portfolio.Entity.Category", "Category")
                         .WithMany("ProjectCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Portfolio.Entity.Project", "ProjectName")
+                    b.HasOne("Portfolio.Entity.Project", "Project")
                         .WithMany("ProjectCategories")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CategoryName");
+                    b.Navigation("Category");
 
-                    b.Navigation("ProjectName");
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("Portfolio.Entity.Service", b =>
+                {
+                    b.HasOne("Portfolio.Entity.Image", "Image")
+                        .WithOne("Service")
+                        .HasForeignKey("Portfolio.Entity.Service", "ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("Portfolio.Entity.Slider", b =>
+                {
+                    b.HasOne("Portfolio.Entity.Image", "Image")
+                        .WithOne("Slider")
+                        .HasForeignKey("Portfolio.Entity.Slider", "ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("Portfolio.Entity.Testimonial", b =>
+                {
+                    b.HasOne("Portfolio.Entity.Image", "Image")
+                        .WithOne("Testimonial")
+                        .HasForeignKey("Portfolio.Entity.Testimonial", "ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("Portfolio.Entity.Category", b =>
@@ -229,8 +306,19 @@ namespace Portfolio.WebUI.Migrations
                     b.Navigation("ProjectCategories");
                 });
 
+            modelBuilder.Entity("Portfolio.Entity.Image", b =>
+                {
+                    b.Navigation("Service");
+
+                    b.Navigation("Slider");
+
+                    b.Navigation("Testimonial");
+                });
+
             modelBuilder.Entity("Portfolio.Entity.Project", b =>
                 {
+                    b.Navigation("Images");
+
                     b.Navigation("ProjectCategories");
                 });
 #pragma warning restore 612, 618

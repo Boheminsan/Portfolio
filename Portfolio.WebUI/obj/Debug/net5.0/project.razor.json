@@ -15718,18 +15718,23 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Images\\Create.cshtml",
-      "TargetPath": "Views\\Admin\\Images\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItem\\Create.cshtml",
       "TargetPath": "Views\\Admin\\MenuItem\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Project\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Project\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Project\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Project\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15808,6 +15813,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Image\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Image\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Image\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Image\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Testimonial\\Index.cshtml",
       "TargetPath": "Views\\Admin\\Testimonial\\Index.cshtml",
       "FileKind": "mvc"
@@ -15818,18 +15833,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Images\\Index.cshtml",
-      "TargetPath": "Views\\Admin\\Images\\Index.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Image\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Image\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Images\\Update.cshtml",
-      "TargetPath": "Views\\Admin\\Images\\Update.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -5,7 +5,7 @@ namespace Portfolio.Data.Abstract {
         IProjectRepository Projects { get; }
         ICategoryRepository Categories { get; }
         IContactRepository Contacts { get; }
-        // IImageRepository Images { get; }
+        IImageRepository Images { get; }
         IMenuItemRepository MenuItems { get; }
         IServiceRepository Services { get; }
         ISliderRepository Sliders { get; }

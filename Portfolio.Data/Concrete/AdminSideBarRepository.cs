@@ -9,7 +9,7 @@ namespace Portfolio.Data.Concrete {
                 new MenuItem () { MenuItemId = 1, MenuItemName = "Anasayfa", Link = "Index" },
                 new MenuItem () { MenuItemId = 2, MenuItemName = "Kategoriler", Link = "Category" },
                 new MenuItem () { MenuItemId = 3, MenuItemName = "Mesajlar", Link = "Contact" },
-                new MenuItem () { MenuItemId = 4, MenuItemName = "Resimler", Link = "Images" },
+                new MenuItem () { MenuItemId = 4, MenuItemName = "Resimler", Link = "Image" },
                 new MenuItem () { MenuItemId = 5, MenuItemName = "Slider", Link = "Slider" },
                 new MenuItem () { MenuItemId = 6, MenuItemName = "Projeler", Link = "Project" },
                 new MenuItem () { MenuItemId = 7, MenuItemName = "Menü", Link = "MenuItem" },

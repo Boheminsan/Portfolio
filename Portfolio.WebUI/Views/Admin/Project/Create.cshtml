@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Projeler Anasayfa";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Project
+
+<div class="container mt-4 pt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Project" asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control">
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Text"></label>
+                    <input asp-for="Text" class="form-control">
+                    <span asp-validation-for="Text"></span>
+                </div>
+                <div class="mb-3">
+                    @* resim seçici - upload *@
+                    <label class="form-label" asp-for="CoverImage"></label>
+                    <input asp-for="CoverImage" class="form-control">
+                    <span asp-validation-for="CoverImage"></span>
+                </div>
+
+                @* <div class="mb-3">
+                    <label class="form-label" asp-for="ProjectCategories"></label>
+                    @foreach (var item in @Model.ProjectCategories)
+                    {
+                    burayı hallet sonra.
+                    kategori seçici
+                    }
+                    </div>
+                *@
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

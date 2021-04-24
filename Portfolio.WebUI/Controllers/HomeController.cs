@@ -15,6 +15,7 @@ namespace Portfolio.WebUI.Controllers {
         }
         public IActionResult Index () {
             var model = new MainViewModel () {
+                Images = unitOfWork.Images.GetAll ().ToList (),
                 Sliders = unitOfWork.Sliders.GetAll ().ToList (),
                 Services = unitOfWork.Services.GetAll ().ToList (),
                 Testimonials = unitOfWork.Testimonials.GetAll ().ToList ()

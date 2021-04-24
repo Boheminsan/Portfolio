@@ -46,6 +46,7 @@ namespace Portfolio.WebUI.Controllers {
             if (ModelState.IsValid) {
                 MenuItem entity = repository.GetById (model.MenuItemId);
                 entity.MenuItemName = model.MenuItemName;
+                entity.Link = model.Link;
                 entity.ParentId = model.ParentId; //combobox?
                 repository.Save ();
                 return RedirectToAction ("Index");
