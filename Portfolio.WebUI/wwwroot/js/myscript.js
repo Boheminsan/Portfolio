@@ -45,6 +45,7 @@ $(document).ready(function () {
             }
         }
     });
+
     var nav_offset_top = $('.header-area').height() + 50;
 
     function navbarFixed() {

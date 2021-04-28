@@ -1,4 +1,8 @@
 @model ProjectCategoryViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @* start portfolio section*@
 <section class="project-area">
     <div class="container">
@@ -20,6 +24,8 @@
     }
     </div>
     <div class="row grid">
+        @if (Model.Projects.Count != 0)
+                        {
         @foreach (var item in Model.Projects)
         {
             var classes="";
@@ -31,8 +37,8 @@
                 @* kategoriler class *@
                 <div class="our-project">
                     <div class="img">
-                        <a class="test-popup-link" href="~/assets/img/portfolio/kucuk/@item.CoverImage">
-                            <img src="~/assets/portfolio/@item.CoverImage" alt="@item.Title" class="img-fluid">
+                        <a class="test-popup-link" href="/Projects/Done/@item.ProjectId">
+                            <img src="~/assets/img/portfolio/@item.CoverImage" alt="@item.Title" class="img-fluid">
                         </a>
                     </div>
                     <div class="title py-4">
@@ -41,6 +47,7 @@
                     </div>
                 </div>
             </div>
+        }
         }
     </div>
 </section>

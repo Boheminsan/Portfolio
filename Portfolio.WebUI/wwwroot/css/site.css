@@ -76,14 +76,33 @@
 
 /* start about */
 .site-main .about-area {
-    padding: 4rem 7rem;
+    padding: 3rem 2rem;
+    background: var(--gradient-color);
+    font: normal 200 20px/30px var(--ralewaylight);
 }
 
-.site-main .about-area .about-title h2>span {
-    display: block;
-    font: normal bold 49px/60px var(--raleway);
-    letter-spacing: 21px;
+.site-main .about-area .about-text {
+    padding: 3rem 2rem;
+    color: white;
 }
+
+.site-main .about-area .about-title {
+    display: block;
+    font: normal bold 49px/40px var(--raleway);
+    color: white;
+}
+
+.site-main .about-area .card,
+.site-main .about-area h3 {
+    background: none;
+    color: white;
+    border-color: white;
+}
+
+.site-main .about-area h3 {
+    font: normal 200 30px/40px var(--raleway);
+}
+
 
 .site-main .about-area .about-title .paragraph>p {
     padding: .4rem 0;
@@ -260,10 +279,26 @@ button:hover,
 
 /* start contact */
 .site-main .contact-area {
-    padding: 8%;
+    padding: 3rem 2rem;
     background: var(--gradient-color);
-    color: var(--bs-light);
-    font: normal 200 24px/50px var(--ralewaylight);
+    font: normal 200 20px/30px var(--ralewaylight);
+}
+
+.site-main .contact-area {
+    padding: 3rem 2rem;
+    background: var(--gradient-color);
+}
+
+.site-main .contact-area input,
+.site-main .contact-area label {
+    color: white;
+    font: normal 200 24px/20px var(--ralewaylight);
+}
+
+.site-main .contact-area .contact-title {
+    display: block;
+    font: normal bold 49px/40px var(--raleway);
+    color: white;
 }
 
 /* end contact  */
@@ -296,7 +331,11 @@ footer.footer-area .footer .social a>i:hover {
 
 /*start  admin area */
 .table-text {
-    font: normal 100 14px/18px var(--ralewaylight)
+    font: normal 100 18px/18px var(--ralewaylight)
+}
+
+.table td {
+    padding: 0rem 1rem;
 }
 
 .btn-admin {

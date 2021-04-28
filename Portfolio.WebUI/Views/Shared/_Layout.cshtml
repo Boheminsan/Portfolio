@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="/modules/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/modules/@@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="~/lib/Magnific-Popup/dist/magnific-popup.css">
     <link rel="stylesheet" href="~/lib/OwlCarousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="~/lib/OwlCarousel/dist/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/css/site.css">
     <link rel="stylesheet" href="~/css/responsive.css">
+    @* Start Script area *@
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/modules/bootstrap/js/bootstrap.bundle.js"></script>
+    @* <script src="~/js/isotope.min.js"></script> *@
+    <script src="~/lib/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="~/lib/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script src="~/js/myscript.js"></script>
+    @* End Script area *@
 </head>
 
 <body>
@@ -22,20 +30,15 @@
     @* end header *@
     @* start main area *@
     <main class="site-main">
-        @RenderBody();
+        @RenderBody()
     </main>
     @* end main area *@
     @* start footer section *@
-    @await Html.PartialAsync("_footer");
+    @{
+    @await Component.InvokeAsync("Footer")
+    }
     @* end footer section *@
-    @* Start Script area *@
-    <script src="/modules/jquery/dist/jquery.min.js"></script>
-    <script src="/modules/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="~/js/isotope.min.js"></script>
-    <script src="~/lib/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
-    <script src="~/lib/OwlCarousel/dist/owl.carousel.min.js"></script>
-    <script src="~/js/myscript.js"></script>
-    @* End Script area *@
+
 </body>
 
 </html>

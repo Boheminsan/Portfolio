@@ -9,7 +9,6 @@
             <h2 style="display:inline">Projeler</h2>
         </div>
         <div class="col-md-3"> <a href="/Admin/Project/Create/" class="btn btn-success me-2 btn-md">Yeni</a>
-
         </div>
     </div>
     <table class="table table-bordered table-hover table-text admin">
@@ -19,11 +18,9 @@
                 <th scope="col">Resim</th>
                 <th scope="col">Başlık</th>
                 <th scope="col" style="width:40%">Metin</th>
-                @* <th scope="col">Kategoriler</th> *@
                 <th scope="col">isDone</th>
                 <th scope="col">isHome</th>
                 <th scope="col" style="width: 25%;">İşlemler</th>
-
             </tr>
         </thead>
         <tbody>
@@ -31,15 +28,11 @@
             {
                 <tr>
                     <th scope="row">@project.ProjectId</th>
-                    <td>@project.CoverImage</td>
+                    <td>
+                        <img src="~/assets/img/portfolio/@project.CoverImage" alt="@project.CoverImage" width="100">
+                    </td>
                     <td>@project.Title</td>
                     <td>@project.Text</td>
-                    @* <td>
-                        @foreach (var item in project.CategoryList)
-                        {
-                        <td>@item.CategoryName</td>
-                        <td>@item.CType</td>
-                        }</td> *@
                     <td>@project.isDone</td>
                     <td>@project.isHome</td>
                     <td class="d-flex justify-content-center">

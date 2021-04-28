@@ -2,7 +2,7 @@
     ViewData["Title"] = "Slider Anasayfa";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-@model List<Slider>
+@model SliderImageViewModel
 <div class="col-md-12 mt-2 border border-primary">
     <div class="title-text text-center row mb-1">
         <div class="col-md-9">
@@ -21,11 +21,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var slider in Model)
+            @foreach (var slider in Model.Sliders)
             {
                 <tr>
                     <th scope="row">@slider.SliderId</th>
-                    <td>@slider.Image</td>
+                    <td class="text-center">
+                        <img src="~/assets/@slider.Image.Path/@slider.Image.ImageName" alt="@slider.Image.ImageName"
+                        width="100">
+                    </td>
                     <td>@slider.isHome</td>
                     <td class="d-flex justify-content-center">
                         <a href="/Admin/Slider/Update/@slider.SliderId"

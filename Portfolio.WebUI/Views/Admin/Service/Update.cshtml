@@ -11,7 +11,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" asp-for="Text"></label>
-                    <input asp-for="Text" class="form-control" value="@Model.Text">
+                    <textarea asp-for="Text" class="form-control">@Model.Text</textarea>
                     <span asp-validation-for="Text"></span>
                 </div>
                 <div class="mb-3">

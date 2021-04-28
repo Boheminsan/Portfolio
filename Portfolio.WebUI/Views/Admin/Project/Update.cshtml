@@ -11,21 +11,33 @@
                 <input type="hidden" name="ProjectId" value="@Model.ProjectId">
                 <div class="mb-3">
                     <label class="form-label" asp-for="Title"></label>
-                    <input asp-for="Title" class="form-control">
+                    <input asp-for="Title" class="form-control" value=@Model.Title>
                     <span asp-validation-for="Title"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" asp-for="Text"></label>
-                    <input asp-for="Text" class="form-control">
+                    <textarea asp-for="Text" class="form-control">@Model.Text</textarea>
                     <span asp-validation-for="Text"></span>
                 </div>
                 <div class="mb-3">
                     @* resim seçici - upload *@
                     <label class="form-label" asp-for="CoverImage"></label>
+                    <img src="~/assets/img/portfolio/@Model.CoverImage" alt="@Model.CoverImage" width="200">
                     <input asp-for="CoverImage" class="form-control">
                     <span asp-validation-for="CoverImage"></span>
                 </div>
-
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" name="isDone" id="isDone"
+                        @(Model.isDone?"checked":"")>
+                    <label class="form-check-label" for="isDone">
+                        Yapılmış mı?</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" name="isHome" id="isHome"
+                        @(Model.isHome?"checked":"")>
+                    <label class="form-check-label" for="isHome">
+                        Anasayfada mı? </label>
+                </div>
                 @* <div class="mb-3">
                     <label class="form-label" asp-for="ProjectCategories"></label>
                     @foreach (var item in @Model.ProjectCategories)

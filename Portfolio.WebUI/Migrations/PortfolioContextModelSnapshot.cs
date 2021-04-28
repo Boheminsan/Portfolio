@@ -74,6 +74,27 @@ namespace Portfolio.WebUI.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("Portfolio.Entity.Footer", b =>
+                {
+                    b.Property<int>("FooterId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialMediaName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FooterId");
+
+                    b.ToTable("Footers");
+                });
+
             modelBuilder.Entity("Portfolio.Entity.Image", b =>
                 {
                     b.Property<int>("ImageId")

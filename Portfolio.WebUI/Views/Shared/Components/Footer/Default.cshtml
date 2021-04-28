@@ -1,3 +1,5 @@
+@model List<Footer>
+
 <footer class="footer-area">
     <div class="container footer">
         <div class="d-sm-flex flex-row justify-content-center flex-wrap">
@@ -7,16 +9,15 @@
                 </a>
                 <div class="social text-center">
                     <h5>Beni takip edin:</h5>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-kaggle"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    @foreach (var item in Model)
+                    {
+                        <a href="@item.Link"><i class="@item.Icon"></i></a>
+                    }
                 </div>
                 <div class="copyright text-center">
                     <p class="para">
-                        Copyright ©2020 All Rights Reserved. This site designed by <a href="#"><span
+                        Copyright ©2021 All Rights Reserved. This site designed by <a
+                            href="htttp://batuhanaktas.blogspot.com"><span
                                 style="color:var(--primary-color);">Bohemsoft.</span></a>
                     </p>
                 </div>

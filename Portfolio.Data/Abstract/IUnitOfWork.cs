@@ -10,6 +10,7 @@ namespace Portfolio.Data.Abstract {
         IServiceRepository Services { get; }
         ISliderRepository Sliders { get; }
         ITestimonialRepository Testimonials { get; }
+        IFooterRepository Footers { get; }
         int SaveChanges ();
     }
 }

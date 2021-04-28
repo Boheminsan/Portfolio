@@ -1,0 +1,59 @@
+@model ProjectCategoryViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* start portfolio section*@
+<section class="project-area">
+    <div class="container">
+        <div class="project-title pb-5">
+            <h1 class="letterspaced text-uppercase text-center title-h1">Yakında</h1>
+        </div>
+    </div>
+    <div class="button-group">
+        @if (Model.Categories.Count != 0)
+        {
+            @foreach (var type in Model.Categories.Where(k => k.CType == CategoryType.Lang))
+            {
+                <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
+                </button>
+            }
+        }
+    </div>
+    <div class="button-group">
+        @if (Model.Categories.Count != 0)
+        {
+            @foreach (var type in Model.Categories.Where(k => k.CType == CategoryType.Tech))
+            {
+                <button type="button" class="" id="btn1" data-filter="@type.CType">@type.CategoryName </button>
+            }
+        }
+    </div>
+    <div class="row grid">
+        @if (Model.Projects.Count != 0)
+        {
+            @foreach (var item in Model.Projects)
+            {
+                var classes = "";
+                @* @foreach (var cat in item.Categories)
+                    {
+                    classes=@cat.Filter+" ";
+                    } *@
+                <div class="col-lg-4 col-md-6 col-sm-12 element-item @classes">
+                    @* kategoriler class *@
+                    <div class="our-project">
+                        <div class="img">
+                            <a class="test-popup-link" href="/Projects/Draft/@item.ProjectId">
+                                <img src="~/assets/img/portfolio/@item.CoverImage" alt="@item.Title" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="title py-4">
+                            <h4 class="text-uppercase">@item.Title</h4>
+                            <span class="text-secondary">@item.Text</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>
+@* end portfolio section*@

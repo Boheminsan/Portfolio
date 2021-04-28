@@ -1,3 +1,5 @@
+@model ProjectCategoryViewModel
+
 @* start portfolio section*@
 <section class="project-area">
     <div class="container">
@@ -24,7 +26,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 element-item desktop">
             <div class="our-project">
                 <div class="img">
-                    <a class="test-popup-link" href="~/assets/img/portfolio/kucuk/prt1.jpg">
+                    <a class="test-popup-link" href="~/assets/img/portfolio/prt1.jpg">
                         <img src="~/assets/img/portfolio/kucuk/prt1.jpg" alt="portfolio-1" class="img-fluid">
                     </a>
                 </div>

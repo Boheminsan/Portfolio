@@ -14,6 +14,7 @@ namespace Portfolio.WebUI.Controllers {
             unitOfWork = _unitOfWork;
         }
         public IActionResult Index () {
+            ViewBag.Selected = "Anasayfa";
             var model = new MainViewModel () {
                 Images = unitOfWork.Images.GetAll ().ToList (),
                 Sliders = unitOfWork.Sliders.GetAll ().ToList (),
@@ -24,17 +25,20 @@ namespace Portfolio.WebUI.Controllers {
         }
 
         public IActionResult About () {
+            ViewBag.Selected = "Hakkımda";
             return View ();
         }
 
         [HttpGet]
         public IActionResult Contact () {
+            ViewBag.Selected = "İletişim";
             TempData["Code"] = null;
             return View ();
         }
 
         [HttpPost]
         public IActionResult Contact (Contact model) {
+            ViewBag.Selected = "İletişim";
             if (ModelState.IsValid) {
                 unitOfWork.Contacts.Add (model);
                 TempData["Code"] = "1";

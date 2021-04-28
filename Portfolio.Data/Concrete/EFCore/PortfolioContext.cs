@@ -11,6 +11,7 @@ namespace Portfolio.Data.Concrete.EFCore {
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Footer> Footers { get; set; }
         public DbSet<ProjectCategory> ProjectCategories { get; set; }
         public PortfolioContext (DbContextOptions<PortfolioContext> options) : base (options) { }
 

@@ -1,0 +1,26 @@
+@model Footer
+<div class="container mt-4 pt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Footer" asp-action="Update" method="post">
+                <input type="hidden" name="FooterId" value="@Model.FooterId">
+                <div class="mb-3">
+                    <label class="form-label" asp-for="SocialMediaName"></label>
+                    <input asp-for="SocialMediaName" class="form-control" value="@Model.SocialMediaName">
+                    <span asp-validation-for="SocialMediaName"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Link"></label>
+                    <input asp-for="Link" class="form-control" value="@Model.Link">
+                    <span asp-validation-for="Link"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Icon"></label>
+                    <input asp-for="Icon" class="form-control" value="@Model.Icon">
+                    <span asp-validation-for="Icon"></span>
+                </div>
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

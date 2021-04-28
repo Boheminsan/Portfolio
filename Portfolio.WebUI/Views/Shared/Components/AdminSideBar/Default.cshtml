@@ -1,9 +1,11 @@
 @model List<MenuItem>
 
 <div class="list-group">
+  <a href="/Admin/Index/" id="admin"
+    class="list-group-item list-group-item-action @(ViewBag.Selected=="Admin"?"active":"") ">Admin Anasayfa</a>
   @foreach (var side in Model)
   {
-    <a href="/Admin/@side.Link/Index/" id="@side.MenuItemName.ToLower()" onclick="clickedMe(this)"
-    class="list-group-item list-group-item-action">@side.MenuItemName</a>
+    <a href="/Admin/@side.Link/Index/" id="@side.MenuItemName.ToLower()"
+    class="list-group-item list-group-item-action @(ViewBag.Selected==side.Link?"active":"") ">@side.MenuItemName</a>
   }
 </div>

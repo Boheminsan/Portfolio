@@ -3,13 +3,12 @@
     ViewData["Title"] = "İletişim";
 }
 
-<section class="site-banner">
-    <div class="contact-area">
-        <div class="container text-start">
-            <div class="row">
-
-                <h2 class="fs-2 text-capitalize text-center"> İletişim </h2>
-                <div class="col-md-10">
+<section class="contact-area">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center contact-title mb-5"> İletişim </h2>
+                <div class="container col-md-8 mt-3">
                     <div asp-validation-for="All"></div>
                     <form asp-controller="Home" asp-action="Contact" class="form-group">
                         <div class="mb-3">
@@ -33,7 +32,8 @@
                             <textarea class="form-control" cols="20" rows="10" asp-for="Text"></textarea>
                             <span asp-validation-for="Text"></span>
                         </div>
-                        <button type="submit" class="btn button primary-button ml-4">Gönder</button>
+                        <button type="submit" class="btn btn-lg button primary-button"
+                            style="border:2px ridge white; display: flex; margin: auto;">Gönder</button>
                     </form>
                 </div>
             </div>
@@ -42,5 +42,5 @@
 </section>
 
 @section message{
-@await Html.PartialAsync("_message");
+@await Html.PartialAsync("_message")
 }

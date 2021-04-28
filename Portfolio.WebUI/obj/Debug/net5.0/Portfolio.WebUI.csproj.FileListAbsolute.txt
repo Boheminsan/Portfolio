@@ -84,13 +84,9 @@ D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Home\A
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Home\hakkimdayedek.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Project\Details.cshtml.g.cs
-D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Project\Done.cshtml.g.cs
-D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Project\Draft.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\Components\AdminSideBar\Default.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\Components\Menu\Default.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
-D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_footer.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_message.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -109,3 +105,10 @@ D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\Image\Update.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\Project\Create.cshtml.g.cs
 D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\Project\Update.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Projects\Details.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Projects\Done.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Projects\Draft.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\Footer\Create.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\Footer\Index.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Admin\Footer\Update.cshtml.g.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs

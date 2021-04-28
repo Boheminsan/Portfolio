@@ -53,7 +53,7 @@ namespace Portfolio.WebUI.Controllers {
                 repository.Save ();
                 return RedirectToAction ("Index");
             }
-            return View ();
+            return View (model);
         }
 
         [HttpPost]

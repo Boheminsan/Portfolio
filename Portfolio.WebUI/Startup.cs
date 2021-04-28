@@ -36,6 +36,7 @@ namespace Portfolio.WebUI {
             services.AddScoped<IServiceRepository, EFServiceRepository> ();
             services.AddScoped<ISliderRepository, EFSliderRepository> ();
             services.AddScoped<ITestimonialRepository, EFTestimonialRepository> ();
+            services.AddScoped<IFooterRepository, EFFooterRepository> ();
             services.AddScoped<IUnitOfWork, EFUnitOfWork> ();
             services.Configure<RazorViewEngineOptions> (o => {
                 o.ViewLocationFormats.Add ("/Views/Admin/{1}/{0}" + RazorViewEngine.ViewExtension);
@@ -66,15 +67,15 @@ namespace Portfolio.WebUI {
 
             app.UseEndpoints (endpoints => {
                 endpoints.MapControllerRoute (
-                    name: "projeler",
-                    pattern: "project/done",
-                    defaults: "controller=Project,action=Done");
-                endpoints.MapControllerRoute (
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}");
+                    name: "projects",
+                    pattern: "Projects/{action=Done}/{id?}",
+                    new { controller = "Projects" });
                 endpoints.MapControllerRoute (
                     name: "Admin",
                     pattern: "Admin/{controller}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute (
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}");
             });
 
             SeedData.EnsurePopulated (app);

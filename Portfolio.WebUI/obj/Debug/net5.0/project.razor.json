@@ -13583,6 +13583,23 @@
         }
       },
       {
+        "HashCode": -12740075,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__FooterViewComponentTagHelper",
+        "AssemblyName": "Portfolio.WebUI",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:footer"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__FooterViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Footer"
+        }
+      },
+      {
         "HashCode": 1720138446,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__MenuViewComponentTagHelper",
@@ -15663,8 +15680,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Project\\Details.cshtml",
-      "TargetPath": "Views\\Project\\Details.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Projects\\Done.cshtml",
+      "TargetPath": "Views\\Projects\\Done.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15698,8 +15715,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Project\\Done.cshtml",
-      "TargetPath": "Views\\Project\\Done.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Projects\\Details.cshtml",
+      "TargetPath": "Views\\Projects\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15713,13 +15730,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\_footer.cshtml",
-      "TargetPath": "Views\\Shared\\_footer.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Footer\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Footer\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\MenuItem\\Create.cshtml",
       "TargetPath": "Views\\Admin\\MenuItem\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Footer\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Footer\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15730,6 +15752,11 @@
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\Components\\Footer\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Footer\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15753,6 +15780,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Projects\\Draft.cshtml",
+      "TargetPath": "Views\\Projects\\Draft.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Shared\\_message.cshtml",
       "TargetPath": "Views\\Shared\\_message.cshtml",
       "FileKind": "mvc"
@@ -15763,8 +15795,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Project\\Draft.cshtml",
-      "TargetPath": "Views\\Project\\Draft.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Footer\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\Footer\\Update.cshtml",
       "FileKind": "mvc"
     },
     {

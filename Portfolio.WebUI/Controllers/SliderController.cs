@@ -2,15 +2,21 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Data.Abstract;
 using Portfolio.Entity;
+using Portfolio.WebUI.Models;
 
 namespace Portfolio.WebUI.Controllers {
     public class SliderController : Controller {
         private ISliderRepository repository;
-        public SliderController (ISliderRepository _repo) {
+        private IImageRepository repoImg;
+        public SliderController (ISliderRepository _repo, IImageRepository _repoImg) {
             repository = _repo;
+            repoImg = _repoImg;
         }
         public IActionResult Index () {
-            var model = repository.GetAll ().ToList ();
+            SliderImageViewModel model = new SliderImageViewModel () {
+                Sliders = repository.GetAll ().ToList (),
+                Images = repoImg.GetAll ().Where (s => s.Path == "img/ides").ToList ()
+            };
             return View (model);
         }
 
@@ -20,11 +26,12 @@ namespace Portfolio.WebUI.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Create (Slider model) {
+        public IActionResult Create (SliderImageSingleViewModel model) {
             if (ModelState.IsValid) {
                 Slider entity = new Slider () {
-                    Image = model.Image,
-                    isHome = model.isHome //radiobutton
+                    Image = model.Img,
+                    isHome = model.Slider.isHome,
+                    Caption = model.Slider.Caption
                 };
                 repository.Add (entity);
                 repository.Save ();
@@ -35,7 +42,12 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpGet]
         public IActionResult Update (int id) {
-            Slider entity = repository.GetById (id);
+            Slider slider = repository.GetById (id);
+            Image img = repoImg.Find (s => s.ImageId == slider.ImageId).FirstOrDefault ();
+            SliderImageSingleViewModel entity = new SliderImageSingleViewModel () {
+                Slider = slider,
+                Img = img
+            };
             return View (entity);
         }
 

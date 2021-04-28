@@ -5,7 +5,6 @@ using Portfolio.Entity;
 
 namespace Portfolio.WebUI.Controllers {
     public class MenuItemController : Controller {
-
         private IMenuItemRepository repository;
         public MenuItemController (IMenuItemRepository _repo) {
             repository = _repo;
@@ -51,7 +50,7 @@ namespace Portfolio.WebUI.Controllers {
                 repository.Save ();
                 return RedirectToAction ("Index");
             }
-            return View ();
+            return View (model);
         }
 
         [HttpPost]

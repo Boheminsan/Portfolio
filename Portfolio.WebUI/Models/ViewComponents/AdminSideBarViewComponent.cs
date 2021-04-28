@@ -9,7 +9,7 @@ using Portfolio.Entity;
 namespace Portfolio.WebUI.Models.ViewComponents {
     public class AdminSideBarViewComponent : ViewComponent {
         public IViewComponentResult Invoke () {
-            ViewBag.Selected = RouteData.Values["id"];
+            ViewBag.Selected = RouteData.Values["controller"];
             var menuItems = AdminSideBarRepository.SideItems.ToList ();
             return View (menuItems);
         }

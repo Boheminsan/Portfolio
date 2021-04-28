@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Data.Abstract;
@@ -6,8 +7,10 @@ using Portfolio.Entity;
 namespace Portfolio.WebUI.Controllers {
     public class ProjectController : Controller {
         private IProjectRepository repository;
-        public ProjectController (IProjectRepository _repo) {
+        private IImageRepository repoImg;
+        public ProjectController (IProjectRepository _repo, IImageRepository _repoImg) {
             repository = _repo;
+            repoImg = _repoImg;
         }
         public IActionResult Index () {
             var model = repository.GetAll ().ToList ();
@@ -16,7 +19,11 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpGet]
         public IActionResult Create () {
-            return View ();
+            List<Image> ListImages = repoImg.GetFolder ("/img/portfolio");
+            Project deneme = new Project () {
+                Images = ListImages
+            };
+            return View (deneme);
         }
 
         [HttpPost]
@@ -40,7 +47,7 @@ namespace Portfolio.WebUI.Controllers {
 
         public IActionResult Update (int id) {
             Project entity = repository.GetById (id);
-            return View ();
+            return View (entity);
         }
 
         [HttpPost]
