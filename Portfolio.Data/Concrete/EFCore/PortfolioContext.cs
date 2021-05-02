@@ -12,7 +12,6 @@ namespace Portfolio.Data.Concrete.EFCore {
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Footer> Footers { get; set; }
-        public DbSet<ProjectCategory> ProjectCategories { get; set; }
         public PortfolioContext (DbContextOptions<PortfolioContext> options) : base (options) { }
 
         protected override void OnModelCreating (ModelBuilder modelBuilder) {
@@ -32,17 +31,17 @@ namespace Portfolio.Data.Concrete.EFCore {
                 .HasOne (a => a.Image)
                 .WithOne (b => b.Service);
 
-            modelBuilder.Entity<ProjectCategory> ()
-                .HasKey (pc => new { pc.ProjectId, pc.CategoryId });
-            modelBuilder.Entity<ProjectCategory> ()
-                .HasOne<Project> (pc => pc.Project)
-                .WithMany (s => s.ProjectCategories)
-                .HasForeignKey (pc => pc.ProjectId);
+            //     modelBuilder.Entity<Project> ()
+            //         .HasKey (pc => new { pc.ProjectId, pc.CategoryId });
+            //     modelBuilder.Entity<ProjectCategory> ()
+            //         .HasOne<Project> (pc => pc.Project)
+            //         .WithMany (s => s.Categories)
+            //         .HasForeignKey (pc => pc.ProjectId);
 
-            modelBuilder.Entity<ProjectCategory> ()
-                .HasOne<Category> (pc => pc.Category)
-                .WithMany (s => s.ProjectCategories)
-                .HasForeignKey (pc => pc.CategoryId);
+            //     modelBuilder.Entity<Category> ()
+            //         .HasOne<Category> (pc => pc.Category)
+            //         .WithMany (s => s.Projects)
+            //         .HasForeignKey (pc => pc.CategoryId);
         }
     }
 }

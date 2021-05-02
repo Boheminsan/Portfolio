@@ -38,18 +38,22 @@ namespace Portfolio.WebUI.Controllers {
         [HttpGet]
         public IActionResult Update (int id) {
             Service entity = repository.GetById (id);
-            //if null
             return View (entity);
         }
 
         [HttpPost]
-        public IActionResult Update (Service model) {
+        public IActionResult Update (Service model, string isHome) {
             if (ModelState.IsValid) {
                 Service entity = repository.GetById (model.ServiceId);
                 entity.Title = model.Title;
                 entity.Image = model.Image;
                 entity.Text = model.Text;
-                entity.isHome = model.isHome; //radiobutton
+                if (isHome == "on") {
+                    entity.isHome = true; //radiobutton
+                } else {
+                    entity.isHome = false;
+                }
+                repository.Edit (entity);
                 repository.Save ();
                 return RedirectToAction ("Index");
             }

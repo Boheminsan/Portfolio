@@ -10,7 +10,7 @@ namespace Portfolio.WebUI.Controllers {
             repository = _repo;
         }
         public IActionResult Index () {
-            var model = repository.GetAll ().ToList ();
+            var model = repository.GetAll ().OrderBy (m => m.Order).ToList ();
             return View (model);
         }
 
@@ -47,6 +47,8 @@ namespace Portfolio.WebUI.Controllers {
                 entity.MenuItemName = model.MenuItemName;
                 entity.Link = model.Link;
                 entity.ParentId = model.ParentId; //combobox?
+                entity.isParent = model.isParent; //combobox?
+                entity.Order = model.Order; //combobox?
                 repository.Save ();
                 return RedirectToAction ("Index");
             }

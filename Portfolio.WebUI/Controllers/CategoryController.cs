@@ -3,13 +3,16 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Portfolio.Data.Abstract;
+using Portfolio.Data.Concrete.EFCore;
 using Portfolio.Entity;
 
 namespace Portfolio.WebUI.Controllers {
     public class CategoryController : Controller {
+        private readonly PortfolioContext context;
         private ICategoryRepository repository;
-        public CategoryController (ICategoryRepository _repo) {
+        public CategoryController (ICategoryRepository _repo, PortfolioContext _context) {
             repository = _repo;
+            context = _context;
         }
 
         public IActionResult Index () {

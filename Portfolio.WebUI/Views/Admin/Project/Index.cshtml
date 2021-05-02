@@ -19,7 +19,6 @@
                 <th scope="col">Başlık</th>
                 <th scope="col" style="width:40%">Metin</th>
                 <th scope="col">isDone</th>
-                <th scope="col">isHome</th>
                 <th scope="col" style="width: 25%;">İşlemler</th>
             </tr>
         </thead>
@@ -34,11 +33,13 @@
                     <td>@project.Title</td>
                     <td>@project.Text</td>
                     <td>@project.isDone</td>
-                    <td>@project.isHome</td>
                     <td class="d-flex justify-content-center">
                         <a href="/Admin/Project/Update/@project.ProjectId"
                         class="btn btn-info text-light me-2 btn-md">Düzenle</a>
-                        <a href="/Admin/Project/Delete/@project.ProjectId" class="btn btn-danger btn-md">Sil</a>
+                        <form action="/Admin/Project/Delete/" method="POST">
+                            <input type="hidden" name="ProjectId" value="@project.ProjectId">
+                            <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                        </form>
                     </td>
                 </tr>
             }

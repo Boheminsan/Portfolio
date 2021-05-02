@@ -38,9 +38,13 @@ namespace Portfolio.WebUI {
             services.AddScoped<ITestimonialRepository, EFTestimonialRepository> ();
             services.AddScoped<IFooterRepository, EFFooterRepository> ();
             services.AddScoped<IUnitOfWork, EFUnitOfWork> ();
+            services.AddSingleton<IFileProvider> (new PhysicalFileProvider (
+                Path.Combine (Directory.GetCurrentDirectory (), "wwwroot")));
             services.Configure<RazorViewEngineOptions> (o => {
                 o.ViewLocationFormats.Add ("/Views/Admin/{1}/{0}" + RazorViewEngine.ViewExtension);
                 //o.ViewLocationFormats.Add ("/MyViewsFolder/Shared/{0}" + RazorViewEngine.ViewExtension);
+                services.AddMvc ();
+
             });
         }
 

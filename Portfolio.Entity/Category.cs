@@ -9,7 +9,7 @@ namespace Portfolio.Entity {
         public string CategoryName { get; set; }
         public CategoryType CType { get; set; }
         public string Filter { get; set; }
-        public List<ProjectCategory> ProjectCategories { get; set; }
+        public List<Project> Projects { get; set; }
 
     }
 }

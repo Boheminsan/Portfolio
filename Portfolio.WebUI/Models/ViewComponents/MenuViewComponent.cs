@@ -12,7 +12,7 @@ namespace Portfolio.WebUI.Models.ViewComponents {
             menuItem = _menuItem;
         }
         public IViewComponentResult Invoke () {
-            var menuItems = menuItem.GetAll ().ToList ();
+            var menuItems = menuItem.GetAll ().OrderBy (m => m.Order).ToList ();
             return View (menuItems);
         }
     }

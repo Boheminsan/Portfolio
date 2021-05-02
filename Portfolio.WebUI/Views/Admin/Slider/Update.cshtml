@@ -3,18 +3,18 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <form asp-controller="Slider" asp-action="Update" method="post">
-                <input type="hidden" name="SliderId" value="@Model.Slider.SliderId">
+                <input type="hidden" name="Slider.SliderId" value="@Model.Slider.SliderId">
+                <input type="hidden" name="Img.ImageId" value="@Model.Img.ImageId">
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Slider.Image"></label>
-                    <input asp-for="Slider.Image" class="form-control" value="@Model.Img.ImageName">
-                    <img src="~/assets/@Model.Img.Path/@Model.Img.ImageName" width="150" alt="">
-                    <span asp-validation-for="Slider.Image"></span>
+                    <label class="form-label" asp-for="Img.ImageName"></label>
+                    <input asp-for="Img.ImageName" class="form-control" value="@Model.Img.ImageName">
+                    <img src="~/assets/@Model.Img.Path/@Model.Img.ImageName" width="150" alt="@Model.Img.ImageName">
+                    <span asp-validation-for="Img.ImageName"></span>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" name="isHome" id="isHome"
-                        @(Model.Slider.isHome?"checked":"")>
-                    //hatalı buraya bak
-                    <label class="form-check-label" for="isHome">
+                    <input class="form-check-input" type="checkbox" @(Model.Slider.isHome?"checked":"") id="isHomeBool"
+                        name="isHomeBool">
+                    <label class="form-check-label" for="isHomeBool">
                         Anasayfada mı? </label>
                 </div>
                 <button type="submit" class="btn btn-success">Kaydet</button>

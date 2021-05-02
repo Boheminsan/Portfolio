@@ -10,6 +10,19 @@ namespace Portfolio.Data.Concrete.EFCore {
         public static void EnsurePopulated (IApplicationBuilder app) {
             var context = app.ApplicationServices.GetRequiredService<PortfolioContext> ();
             context.Database.Migrate ();
+            if (!context.MenuItems.Any ()) {
+                var menu = new List<MenuItem> {
+                    new MenuItem () { MenuItemName = "Anasayfa", Link = "/", isParent = false, Order = 1 },
+                    new MenuItem () { MenuItemName = "Hakkımda", Link = "/Home/about", isParent = false, Order = 2 },
+                    new MenuItem () { MenuItemName = "Projeler", Link = "#", isParent = true, Order = 3 },
+                    new MenuItem () { MenuItemName = "Yapılmış", Link = "/Project/done", ParentId = 3, isParent = false },
+                    new MenuItem () { MenuItemName = "Taslak", Link = "/Project/draft", ParentId = 3, isParent = false },
+                    new MenuItem () { MenuItemName = "İletişim", Link = "/Home/contact", isParent = false, Order = 4 }
+                };
+
+                context.MenuItems.AddRange (menu);
+            }
+
             if (!context.Categories.Any ()) {
                 var categories = new List<Category> {
                     new Category () {
@@ -118,18 +131,6 @@ namespace Portfolio.Data.Concrete.EFCore {
                 };
                 context.Projects.AddRange (projects);
             }
-            if (!context.MenuItems.Any ()) {
-                var menu = new List<MenuItem> {
-                    new MenuItem () { MenuItemName = "Anasayfa", Link = "/" },
-                    new MenuItem () { MenuItemName = "Hakkımda", Link = "/Home/about" },
-                    new MenuItem () { MenuItemName = "Projeler", Link = "#" },
-                    new MenuItem () { MenuItemName = "Yapılmış", Link = "/Project/done", ParentId = 3 },
-                    new MenuItem () { MenuItemName = "Taslak", Link = "/Project/draft", ParentId = 3 },
-                    new MenuItem () { MenuItemName = "İletişim", Link = "/Home/contact" }
-                };
-
-                context.MenuItems.AddRange (menu);
-            }
 
             if (!context.Sliders.Any ()) {
                 var sImages = new List<Slider> {
@@ -177,6 +178,13 @@ namespace Portfolio.Data.Concrete.EFCore {
                     Title = "Nördün kanka",
                     Text = "Consecteur adi pislicking elit. Modi veniam dignissimos omnis repudiandae quis ipsum at beatae obcaecati, saepe facere.",
                     isRead = false
+                    },
+                    new Contact () {
+                    Name = "Eli Kınar",
+                    Mail = "daldazak6868@hmail.com",
+                    Title = "Gördüm kanka",
+                    Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sequi totam corporis culpa sed neque! Modi veniam dignissimos omnis repudiandae quis ipsum at beatae obcaecati, saepe facere.",
+                    isRead = false
                     }
                 };
                 context.Contacts.AddRange (contact);
@@ -192,6 +200,47 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Testimonial () { Title = "Title6", Image = new Image { ImageName = "client6.jpg", Path = "img/clients" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false }
                 };
                 context.Testimonials.AddRange (test);
+            }
+            if (!context.Footers.Any ()) {
+                var footer = new [] {
+                    new Footer {
+                    Icon = "fab fa-facebook-square",
+                    Link = "#",
+                    Order = 1,
+                    SocialMediaName = "Facebook"
+                    },
+                    new Footer {
+                    Icon = "fab fa-twitter-square",
+                    Link = "#",
+                    Order = 2,
+                    SocialMediaName = "Twitter"
+                    },
+                    new Footer {
+                    Icon = "fab fa-instagram",
+                    Link = "#",
+                    Order = 3,
+                    SocialMediaName = "Instagram"
+                    },
+                    new Footer {
+                    Icon = "fab fa-github",
+                    Link = "#",
+                    Order = 4,
+                    SocialMediaName = "Github"
+                    },
+                    new Footer {
+                    Icon = "fab fa-kaggle",
+                    Link = "#",
+                    Order = 5,
+                    SocialMediaName = "Kaggle"
+                    },
+                    new Footer {
+                    Icon = "fab fa-linkedin-in",
+                    Link = "#",
+                    Order = 6,
+                    SocialMediaName = "LinkedIn"
+                    }
+                };
+                context.Footers.AddRange (footer);
             }
             context.SaveChanges ();
         }

@@ -28,13 +28,13 @@ namespace Portfolio.WebUI.Controllers {
         [HttpPost]
         public IActionResult Create (SliderImageSingleViewModel model) {
             if (ModelState.IsValid) {
-                Slider entity = new Slider () {
-                    Image = model.Img,
-                    isHome = model.Slider.isHome,
-                    Caption = model.Slider.Caption
+                Image imgent = new Image () {
+                    ImageName = model.Img.ImageName,
+                    Path = "img/ides",
+                    Slider = model.Slider
                 };
-                repository.Add (entity);
-                repository.Save ();
+                repoImg.Add (imgent);
+                repoImg.Save ();
                 return RedirectToAction ("Index");
             }
             return View ();
@@ -52,23 +52,31 @@ namespace Portfolio.WebUI.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Update (Slider model) {
+        public IActionResult Update (SliderImageSingleViewModel model, string isHomeBool) {
             if (ModelState.IsValid) {
-                Slider entity = repository.GetById (model.SliderId);
-                entity.Image = model.Image;
-                entity.isHome = model.isHome; //radiobutton
+                Image entity = repoImg.Find (s => s.ImageId == model.Img.ImageId).FirstOrDefault ();
+                entity.ImageName = model.Img.ImageName;
+                entity.Path = "img/ides";
+                Slider entSlid = repository.GetById (model.Slider.SliderId);
+                if (isHomeBool == "on") {
+                    entSlid.isHome = true;
+                } else {
+                    entSlid.isHome = false;
+                }
                 repository.Save ();
+                repoImg.Save ();
                 return RedirectToAction ("Index");
             }
             return View ();
         }
 
         [HttpPost]
-        public IActionResult Delete (int SliderId) {
+        public IActionResult Delete (int SliderId, int ImageId) {
             Slider entity = repository.GetById (SliderId);
-            if (entity != null) {
-                repository.Delete (entity);
-                repository.Save ();
+            Image entimg = repoImg.Find (s => s.ImageId == ImageId).FirstOrDefault ();
+            if (entity != null && entimg != null) {
+                repoImg.Delete (entimg);
+                repoImg.Save ();
             }
             return RedirectToAction ("Index");
         }

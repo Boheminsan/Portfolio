@@ -61,4 +61,12 @@ $(document).ready(function () {
         }
     }
     navbarFixed();
+    $("#gizle").click(function () {
+        var gal = $("#gallery");
+        if (gal.is(":hidden")) {
+            gal.show();
+        } else {
+            gal.hide();
+        }
+    });
 });

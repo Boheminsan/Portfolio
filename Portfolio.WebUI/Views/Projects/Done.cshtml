@@ -1,4 +1,4 @@
-@model ProjectCategoryViewModel
+@model List<Project>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,25 +11,30 @@
         </div>
     </div>
     <div class="button-group">
-    @foreach (var type in Model.Categories.Where(k => k.CType == CategoryType.Lang))
-    {
-        <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
-        </button>
-    }
+        @foreach (var type in (List<Category>)ViewBag.SelectedCategories)
+        {
+            if (type.CType == CategoryType.Lang)
+            {
+                <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
+                </button>
+            }
+        }
     </div>
     <div class="button-group">
-    @foreach (var type in Model.Categories.Where(k => k.CType == CategoryType.Tech))
-    {
-            <button type="button" class="" id="btn1" data-filter="@type.CType">@type.CategoryName </button>
-    }
+        @foreach (var type in (List<Category>)ViewBag.SelectedCategories)
+        {
+            if (type.CType == CategoryType.Tech)
+            {
+                <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
+                </button>
+            }
+        }
     </div>
     <div class="row grid">
-        @if (Model.Projects.Count != 0)
-                        {
-        @foreach (var item in Model.Projects)
+        @foreach (var item in Model)
         {
-            var classes="";
-                @* @foreach (var cat in item.Categories)
+            var classes = "";
+            @* @foreach (var cat in item.Categories)
                 {
                 classes=@cat.Filter+" ";
                 } *@
@@ -48,8 +53,6 @@
                 </div>
             </div>
         }
-        }
     </div>
 </section>
 @* end portfolio section*@
-

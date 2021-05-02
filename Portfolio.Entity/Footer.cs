@@ -4,5 +4,7 @@ namespace Portfolio.Entity {
         public string SocialMediaName { get; set; }
         public string Link { get; set; }
         public string Icon { get; set; }
+        public int Order { get; set; }
+
     }
 }

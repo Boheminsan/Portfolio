@@ -19,7 +19,7 @@
                     {
                         @foreach (var item in Model)
                         {
-                            @if (item.ParentId == null)
+                            @if (item.ParentId == null && item.Order != 0)
                             {
                                 <li
                         class="nav-item @(ViewBag.Selected!=null && item.MenuItemName.ToLower()==ViewBag.Selected.ToLower()?"active":"")">
@@ -30,7 +30,7 @@
                             {
                                 if (count == 0)
                                 {
-                                    var parent = Model.Where(x => x.MenuItemId == item.ParentId).FirstOrDefault();
+                                    var parent = Model.Where(x => x.isParent = true).FirstOrDefault();
                                     @if (parent != null)
                                     {
                                         var children = Model.Where(x => x.ParentId == parent.MenuItemId).ToList();

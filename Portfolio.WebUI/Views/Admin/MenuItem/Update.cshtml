@@ -19,6 +19,17 @@
                     <input asp-for="ParentId" class="form-control" value="@Model.ParentId">
                     <span asp-validation-for="ParentId"></span>
                 </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" name="isParent" id="isParent"
+                        @(Model.isParent?"checked":"")>
+                    <label class="form-check-label" for="isParent">
+                        Ebeveyn mi</label>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Order"></label>
+                    <input asp-for="Order" class="form-control" value="@Model.Order">
+                    <span asp-validation-for="Order"></span>
+                </div>
                 <button type="submit" class="btn btn-success">Kaydet</button>
             </form>
         </div>

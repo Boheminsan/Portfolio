@@ -6,9 +6,9 @@
 
 <div class="container mt-4 pt-4">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <form asp-controller="Project" asp-action="Update" method="post">
-                <input type="hidden" name="ProjectId" value="@Model.ProjectId">
+                <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId">
                 <div class="mb-3">
                     <label class="form-label" asp-for="Title"></label>
                     <input asp-for="Title" class="form-control" value=@Model.Title>
@@ -19,12 +19,33 @@
                     <textarea asp-for="Text" class="form-control">@Model.Text</textarea>
                     <span asp-validation-for="Text"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 mt-4">
+                  <div id="gizle" class="btn btn-outline-secondary">Gizle/Göster</div>
+                    <div class="row" id="gallery">
+                        @foreach (var item in (List<Image>)ViewBag.Images)
+                        {
+                            <div class="form-check col-md-2">
+                                <input class="form-check-input" type="checkbox" name="imageIds" value="@item.ImageId" id="img_@item.ImageId"
+                                @(Model.Images.Any(i=>i.ImageId==item.ImageId)?"checked":"")>
+                                <label class="form-check-label" for="img_@item.ImageId">
+                                    <img class="img-fluid" src="~/assets/@item.Path/@item.ImageName" alt="@item.ImageName">
+                                </label>
+                            </div>
+                        }
+                    </div>
                     @* resim seçici - upload *@
-                    <label class="form-label" asp-for="CoverImage"></label>
-                    <img src="~/assets/img/portfolio/@Model.CoverImage" alt="@Model.CoverImage" width="200">
-                    <input asp-for="CoverImage" class="form-control">
-                    <span asp-validation-for="CoverImage"></span>
+                </div>
+                <div class="mb-3">
+                    @foreach (var cat in (List<Category>)ViewBag.SelectedCategories)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="categoryIds" value="@cat.CategoryId" id="cat_@(cat.CategoryId)"
+                            @(Model.Categories.Any(i=>i.CategoryId==cat.CategoryId)?"checked":"")>
+                            <label class="form-check-label" for="cat_@(cat.CategoryId)">
+                                @cat.CategoryName, @cat.Filter
+                            </label>
+                        </div>
+                    }
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input class="form-check-input" type="checkbox" name="isDone" id="isDone"
@@ -32,21 +53,6 @@
                     <label class="form-check-label" for="isDone">
                         Yapılmış mı?</label>
                 </div>
-                <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" name="isHome" id="isHome"
-                        @(Model.isHome?"checked":"")>
-                    <label class="form-check-label" for="isHome">
-                        Anasayfada mı? </label>
-                </div>
-                @* <div class="mb-3">
-                    <label class="form-label" asp-for="ProjectCategories"></label>
-                    @foreach (var item in @Model.ProjectCategories)
-                    {
-                    burayı hallet sonra.
-                    kategori seçici
-                    }
-                    </div>
-                *@
                 <button type="submit" class="btn btn-success">Kaydet</button>
             </form>
         </div>
