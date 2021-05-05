@@ -1,56 +1,112 @@
+using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Data.Abstract;
+using Portfolio.Data.Concrete.EFCore;
 using Portfolio.Entity;
 
 namespace Portfolio.WebUI.Controllers {
     public class TestimonialController : Controller {
-        private ITestimonialRepository repository;
-        public TestimonialController (ITestimonialRepository _repo) {
-            repository = _repo;
+        private readonly PortfolioContext context;
+        public TestimonialController (PortfolioContext _context) {
+            context = _context;
         }
-
         public IActionResult Index () {
-            var model = repository.GetAll ().ToList ();
+            var model = context.Testimonials.Include (p => p.Image).ToList ();
             return View (model);
         }
 
         [HttpGet]
         public IActionResult Create () {
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("clients") && p.Testimonial == null).ToList ();
             return View ();
         }
 
         [HttpPost]
-        public IActionResult Create (Testimonial model) {
-            if (ModelState.IsValid) {
-                Testimonial entity = new Testimonial () {
-                    Title = model.Title,
-                    Text = model.Text,
-                    Image = model.Image,
-                    isHome = model.isHome //radiobutton
-                };
-                repository.Add (entity);
-                repository.Save ();
-                return RedirectToAction ("Index");
+        public IActionResult Create (Testimonial model, IFormFile file, string isHomeBool, int? imgId) {
+            bool isHome;
+            Image img = new Image ();
+            if (isHomeBool == "on") {
+                isHome = true;
+            } else {
+                isHome = false;
             }
-            return View ();
+            if (file != null) {
+                string fileFolder = "wwwroot\\assets\\img\\clients";
+                string path = Path.Combine (Directory.GetCurrentDirectory (), fileFolder, file.FileName);
+                using (var stream = new FileStream (path, FileMode.Create)) {
+                    file.CopyTo (stream);
+                    ViewBag.Message = string.Format ("<b>{0}</b> yüklendi.<br /> Yüklendiği Klasör: </br>{1}", file.FileName, path);
+                }
+                img = new Image () {
+                    ImageName = file.FileName,
+                    FullPath = "assets\\img\\clients",
+                    Testimonial = new Testimonial () {
+                    isHome = isHome
+                    }
+                };
+            } else if (imgId != null) {
+                img = context.Images.FirstOrDefault (i => i.ImageId == imgId);
+            } else {
+                ViewBag.Message = "Resim seçilmedi/yüklenmedi";
+                ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("clients") && p.Testimonial == null).ToList ();
+                return View ();
+            }
+            Testimonial entity = new Testimonial () {
+                Title = model.Title,
+                Text = model.Text,
+                Image = img,
+                isHome = isHome
+            };
+            context.Testimonials.Add (entity);
+            context.SaveChanges ();
+            return RedirectToAction ("Index");
         }
 
         [HttpGet]
         public IActionResult Update (int id) {
-            Testimonial entity = repository.GetById (id);
+            Testimonial entity = context.Testimonials.Include (t => t.Image).FirstOrDefault (i => i.TestimonialId == id);
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("clients") && p.Testimonial == null).ToList ();
             return View (entity);
         }
 
         [HttpPost]
-        public IActionResult Update (Testimonial model) {
+        public IActionResult Update (Testimonial model, IFormFile file, string isHomeBool, int? imgId) {
+            bool isHome;
+            if (isHomeBool == "on") {
+                isHome = true;
+            } else {
+                isHome = false;
+            }
             if (ModelState.IsValid) {
-                Testimonial entity = repository.GetById (model.TestimonialId);
+                Image img = new Image ();
+                Testimonial entity = context.Testimonials.FirstOrDefault (i => i.TestimonialId == model.TestimonialId);
                 entity.Title = model.Title;
+                if (file != null) {
+                    string fileFolder = "wwwroot\\assets\\img\\clients";
+                    string path = Path.Combine (Directory.GetCurrentDirectory (), fileFolder, file.FileName);
+                    using (var stream = new FileStream (path, FileMode.Create)) {
+                        file.CopyTo (stream);
+                        ViewBag.Message = string.Format ("<b>{0}</b> yüklendi.<br /> Yüklendiği Klasör: </br>{1}", file.FileName, path);
+                    }
+                    img = new Image () {
+                        ImageName = file.FileName,
+                        FullPath = "assets\\img\\Testimonials"
+                    };
+                } else if (imgId != null) {
+                    img = context.Images.FirstOrDefault (i => i.ImageId == imgId);
+                } else {
+                    ViewBag.Message = "Resim seçilmedi/yüklenmedi";
+                    ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("clients") && p.Testimonial == null).ToList ();
+                    return View ();
+                }
+                entity.Image = img;
                 entity.Text = model.Text;
-                entity.Image = model.Image;
-                entity.isHome = model.isHome; //radiobutton
-                repository.Save ();
+                entity.isHome = isHome;
+                context.Testimonials.Update (entity);
+                context.SaveChanges ();
                 return RedirectToAction ("Index");
             }
             return View (model);
@@ -58,10 +114,10 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpPost]
         public IActionResult Delete (int TestimonialId) {
-            Testimonial entity = repository.GetById (TestimonialId);
+            Testimonial entity = context.Testimonials.FirstOrDefault (i => i.TestimonialId == TestimonialId);
             if (entity != null) {
-                repository.Delete (entity);
-                repository.Save ();
+                context.Testimonials.Remove (entity);
+                context.SaveChanges ();
             }
             return RedirectToAction ("Index");
         }

@@ -17,7 +17,7 @@
                     @foreach (var res in Model.Images.Select((item, index) => new { item, index }))
                     {
                         <div class='carousel-item @(res.index==0?"active":"")'>
-                            <img src="~/assets/@res.item.Path/@res.item.ImageName" class="d-block w-100"
+                            <img src="~/@res.item.FullPath/@res.item.ImageName" class="d-block w-100"
                             alt="@res.item.ImageName">
                         </div>
                     }

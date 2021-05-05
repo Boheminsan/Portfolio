@@ -1,4 +1,5 @@
-@model List<MenuItem>
+@* @model List<MenuItem> *@
+@model MenuSubMenuViewModel
 
 <header class="header-area">
     <div class="main-menu">
@@ -11,48 +12,33 @@
                 <a class="navbar-brand" href="#">Navbar</a>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
                 <ul class="navbar-nav">
-                    @{
-                        var count = 0;
-                    }
-                    @if (Model.Count != 0)
+                    @foreach (var item in Model.MenuItems)
                     {
-                        @foreach (var item in Model)
+                        @if (item.Link == "#")
                         {
-                            @if (item.ParentId == null && item.Order != 0)
-                            {
-                                <li
-                        class="nav-item @(ViewBag.Selected!=null && item.MenuItemName.ToLower()==ViewBag.Selected.ToLower()?"active":"")">
-                                    <a class="nav-link" href="@item.Link">@item.MenuItemName</a>
-                                </li>
-                            }
-                            else
-                            {
-                                if (count == 0)
-                                {
-                                    var parent = Model.Where(x => x.isParent = true).FirstOrDefault();
-                                    @if (parent != null)
+                            var children = Model.SubMenus.FindAll(c => c.MenuItemId == item.MenuItemId).ToList();
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="@item.Link" id="navbarDarkDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="true">@item.MenuItemName</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    @foreach (var dditem in children)
                                     {
-                                        var children = Model.Where(x => x.ParentId == parent.MenuItemId).ToList();
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="@parent.Link" id="navbarDarkDropdownMenuLink"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="true">@parent.MenuItemName</a>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                @foreach (var dditem in children)
-                                                {
-                                                    <li><a class="dropdown-item" href="@dditem.Link">@dditem.MenuItemName</a></li>
-                                                }
-                                            </ul>
-                                        </li>
-                                        count = 1;
+                                        <li><a class="dropdown-item" href="@dditem.Link">@dditem.SubMenuName</a></li>
                                     }
-                                }
-                            }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li
+                        class="nav-item @(ViewBag.Selected!=null && item.MenuItemName.ToLower()==ViewBag.Selected.ToLower()?"active":"")">
+                                <a class="nav-link" href="@item.Link">@item.MenuItemName</a>
+                            </li>
                         }
                     }
                 </ul>
-
-
             </div>
         </nav>
     </div>

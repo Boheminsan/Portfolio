@@ -1,9 +1,14 @@
+@{
+    ViewData["Title"] = "Servis Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
 @model Service
 <div class="container mt-4 pt-4">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <form asp-controller="Service" asp-action="Update" method="post">
+        <div class="col-md-10">
+            <form asp-controller="Service" asp-action="Update" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="ServiceId" value="@Model.ServiceId">
+                <input type="hidden" name="ImageId" value="@Model.Image.ImageId">
                 <div class="mb-3">
                     <label class="form-label" asp-for="Title"></label>
                     <input asp-for="Title" class="form-control" value="@Model.Title">
@@ -11,19 +16,35 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" asp-for="Text"></label>
-                    <textarea asp-for="Text" class="form-control">@Model.Text</textarea>
+                    <textarea asp-for="Text" class="form-control" cols="12" rows="10"
+                        class="form-control">@Model.Text</textarea>
                     <span asp-validation-for="Text"></span>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" asp-for="Image"></label>
-                    <input asp-for="Image" class="form-control" value="@Model.Image">
-                    <img src="@Model.Image" width="150" alt="">
-                    <span asp-validation-for="Image"></span>
+                <div class="mb-3 mt-4">
+                  <div id="gizle" class="btn btn-outline-secondary">Gizle/Göster</div>
+                    <div class="row" id="gallery">
+                        @if (ViewBag.Images != null)
+                        {
+                           @foreach (var item in (List<Image>)ViewBag.Images)
+                        {
+                            <div class="form-check col-md-2">
+                                <input class="form-check-input" type="checkbox" name="imgId" value="@item.ImageId" id="img_@item.ImageId"
+                                @(Model.Image.ImageId==item.ImageId?"checked":"")>
+                                <label class="form-check-label" for="img_@item.ImageId">
+                                    <img class="img-fluid" src="~/@item.FullPath/@item.ImageName" alt="@item.ImageName">
+                                </label>
+                            </div>
+                        }
+                        }
+                    </div>
+                    <div class="row" id="tekli">
+                        <input type="file" name="file" id="file" class="form-control">
+                    </div>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" name="isHome" id="isHome"
+                    <input class="form-check-input" type="checkbox" name="isHomeBool" id="isHomeBool"
                         @(Model.isHome?"checked":"")>
-                    <label class="form-check-label" for="isHome">
+                    <label class="form-check-label" for="isHomeBool">
                         Anasayfada mı? </label>
                 </div>
                 <button type="submit" class="btn btn-success">Kaydet</button>

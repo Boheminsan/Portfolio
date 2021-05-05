@@ -9,10 +9,8 @@ using Portfolio.WebUI.Models;
 namespace Portfolio.WebUI.Controllers {
     public class ProjectsController : Controller {
         private readonly PortfolioContext context;
-        private IUnitOfWork unitOfWork;
-        public ProjectsController (IUnitOfWork _unitOfWork, PortfolioContext _context) {
+        public ProjectsController (PortfolioContext _context) {
             context = _context;
-            unitOfWork = _unitOfWork;
         }
         public IActionResult Index () {
             return View ("Done");
@@ -21,10 +19,11 @@ namespace Portfolio.WebUI.Controllers {
             ViewBag.Selected = RouteData.Values["action"];
             ViewBag.SelectedCategories = context.Categories.ToList ();
             if (id != null) {
-                var model = context.Projects.Include (p => p.Categories).Include (p => p.Images).Where (p => p.isDone == true && p.ProjectId == (int) id);
+                var model = context.Projects.Include (p => p.Images).Where (p => p.isDone == true && p.ProjectId == (int) id).FirstOrDefault ();
                 return View ("Details", model);
             } else {
-                var model = context.Projects.Include (p => p.Categories).Include (p => p.Images).Where (p => p.isDone == true).ToList ();
+                var model = context.Projects.Include (p => p.Categories).AsSplitQuery ().Include (p => p.Images).Where (p => p.isDone == true).ToList ();
+                ViewBag.Categories = context.Categories.ToList ();
                 return View (model);
             }
         }
@@ -33,10 +32,10 @@ namespace Portfolio.WebUI.Controllers {
             ViewBag.Selected = RouteData.Values["action"];
             ViewBag.SelectedCategories = context.Categories.ToList ();
             if (id != null) {
-                var model = context.Projects.Include (p => p.Categories).Include (p => p.Images).Where (p => p.isDone == false && p.ProjectId == (int) id);
+                var model = context.Projects.Include (p => p.Images).Where (p => p.isDone == false && p.ProjectId == (int) id).FirstOrDefault ();
                 return View ("Details", model);
             } else {
-                var model = context.Projects.Include (p => p.Categories).Include (p => p.Images).Where (p => p.isDone == false).ToList ();
+                var model = context.Projects.Include (p => p.Categories).AsSplitQuery ().Include (p => p.Images).Where (p => p.isDone == false).ToList ();
                 return View (model);
 
             }

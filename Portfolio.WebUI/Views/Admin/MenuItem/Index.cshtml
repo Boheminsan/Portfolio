@@ -18,22 +18,16 @@
                 <th scope="col">#</th>
                 <th scope="col">Menü Adı</th>
                 <th scope="col">Link</th>
-                <th scope="col">ParentId</th>
-                <th scope="col">isParent</th>
-                <th scope="col">Order</th>
                 <th scope="col" style="width: 25%;">İşlemler</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var (item, i) in Model.Select((v, i) => (v, i)))
             {
                 <tr>
                     <th scope="row">@item.MenuItemId</th>
                     <td>@item.MenuItemName</td>
                     <td>@item.Link</td>
-                    <td>@item.ParentId</td>
-                    <td>@item.isParent</td>
-                    <td>@item.Order</td>
                     <td class="d-flex justify-content-center">
                         <a href="/Admin/MenuItem/Update/@item.MenuItemId"
                         class="btn btn-info text-light me-2 btn-md">Düzenle</a>

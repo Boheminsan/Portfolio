@@ -7,7 +7,7 @@
 <div class="container mt-4 pt-4">
     <div class="row d-flex justify-content-center">
         <div class="col-md-12">
-            <form asp-controller="Project" asp-action="Update" method="post">
+            <form asp-controller="Project" asp-action="Update" method="post" enctype="multipart/form-data">
                 <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId">
                 <div class="mb-3">
                     <label class="form-label" asp-for="Title"></label>
@@ -28,12 +28,14 @@
                                 <input class="form-check-input" type="checkbox" name="imageIds" value="@item.ImageId" id="img_@item.ImageId"
                                 @(Model.Images.Any(i=>i.ImageId==item.ImageId)?"checked":"")>
                                 <label class="form-check-label" for="img_@item.ImageId">
-                                    <img class="img-fluid" src="~/assets/@item.Path/@item.ImageName" alt="@item.ImageName">
+                                    <img class="img-fluid" src="~/@item.FullPath/@item.ImageName" alt="@item.ImageName">
                                 </label>
                             </div>
                         }
                     </div>
-                    @* resim seçici - upload *@
+                     <div class="row" id="çoklu">
+                        <input type="file" name="files" id="files" class="form-control" multiple>
+                    </div>
                 </div>
                 <div class="mb-3">
                     @foreach (var cat in (List<Category>)ViewBag.SelectedCategories)
@@ -48,9 +50,9 @@
                     }
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" name="isDone" id="isDone"
+                    <input class="form-check-input" type="checkbox" name="isDoneBool" id="isDoneBool"
                         @(Model.isDone?"checked":"")>
-                    <label class="form-check-label" for="isDone">
+                    <label class="form-check-label" for="isDoneBool">
                         Yapılmış mı?</label>
                 </div>
                 <button type="submit" class="btn btn-success">Kaydet</button>

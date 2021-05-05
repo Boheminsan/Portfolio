@@ -27,7 +27,9 @@
             {
                 <tr>
                     <th scope="row">@test.TestimonialId</th>
-                    <td>@test.Image</td>
+                    <td class="text-center">
+                        <img src="~/@test.Image.FullPath/@test.Image.ImageName" alt="@test.Image.ImageName" width="100">
+                    </td>
                     <td>@test.Title</td>
                     <td>@test.Text</td>
                     <td>@test.isHome</td>

@@ -23,8 +23,8 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpGet]
         public IActionResult Create () {
-            ViewBag.Images = context.Images.Where (p => p.Path == "img/portfolio").ToList ();
-            ViewBag.SelectedCategories = context.Categories.ToList ();
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("portfolio")).ToList ();
+            ViewBag.SelectedCategories = context.Categories.OrderBy (p => p.CType).ToList ();
             return View ();
         }
 
@@ -40,32 +40,23 @@ namespace Portfolio.WebUI.Controllers {
             if (imageIds != null) {
                 CoverImageString = context.Images.FirstOrDefault (i => i.ImageId == imageIds[0]).ImageName;
             }
-            // if (file != null) {
-            //     var path = Path.Combine (Directory.GetCurrentDirectory (), "wwwroot\\img\\portfolio\\", file.FileName);
-            //     string filename = string.Format ($"project{model.ProjectId}{file.FileName}");
-
-            //     using (var stream = new FileStream (path, FileMode.Create)) {
-            //         file.CopyTo (stream);
-            //     }
-            // }
             List<Image> imgList = new List<Image> ();
             if (imageIds.Length != 0) {
-                List<Image> abc = imageIds.Select (id => context.Images.FirstOrDefault (i => i.ImageId == id)).ToList ();
-                imgList.AddRange (abc);
+                List<Image> images = imageIds.Select (id => context.Images.FirstOrDefault (i => i.ImageId == id)).ToList ();
+                imgList.AddRange (images);
             }
             if (ModelState.IsValid && (files != null || files.Count != 0)) {
-                // long size = files.Sum (f => f.Length);
                 var filePaths = new List<string> ();
-                foreach (var formFile in files) {
-                    if (formFile.Length > 0) {
-                        var path = Path.Combine (Directory.GetCurrentDirectory (), "wwwroot\\assets\\img\\portfolio\\", formFile.FileName);
+                foreach (var file in files) {
+                    if (file.Length > 0) {
+                        var path = Path.Combine (Directory.GetCurrentDirectory (), "~\\assets\\img\\portfolio\\", file.FileName);
                         filePaths.Add (path);
                         using (var stream = new FileStream (path, FileMode.Create)) {
-                            formFile.CopyTo (stream);
+                            file.CopyTo (stream);
                         }
                         var img = new Image {
-                            ImageName = formFile.FileName,
-                            Path = "img/portfolio",
+                            ImageName = file.FileName,
+                            FullPath = "~\\assets\\img\\portfolio\\",
                             Project = model
                         };
                         imgList.Add (img);
@@ -89,13 +80,13 @@ namespace Portfolio.WebUI.Controllers {
         [HttpGet]
         public IActionResult Update (int id) {
             Project entity = context.Projects.Include (p => p.Images).Include (p => p.Categories).FirstOrDefault (p => p.ProjectId == id);
-            ViewBag.Images = context.Images.Where (p => p.Path == "img/portfolio").ToList ();
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("portfolio")).ToList ();
             ViewBag.SelectedCategories = context.Categories.ToList ();
             return View (entity);
         }
 
         [HttpPost]
-        public IActionResult Update (Project model, int[] imageIds, int[] categoryIds, string isDone) {
+        public IActionResult Update (Project model, int[] imageIds, int[] categoryIds, string isDoneBool, List<IFormFile> files) {
             Project entity = context.Projects.Include (p => p.Images).Include (p => p.Categories).FirstOrDefault (p => p.ProjectId == model.ProjectId);
             if (entity == null) {
                 return NotFound ();
@@ -105,13 +96,46 @@ namespace Portfolio.WebUI.Controllers {
             if (imageIds != null) {
                 entity.CoverImage = context.Images.FirstOrDefault (i => i.ImageId == imageIds[0]).ImageName;
             }
-            if (isDone == "on") {
+            if (isDoneBool == "on") {
                 entity.isDone = true;
             } else {
                 entity.isDone = false;
             }
+
+            List<Image> imgList = new List<Image> ();
+            if (imageIds.Length != 0) {
+                List<Image> images = imageIds.Select (id => context.Images.FirstOrDefault (i => i.ImageId == id)).ToList ();
+                imgList.AddRange (images);
+            }
+            if (ModelState.IsValid && (files != null || files.Count != 0)) {
+                // long size = files.Sum (f => f.Length);
+                var filePaths = new List<string> ();
+                foreach (var file in files) {
+                    if (file.Length > 0) {
+                        string fileFolder = "wwwroot\\assets\\img\\portfolio";
+                        string path = Path.Combine (Directory.GetCurrentDirectory (), fileFolder, file.FileName);
+                        filePaths.Add (path);
+                        using (var stream = new FileStream (path, FileMode.Create)) {
+                            file.CopyTo (stream);
+                        }
+                        var img = new Image {
+                            ImageName = file.FileName,
+                            FullPath = fileFolder.Replace ("wwwroot\\", ""),
+                            Project = model
+                        };
+                        imgList.Add (img);
+                    }
+                }
+            }
+            string CoverImageString = "";
+            if (imageIds != null) {
+                CoverImageString = context.Images.FirstOrDefault (i => i.ImageId == imageIds[0]).ImageName;
+            }
             entity.Title = model.Title;
             entity.Text = model.Text;
+            entity.CoverImage = CoverImageString;
+            entity.Categories = categoryIds.Select (id => context.Categories.FirstOrDefault (i => i.CategoryId == id)).ToList ();
+            entity.Images = imgList;
             context.Projects.Update (entity);
             context.SaveChanges ();
             return RedirectToAction ("Index");
@@ -121,17 +145,6 @@ namespace Portfolio.WebUI.Controllers {
         public IActionResult Delete (int ProjectId) {
             Project entity = context.Projects.Include (i => i.Images).FirstOrDefault (p => p.ProjectId == ProjectId);
             if (entity != null) {
-                var folderPath = Path.Combine (Directory.GetCurrentDirectory (), "wwwroot\\assets\\img\\portfolio\\");
-
-                DirectoryInfo folderInfo = new DirectoryInfo (folderPath);
-
-                foreach (FileInfo file in folderInfo.GetFiles ()) {
-                    file.Delete ();
-                }
-                foreach (DirectoryInfo dir in folderInfo.GetDirectories ()) {
-                    dir.Delete (true);
-                }
-
                 context.Projects.Remove (entity);
                 context.SaveChanges ();
             }

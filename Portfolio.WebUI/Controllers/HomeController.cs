@@ -17,9 +17,9 @@ namespace Portfolio.WebUI.Controllers {
             ViewBag.Selected = "Anasayfa";
             var model = new MainViewModel () {
                 Images = unitOfWork.Images.GetAll ().ToList (),
-                Sliders = unitOfWork.Sliders.GetAll ().ToList (),
-                Services = unitOfWork.Services.GetAll ().ToList (),
-                Testimonials = unitOfWork.Testimonials.GetAll ().ToList ()
+                Sliders = unitOfWork.Sliders.GetAll ().Where (s => s.isHome == true).ToList (),
+                Services = unitOfWork.Services.GetAll ().Where (s => s.isHome == true).ToList (),
+                Testimonials = unitOfWork.Testimonials.GetAll ().Where (s => s.isHome == true).ToList ()
             };
             return View (model);
         }

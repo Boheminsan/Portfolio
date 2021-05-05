@@ -2,18 +2,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Data.Abstract;
+using Portfolio.Data.Concrete.EFCore;
 using Portfolio.Entity;
 
 namespace Portfolio.WebUI.Models.ViewComponents {
     public class MenuViewComponent : ViewComponent {
-        private IMenuItemRepository menuItem;
-        public MenuViewComponent (IMenuItemRepository _menuItem) {
-            menuItem = _menuItem;
+        private readonly PortfolioContext context;
+        public MenuViewComponent (PortfolioContext _context) {
+            context = _context;
         }
+
         public IViewComponentResult Invoke () {
-            var menuItems = menuItem.GetAll ().OrderBy (m => m.Order).ToList ();
-            return View (menuItems);
+            var menus = context.MenuItems.Include (p => p.SubMenus).ToList ();
+            var subs = context.SubMenus.Include (s => s.MenuItem).ToList ();
+            var model = new MenuSubMenuViewModel {
+                MenuItems = menus,
+                SubMenus = subs
+            };
+            return View (model);
         }
     }
 }

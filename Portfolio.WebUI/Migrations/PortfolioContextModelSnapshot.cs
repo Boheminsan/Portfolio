@@ -120,10 +120,10 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("ImageName")
+                    b.Property<string>("FullPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Path")
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProjectId")
@@ -149,15 +149,6 @@ namespace Portfolio.WebUI.Migrations
                     b.Property<string>("MenuItemName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isParent")
-                        .HasColumnType("bit");
-
                     b.HasKey("MenuItemId");
 
                     b.ToTable("MenuItems");
@@ -180,9 +171,6 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("isDone")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isHome")
                         .HasColumnType("bit");
 
                     b.HasKey("ProjectId");
@@ -224,9 +212,6 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Caption")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ImageId")
                         .HasColumnType("int");
 
@@ -239,6 +224,29 @@ namespace Portfolio.WebUI.Migrations
                         .IsUnique();
 
                     b.ToTable("Sliders");
+                });
+
+            modelBuilder.Entity("Portfolio.Entity.SubMenu", b =>
+                {
+                    b.Property<int>("SubMenuId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Link")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MenuItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubMenuName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SubMenuId");
+
+                    b.HasIndex("MenuItemId");
+
+                    b.ToTable("SubMenus");
                 });
 
             modelBuilder.Entity("Portfolio.Entity.Testimonial", b =>
@@ -314,6 +322,17 @@ namespace Portfolio.WebUI.Migrations
                     b.Navigation("Image");
                 });
 
+            modelBuilder.Entity("Portfolio.Entity.SubMenu", b =>
+                {
+                    b.HasOne("Portfolio.Entity.MenuItem", "MenuItem")
+                        .WithMany("SubMenus")
+                        .HasForeignKey("MenuItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MenuItem");
+                });
+
             modelBuilder.Entity("Portfolio.Entity.Testimonial", b =>
                 {
                     b.HasOne("Portfolio.Entity.Image", "Image")
@@ -332,6 +351,11 @@ namespace Portfolio.WebUI.Migrations
                     b.Navigation("Slider");
 
                     b.Navigation("Testimonial");
+                });
+
+            modelBuilder.Entity("Portfolio.Entity.MenuItem", b =>
+                {
+                    b.Navigation("SubMenus");
                 });
 
             modelBuilder.Entity("Portfolio.Entity.Project", b =>

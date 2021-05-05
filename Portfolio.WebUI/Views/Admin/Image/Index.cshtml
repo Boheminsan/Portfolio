@@ -8,7 +8,8 @@
         <div class="col-md-9">
             <h2 style="display:inline">Resimler</h2>
         </div>
-        <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
+        <div class="col-md-3">
+            <a href="/Admin/Image/Create" class="btn btn-success me-2 btn-md">Yeni</a>
         </div>
     </div>
     <table class="table table-bordered table-hover table-text admin">
@@ -26,12 +27,15 @@
                 <tr>
                     <th scope="row">@img.ImageId</th>
                     <td class="text-center">
-                        <img src="~/assets/@img.Path/@img.ImageName" alt="@img.ImageName" width="100">
+                        <img src="~/@img.FullPath/@img.ImageName" alt="@img.ImageName" width="100">
                     </td>
                     <td class="d-flex justify-content-center">
-                        <button class="btn btn-info text-light me-2 btn-md">Düzenle</button>
+                        <a href="/Admin/Image/Update/@img.ImageId" class="btn btn-info me-2 btn-md">Düzenle</a>
+                        @* <form action="/Admin/Image/Delete/" method="POST">
+                            <input type="hidden" name="ImageId" value="@img.ImageId">
+                            <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                        </form> *@
 
-                        <button class="btn btn-danger">Sil</button>
                     </td>
                 </tr>
             }

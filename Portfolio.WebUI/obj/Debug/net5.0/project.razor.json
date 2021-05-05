@@ -15680,6 +15680,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SubMenu\\Update.cshtml",
+      "TargetPath": "Views\\Admin\\SubMenu\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Projects\\Done.cshtml",
       "TargetPath": "Views\\Projects\\Done.cshtml",
       "FileKind": "mvc"
@@ -15692,6 +15697,11 @@
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\hakkimdayedek.cshtml",
       "TargetPath": "Views\\Home\\hakkimdayedek.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SubMenu\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\SubMenu\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15722,6 +15732,11 @@
     {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Index.cshtml",
       "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SubMenu\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\SubMenu\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

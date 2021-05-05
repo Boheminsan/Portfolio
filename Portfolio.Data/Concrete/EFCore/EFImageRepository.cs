@@ -10,9 +10,5 @@ namespace Portfolio.Data.Concrete.EFCore {
         public PortfolioContext PortfolioContext {
             get { return context as PortfolioContext; }
         }
-        public List<Image> GetFolder (string Path) {
-            var folder = PortfolioContext.Images.Where (p => p.Path == Path).ToList ();
-            return folder;
-        }
     }
 }

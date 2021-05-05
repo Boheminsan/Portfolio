@@ -1,17 +1,39 @@
-@model SliderImageSingleViewModel
+@{
+    ViewData["Title"] = "Yeni Slider";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Slider
 <div class="container mt-4 pt-4">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <form asp-controller="Slider" asp-action="Create" method="post">
-                <div class="mb-3">
-                    <label class="form-label" asp-for="Img.ImageName"></label>
-                    <input asp-for="Img.ImageName" class="form-control">
-                    <span asp-validation-for="Img.ImageName"></span>
-                    @* upload *@
+        <div class="col-md-10">
+            <div class="text-center">
+                <h2>Yeni Slider</h2>
+            </div>
+            <form asp-controller="Slider" asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="mb-3 mt-4">
+                    <div id="gizle" class="btn btn-outline-secondary">Gizle/Göster</div>
+                    <div class="row" id="gallery">
+                        @if (ViewBag.Images != null)
+                        {
+                            @foreach (var item in (List<Image>)ViewBag.Images)
+                            {
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="checkbox" name="imgId" value="@item.ImageId"
+                                id="img_@item.ImageId">
+                                    <label class="form-check-label" for="img_@item.ImageId">
+                                        <img class="img-fluid" src="~/@item.FullPath/@item.ImageName" alt="@item.ImageName">
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="row" id="tekli">
+                        <input type="file" name="file" id="file" class="form-control">
+                    </div>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" asp-for="Slider.isHome">
-                    <label class="form-check-label" asp-for="Slider.isHome">
+                    <input class="form-check-input" type="checkbox" id="isHomeBool" name="isHomeBool">
+                    <label class="form-check-label" for="isHomeBool">
                         Anasayfada mı? </label>
                 </div>
                 <button type="submit" class="btn btn-success">Kaydet</button>

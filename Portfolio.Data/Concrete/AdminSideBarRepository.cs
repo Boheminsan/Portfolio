@@ -12,9 +12,10 @@ namespace Portfolio.Data.Concrete {
                 new MenuItem () { MenuItemId = 4, MenuItemName = "Slider", Link = "Slider" },
                 new MenuItem () { MenuItemId = 5, MenuItemName = "Projeler", Link = "Project" },
                 new MenuItem () { MenuItemId = 6, MenuItemName = "Menü", Link = "MenuItem" },
-                new MenuItem () { MenuItemId = 7, MenuItemName = "Servisler", Link = "Service" },
-                new MenuItem () { MenuItemId = 8, MenuItemName = "Yorumlar", Link = "Testimonial" },
-                new MenuItem () { MenuItemId = 9, MenuItemName = "Footer", Link = "Footer" },
+                new MenuItem () { MenuItemId = 7, MenuItemName = "AltMenü", Link = "SubMenu" },
+                new MenuItem () { MenuItemId = 8, MenuItemName = "Servisler", Link = "Service" },
+                new MenuItem () { MenuItemId = 9, MenuItemName = "Yorumlar", Link = "Testimonial" },
+                new MenuItem () { MenuItemId = 10, MenuItemName = "Footer", Link = "Footer" },
             };
         }
         public static List<MenuItem> SideItems {

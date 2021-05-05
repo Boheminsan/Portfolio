@@ -36,11 +36,10 @@
                     {
                         <th scope="row">@contact.ContactId</th>
                         <td>@contact.Name</td>
-                        <td>@contact.Mail</td>
                         <td>@contact.Title</td>
-                        <td>@contact.Text</td>
+                        <td style="width: auto;">@contact.Text</td>
                     }
-                    <td class="d-flex justify-content-center">
+                    <td class="d-block justify-content-center">
                         <form asp-controller="Contact" asp-action="MarkAsRead" method="post">
                             <input type="hidden" name="ContactId" value="@contact.ContactId">
                             <input type="hidden" name="isRead" value="true">

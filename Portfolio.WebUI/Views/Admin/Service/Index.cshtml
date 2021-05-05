@@ -28,7 +28,10 @@
             {
                 <tr>
                     <th scope="row">@service.ServiceId</th>
-                    <td>@service.Image</td>
+                    <td class="text-center">
+                        <img src="~/@service.Image.FullPath/@service.Image.ImageName" alt="@service.Image.ImageName"
+                        width="100">
+                    </td>
                     <td>@service.Title</td>
                     <td>@service.Text</td>
                     <td>@service.isHome</td>

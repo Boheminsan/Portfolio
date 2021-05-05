@@ -1,60 +1,112 @@
+using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Data.Abstract;
+using Portfolio.Data.Concrete.EFCore;
 using Portfolio.Entity;
 
 namespace Portfolio.WebUI.Controllers {
     public class ServiceController : Controller {
-        private IServiceRepository repository;
-        public ServiceController (IServiceRepository _repo) {
-            repository = _repo;
+        private readonly PortfolioContext context;
+        public ServiceController (PortfolioContext _context) {
+            context = _context;
         }
         public IActionResult Index () {
-            var model = repository.GetAll ().ToList ();
+            var model = context.Services.Include (p => p.Image).ToList ();
             return View (model);
         }
 
         [HttpGet]
         public IActionResult Create () {
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("services") && p.Service == null).ToList ();
             return View ();
         }
 
         [HttpPost]
-        public IActionResult Create (Service model) {
-            if (ModelState.IsValid) {
-                Service entity = new Service () {
-                    Title = model.Title,
-                    Text = model.Text,
-                    Image = model.Image,
-                    isHome = model.isHome //radiobutton
-                };
-                repository.Add (entity);
-                repository.Save ();
-                return RedirectToAction ("Index");
+        public IActionResult Create (Service model, IFormFile file, string isHomeBool, int? imgId) {
+            bool isHome;
+            Image img = new Image ();
+            if (isHomeBool == "on") {
+                isHome = true;
+            } else {
+                isHome = false;
             }
-            return View ();
+            if (file != null) {
+                string fileFolder = "wwwroot\\assets\\img\\services";
+                string path = Path.Combine (Directory.GetCurrentDirectory (), fileFolder, file.FileName);
+                using (var stream = new FileStream (path, FileMode.Create)) {
+                    file.CopyTo (stream);
+                    ViewBag.Message = string.Format ("<b>{0}</b> yüklendi.<br /> Yüklendiği Klasör: </br>{1}", file.FileName, path);
+                }
+                img = new Image () {
+                    ImageName = file.FileName,
+                    FullPath = "assets\\img\\services",
+                    Service = new Service () {
+                    isHome = isHome
+                    }
+                };
+            } else if (imgId != null) {
+                img = context.Images.FirstOrDefault (i => i.ImageId == imgId);
+            } else {
+                ViewBag.Message = "Resim seçilmedi/yüklenmedi";
+                ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("services") && p.Service == null).ToList ();
+                return View ();
+            }
+            Service entity = new Service () {
+                Title = model.Title,
+                Text = model.Text,
+                Image = img,
+                isHome = isHome
+            };
+            context.Services.Add (entity);
+            context.SaveChanges ();
+            return RedirectToAction ("Index");
         }
 
         [HttpGet]
         public IActionResult Update (int id) {
-            Service entity = repository.GetById (id);
+            Service entity = context.Services.FirstOrDefault (i => i.ServiceId == id);
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("services") && p.Service == null).ToList ();
             return View (entity);
         }
 
         [HttpPost]
-        public IActionResult Update (Service model, string isHome) {
+        public IActionResult Update (Service model, IFormFile file, string isHomeBool, int? imgId) {
+            bool isHome;
+            if (isHomeBool == "on") {
+                isHome = true;
+            } else {
+                isHome = false;
+            }
             if (ModelState.IsValid) {
-                Service entity = repository.GetById (model.ServiceId);
+                Image img = new Image ();
+                Service entity = context.Services.FirstOrDefault (i => i.ImageId == model.ServiceId);
                 entity.Title = model.Title;
-                entity.Image = model.Image;
-                entity.Text = model.Text;
-                if (isHome == "on") {
-                    entity.isHome = true; //radiobutton
+                if (file != null) {
+                    string fileFolder = "wwwroot\\assets\\img\\services";
+                    string path = Path.Combine (Directory.GetCurrentDirectory (), fileFolder, file.FileName);
+                    using (var stream = new FileStream (path, FileMode.Create)) {
+                        file.CopyTo (stream);
+                        ViewBag.Message = string.Format ("<b>{0}</b> yüklendi.<br /> Yüklendiği Klasör: </br>{1}", file.FileName, path);
+                    }
+                    img = new Image () {
+                        ImageName = file.FileName,
+                        FullPath = "assets\\img\\services"
+                    };
+                } else if (imgId != null) {
+                    img = context.Images.FirstOrDefault (i => i.ImageId == imgId);
                 } else {
-                    entity.isHome = false;
+                    ViewBag.Message = "Resim seçilmedi/yüklenmedi";
+                    ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("services") && p.Service == null).ToList ();
+                    return View ();
                 }
-                repository.Edit (entity);
-                repository.Save ();
+                entity.Image = img;
+                entity.Text = model.Text;
+                entity.isHome = isHome; //radiobutton
+                context.Services.Update (entity);
+                context.SaveChanges ();
                 return RedirectToAction ("Index");
             }
             return View (model);
@@ -62,10 +114,10 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpPost]
         public IActionResult Delete (int ServiceId) {
-            Service entity = repository.GetById (ServiceId);
+            Service entity = context.Services.FirstOrDefault (i => i.ImageId == ServiceId);
             if (entity != null) {
-                repository.Delete (entity);
-                repository.Save ();
+                context.Services.Remove (entity);
+                context.SaveChanges ();
             }
             return RedirectToAction ("Index");
         }

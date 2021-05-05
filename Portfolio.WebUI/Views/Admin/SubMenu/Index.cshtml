@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Alt Menüler Anasayfa";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<SubMenu>
+<div class="col-md-12 mt-2 border border-primary">
+    <div class="title-text text-center row mb-1">
+        <div class="col-md-9">
+            <h2 style="display:inline">Menü</h2>
+        </div>
+        <div class="col-md-3">
+            <a href="/Admin/SubMenu/Create/" class="btn btn-success me-2 btn-md">Yeni</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-text admin">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Alt Menü Adı</th>
+                <th scope="col">Link</th>
+                <th scope="col">Ebeveyn Id</th>
+                <th scope="col" style="width: 25%;">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var (item, i) in Model.Select((v, i) => (v, i)))
+            {
+                <tr>
+                    <th scope="row">@item.SubMenuId</th>
+                    <td>@item.SubMenuName</td>
+                    <td>@item.Link</td>
+                    <td>@item.MenuItemId</td>
+                    <td class="d-flex justify-content-center">
+                        <a href="/Admin/SubMenu/Update/@item.SubMenuId"
+                        class="btn btn-info text-light me-2 btn-md">Düzenle</a>
+                        <form action="/Admin/SubMenu/Delete/" method="POST">
+                            <input type="hidden" name="SubMenuId" value="@item.SubMenuId">
+                            <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

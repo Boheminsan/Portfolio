@@ -11,11 +11,12 @@
         </div>
     </div>
     <div class="button-group">
+        <button type="button" class="active" id="btn0" data-filter="*">Tümü</button>
         @foreach (var type in (List<Category>)ViewBag.SelectedCategories)
         {
             if (type.CType == CategoryType.Lang)
             {
-                <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
+                <button type="button" class="" id="btn@type.CategoryId" data-filter="@type.Filter">@type.CategoryName
                 </button>
             }
         }
@@ -25,7 +26,7 @@
         {
             if (type.CType == CategoryType.Tech)
             {
-                <button type="button" class="" id="btn1" data-filter="@type.Filter">@type.CategoryName
+                <button type="button" class="" id="btn@type.CategoryId" data-filter="@type.Filter">@type.CategoryName
                 </button>
             }
         }
@@ -33,11 +34,15 @@
     <div class="row grid">
         @foreach (var item in Model)
         {
+            var categories = (List<Category>)ViewBag.SelectedCategories;
             var classes = "";
-            @* @foreach (var cat in item.Categories)
+            foreach (var cat in categories)
+            {
+                if (item.Categories.Any(z => z.CategoryId == cat.CategoryId))
                 {
-                classes=@cat.Filter+" ";
-                } *@
+                    classes += cat.Filter.Replace(".", "") + " ";
+                }
+            }
             <div class="col-lg-4 col-md-6 col-sm-12 element-item @classes">
                 @* kategoriler class *@
                 <div class="our-project">

@@ -27,15 +27,12 @@
                                 <input class="form-check-input" type="checkbox" name="imageIds" value="@item.ImageId"
                                 id="img_@item.ImageId">
                                 <label class="form-check-label" for="img_@item.ImageId">
-                                    <img class="img-fluid" src="~/assets/@item.Path/@item.ImageName" alt="@item.ImageName">
+                                    <img class="img-fluid" src="~/@item.FullPath/@item.ImageName" alt="@item.ImageName">
                                 </label>
                             </div>
                         }
                     </div>
                     @* upload *@
-                    <div class="row" id="tekli">
-                        <input type="file" name="file" id="file" class="form-control">
-                    </div>
                     <div class="row" id="çoklu">
                         <input type="file" name="files" id="files" class="form-control" multiple>
                     </div>
@@ -44,7 +41,8 @@
                     @foreach (var item in (List<Category>)ViewBag.SelectedCategories)
                     {
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cat_@(item.CategoryId)">
+                            <input class="form-check-input" type="checkbox" name="categoryIds" value="@item.CategoryId"
+                            id="cat_@(item.CategoryId)">
                             <label class="form-check-label" for="cat_@(item.CategoryId)">
                                 @item.CategoryName
                             </label>
