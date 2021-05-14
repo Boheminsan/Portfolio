@@ -45,10 +45,14 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Filter")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
 
                     b.HasKey("CategoryId");
 
@@ -73,13 +77,13 @@ namespace Portfolio.WebUI.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(750)
+                        .HasColumnType("nvarchar(750)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("isRead")
                         .HasColumnType("bit");
@@ -100,13 +104,17 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Link")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Order")
                         .HasColumnType("int");
 
                     b.Property<string>("SocialMediaName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("FooterId");
 
@@ -144,10 +152,14 @@ namespace Portfolio.WebUI.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Link")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("MenuItemName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("MenuItemId");
 
@@ -165,10 +177,14 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(750)
+                        .HasColumnType("nvarchar(750)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<bool>("isDone")
                         .HasColumnType("bit");
@@ -189,10 +205,14 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<bool>("isHome")
                         .HasColumnType("bit");
@@ -234,13 +254,17 @@ namespace Portfolio.WebUI.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Link")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("MenuItemId")
                         .HasColumnType("int");
 
                     b.Property<string>("SubMenuName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("SubMenuId");
 
@@ -260,10 +284,14 @@ namespace Portfolio.WebUI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<bool>("isHome")
                         .HasColumnType("bit");

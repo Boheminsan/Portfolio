@@ -20,13 +20,13 @@
     @* adminMenu üret *@
     @* end header *@
     @* start main area *@
-    <main class="site-main">
+    <main class="site-main" style="padding:3% 2%;">
         <div class="row" style="margin-right:0;">
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 @* @await Html.PartialAsync("_adminSideBar",Model.SideBar) *@
                 @await Component.InvokeAsync("AdminSideBar")
             </div>
-            <div class="col-md-10">
+            <div class="col-lg-10">
                 @RenderBody()
             </div>
             @* start footer section*@
@@ -37,6 +37,22 @@
     <script src="/modules/jquery/dist/jquery.min.js"></script>
     <script src="/modules/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/js/myscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        if ($(document).width() < 1200) {
+            $("#sidebar").hide();
+        }
+        $("#adminhide").click(function () {
+            var adm = $("#sidebar");
+            if (adm.is(":hidden")) {
+                adm.show();
+            } else {
+                adm.hide();
+            }
+        });
+    </script>
     @* End Script area *@
 </body>
 

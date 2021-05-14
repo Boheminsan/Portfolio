@@ -4,8 +4,8 @@
 }
 @model List<Contact>
 <div class="col-md-12 mt-2 border border-primary">
-    <div class="title-text text-center row mb-1">
-        <div class="col-md-9">
+    <div class="title-text text-center row mb-2">
+        <div class="col-lg-12">
             <h2 style="display:inline">İletişim</h2>
         </div>
         @* <div class="col-md-3"><button class="btn btn-success me-2 btn-md">Yeni</button>
@@ -15,45 +15,45 @@
         <thead>
             <tr>
                 <th scope="col" style="width:3%">#</th>
-                <th scope="col">Gönderen</th>
-                <th scope="col">Başlık</th>
-                <th scope="col">Metin</th>
-                <th scope="col">İşlemler</th>
+                <th scope="col" style="width:10%">Gönderen</th>
+                <th scope="col" style="width:50%;">Metin</th>
+                <th scope="col" style="width:20%;">İşlemler</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var contact in Model)
             {
-                <tr>
+                <tr class="pb-2">
                     @if (!@contact.isRead)
                     {
                         <th scope="row" class=" bg-danger text-white">@contact.ContactId</th>
-                        <td class="fw-bold">@contact.Name <br> @contact.Mail</td>
-                        <td class=" fw-bold">@contact.Title</td>
-                        <td class="fw-bold" style="width: auto;">@contact.Text</td>
+                        <td class="fw-bold" >@contact.Name <br> @contact.Mail</td>
+                        <td class="fw-bold pt-2 pb-2" ><b>@contact.Title</b>
+                            <hr> @contact.Text</td>
                     }
                     else
                     {
                         <th scope="row">@contact.ContactId</th>
-                        <td>@contact.Name</td>
-                        <td>@contact.Title</td>
-                        <td style="width: auto;">@contact.Text</td>
+                        <td >@contact.Name <br> @contact.Mail</td>
+                        <td class="pt-2 pb-2"><b>@contact.Title</b>
+                            <hr> @contact.Text
+                        </td>
                     }
-                    <td class="d-block justify-content-center">
+                    <td class="d-flex justify-content-center">
                         <form asp-controller="Contact" asp-action="MarkAsRead" method="post">
                             <input type="hidden" name="ContactId" value="@contact.ContactId">
                             <input type="hidden" name="isRead" value="true">
-                            <button type="submit" class="btn btn-warning btn-md">Okundu</button>
+                            <button type="submit" class="btn btn-warning">Okundu</button>
                         </form>
                         <form asp-controller="Contact" asp-action="MarkAsRead" method="post">
                             <input type="hidden" name="ContactId" value="@contact.ContactId">
                             <input type="hidden" name="isRead" value="false">
-                            <button type="submit" class="btn btn-secondary btn-md">Okunmadı</button>
+                            <button type="submit" class="btn btn-secondary">Okunmadı</button>
                         </form>
                         <br>
                         <form asp-controller="Contact" asp-action="Delete" method="POST">
                             <input type="hidden" name="ContactId" value="@contact.ContactId">
-                            <button type="submit" class="btn btn-danger btn-md">Sil</button>
+                            <button type="submit" class="btn btn-danger ">Sil</button>
                         </form>
                     </td>
                 </tr>

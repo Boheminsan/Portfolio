@@ -1,13 +1,14 @@
-@model Project
+@model List<Project>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Taslak";
 }
 
 @* start portfolio section*@
 <section class="project-area">
     <div class="container">
         <div class="project-title pb-5">
-            <h1 class="letterspaced text-uppercase text-center title-h1">Taslak projeler</h1>
+            <h1 class="letterspaced text-uppercase text-center title-h1">Taslak Projeler</h1>
         </div>
     </div>
     <div class="button-group">
@@ -32,27 +33,28 @@
         }
     </div>
     <div class="row grid">
-        @{
+        @foreach (var item in Model)
+        {
             var categories = (List<Category>)ViewBag.SelectedCategories;
             var classes = "";
             foreach (var cat in categories)
             {
-                if (Model.Categories.Any(z => z.CategoryId == cat.CategoryId))
+                if (item.Categories.Any(z => z.CategoryId == cat.CategoryId))
                 {
                     classes += cat.Filter.Replace(".", "") + " ";
                 }
             }
-            <div class="col-lg-3 col-md-6 col-sm-12 element-item @classes">
+            <div class="col-lg-4 col-md-6 col-sm-12 element-item @classes">
                 @* kategoriler class *@
                 <div class="our-project">
                     <div class="img">
-                        <a class="test-popup-link" href="/Projects/Draft/@Model.ProjectId">
-                            <img src="~/assets/img/portfolio/@Model.CoverImage" alt="@Model.Title" class="img-fluid">
+                        <a class="test-popup-link" href="/Projects/Draft/@item.ProjectId">
+                            <img src="~/assets/img/portfolio/@item.CoverImage" alt="@item.Title" class="img-fluid">
                         </a>
                     </div>
                     <div class="title py-4">
-                        <h4 class="text-uppercase">@Model.Title</h4>
-                        <span class="text-secondary">@Model.Text</span>
+                        <h4 class="text-uppercase">@item.Title</h4>
+                        <span class="text-secondary">@item.Text</span>
                     </div>
                 </div>
             </div>

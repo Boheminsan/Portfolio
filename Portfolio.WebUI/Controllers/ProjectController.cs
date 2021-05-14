@@ -80,7 +80,7 @@ namespace Portfolio.WebUI.Controllers {
         [HttpGet]
         public IActionResult Update (int id) {
             Project entity = context.Projects.Include (p => p.Images).Include (p => p.Categories).FirstOrDefault (p => p.ProjectId == id);
-            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("portfolio")).ToList ();
+            ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("portfolio") && (p.Project == entity || p.Project == null)).ToList ();
             ViewBag.SelectedCategories = context.Categories.ToList ();
             return View (entity);
         }

@@ -1,11 +1,8 @@
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Portfolio.Data.Abstract;
 using Portfolio.Data.Concrete.EFCore;
-using Portfolio.Entity;
 
 namespace Portfolio.WebUI.Models.ViewComponents {
     public class MenuViewComponent : ViewComponent {
@@ -19,7 +16,7 @@ namespace Portfolio.WebUI.Models.ViewComponents {
             var subs = context.SubMenus.Include (s => s.MenuItem).ToList ();
             var model = new MenuSubMenuViewModel {
                 MenuItems = menus,
-                SubMenus = subs
+                SubMenus = subs,
             };
             return View (model);
         }

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.WebUI.Models;
 
 namespace Portfolio.WebUI.Controllers {
     [Authorize]
@@ -32,7 +33,7 @@ namespace Portfolio.WebUI.Controllers {
 
                     var result = await signInManager.PasswordSignInAsync (user, model.Password, false, false);
                     if (result.Succeeded) {
-                        return Redirect (returnUrl ?? "/");
+                        return Redirect (returnUrl?? "/");
                     }
                 }
                 ModelState.AddModelError (nameof (model.Email), "Hatalı kullanıcı adı veya parola!");

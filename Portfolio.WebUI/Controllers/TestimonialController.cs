@@ -95,19 +95,17 @@ namespace Portfolio.WebUI.Controllers {
                         ImageName = file.FileName,
                         FullPath = "assets\\img\\Testimonials"
                     };
+                    entity.Image = img;
                 } else if (imgId != null) {
                     img = context.Images.FirstOrDefault (i => i.ImageId == imgId);
+                    entity.Image = img;
                 } else {
-                    ViewBag.Message = "Resim seçilmedi/yüklenmedi";
-                    ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("clients") && p.Testimonial == null).ToList ();
-                    return View ();
+                    entity.Text = model.Text;
+                    entity.isHome = isHome;
+                    context.Testimonials.Update (entity);
+                    context.SaveChanges ();
+                    return RedirectToAction ("Index");
                 }
-                entity.Image = img;
-                entity.Text = model.Text;
-                entity.isHome = isHome;
-                context.Testimonials.Update (entity);
-                context.SaveChanges ();
-                return RedirectToAction ("Index");
             }
             return View (model);
         }

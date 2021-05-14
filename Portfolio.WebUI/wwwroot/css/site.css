@@ -9,7 +9,7 @@
 }
 
 .header-area .main-menu .navbar {
-    padding: 1.5rem 5rem;
+    padding: 1rem 2rem;
 }
 
 .header-area .main-menu .nav-item .nav-link,
@@ -34,6 +34,23 @@
     background-clip: text;
 }
 
+
+.navbar .login-button {
+    background: var(--gradient-color);
+    background-clip: padding-box;
+    color: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    display: inherit !important;
+}
+
+.navbar .login-button:hover {
+    background: white;
+    background-clip: padding-box;
+    color: black;
+    border: 1px ridge black;
+}
+
 .dropdown-menu {
     padding-top: 0;
     padding-bottom: 0;
@@ -41,8 +58,8 @@
 
 /*banner area */
 .site-main .site-banner {
-    padding: 0.5rem 7rem;
-    margin: 5rem 2rem;
+    padding: 2rem 5rem;
+    margin: 3rem 2rem 2rem 2rem;
 }
 
 .site-main .site-banner .site-title h3 {
@@ -62,7 +79,7 @@
 
 .site-main .site-banner .site-title h1 {
     font-size: 5rem;
-    padding-top: 6rem;
+    padding-top: 4rem;
 }
 
 .site-main .site-banner .site-title h4 {
@@ -84,8 +101,8 @@
     background: var(--gradient-color);
 }
 
-.site-main .about-area .about-div .row {
-    padding: 0rem 5vw;
+.site-main .about-area .about-div .about-row {
+    padding: 0rem 2rem;
 }
 
 .site-main .about-area .about-text {
@@ -95,9 +112,10 @@
 
 .site-main .about-area .about-title {
     display: block;
-    padding: 1rem 0rem;
+    padding: 2rem 0rem;
     font: normal bold 49px/40px var(--raleway);
     color: white;
+    margin-top: 1rem;
 }
 
 .site-main .about-area .card,
@@ -125,7 +143,7 @@
 
 .site-main .brand-area {
     padding: 3rem 7rem;
-    margin: 10rem 0rem;
+    margin: 4rem 0rem;
 }
 
 .site-main .brand-area .first-row .col {
@@ -295,14 +313,13 @@ button:hover,
 
 /* start contact */
 .site-main .contact-area {
-    padding: 3rem 2rem;
-    background: var(--gradient-color);
+    padding: 2rem 0rem;
     font: normal 200 20px/30px var(--ralewaylight);
 }
 
-.site-main .contact-area {
-    padding: 3rem 2rem;
+.site-main .contact-area .container {
     background: var(--gradient-color);
+    padding-bottom: 5%;
 }
 
 .site-main .contact-area input,
@@ -320,6 +337,7 @@ button:hover,
     display: block;
     font: normal bold 49px/40px var(--raleway);
     color: white;
+    padding: 4% 0;
 }
 
 /* end contact  */

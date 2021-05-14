@@ -1,9 +1,8 @@
-@* @model List<MenuItem> *@
 @model MenuSubMenuViewModel
 
 <header class="header-area">
     <div class="main-menu">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="brand">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +36,21 @@
                                 <a class="nav-link" href="@item.Link">@item.MenuItemName</a>
                             </li>
                         }
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="LogOut" class="btn login-button" nav-link">Oturumu
+                                kapat</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Login" class="btn login-button">Oturum
+                                Aç</a>
+
+                        </li>
                     }
                 </ul>
             </div>

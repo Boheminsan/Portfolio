@@ -5767,11 +5767,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Web Programlama\\Portfolio\\Portfolio.Entity\\Portfolio.Entity.csproj",
+      "projectUniqueName": "D:\\Web Programlama\\Portfolio\\Portfolio.Entity\\Portfolio.Entity.csproj",
       "projectName": "Portfolio.Entity",
-      "projectPath": "d:\\Web Programlama\\Portfolio\\Portfolio.Entity\\Portfolio.Entity.csproj",
+      "projectPath": "D:\\Web Programlama\\Portfolio\\Portfolio.Entity\\Portfolio.Entity.csproj",
       "packagesPath": "C:\\Users\\aktas\\.nuget\\packages\\",
-      "outputPath": "d:\\Web Programlama\\Portfolio\\Portfolio.Entity\\obj\\",
+      "outputPath": "D:\\Web Programlama\\Portfolio\\Portfolio.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5837,7 +5837,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

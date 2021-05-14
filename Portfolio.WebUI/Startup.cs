@@ -13,8 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Portfolio.Data.Abstract;
 using Portfolio.Data.Concrete.EFCore;
+using Portfolio.WebUI.Models;
 
 namespace Portfolio.WebUI {
     public class Startup {
@@ -28,6 +30,11 @@ namespace Portfolio.WebUI {
         public void ConfigureServices (IServiceCollection services) {
             services.AddControllersWithViews ();
             services.AddDbContext<PortfolioContext> (options => options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection"), b => b.MigrationsAssembly ("Portfolio.WebUI")));
+            services.ConfigureApplicationCookie (opt => opt.LoginPath = "/Admin/Login");
+            services.AddDbContext<ApplicationIdentityDbContext> (options => options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection"), b => b.MigrationsAssembly ("Portfolio.WebUI")));
+            services.AddIdentity<ApplicationUser, IdentityRole> ()
+                .AddEntityFrameworkStores<ApplicationIdentityDbContext> ()
+                .AddDefaultTokenProviders ();
             services.AddScoped<ICategoryRepository, EFCategoryRepository> ();
             services.AddScoped<IContactRepository, EFContactRepository> ();
             services.AddScoped<IImageRepository, EFImageRepository> ();
@@ -65,11 +72,16 @@ namespace Portfolio.WebUI {
                     RequestPath = "/modules"
             });
             app.UseRouting ();
-
-            app.UseAuthorization ();
+            app.UseStatusCodePages ();
             app.UseAuthentication ();
-
+            app.UseAuthorization ();
+            // app.UseMvc ();
             app.UseEndpoints (endpoints => {
+                endpoints.MapControllerRoute (
+                    name: "download",
+                    pattern: "/DownloadCV/filename",
+                    new { controller = "Home", action = "DownloadCV" }
+                );
                 endpoints.MapControllerRoute (
                     name: "projects",
                     pattern: "Projects/{action=Done}/{id?}",

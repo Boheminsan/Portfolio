@@ -4,7 +4,7 @@
 }
 @model Slider
 <div class="container mt-4 pt-4">
-    <div class="row d-flex justify-content-center">
+    <div class="row">
         <div class="col-md-10">
             <form asp-controller="Slider" asp-action="Update" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="SliderId" value="@Model.SliderId">
@@ -16,14 +16,15 @@
                         alt="@Model.Image.ImageName">
                 </div>
                 <div class="mb-3 mt-4">
-                  <div id="gizle" class="btn btn-outline-secondary">Gizle/Göster</div>
+                <div id="gizle" class="btn btn-sm btn-outline-primary">Gizle/Göster</div>
+                    <div class="btn btn-sm btn-outline-success" id="secimiTemizle">Seçimi Temizle</div>
                     <div class="row" id="gallery">
                         @if (ViewBag.Images != null)
                         {
                            @foreach (var item in (List<Image>)ViewBag.Images)
                             {
-                            <div class="form-check col-md-2">
-                                <input class="form-check-input" type="checkbox" name="imgId" value="@item.ImageId" id="img_@item.ImageId"
+                            <div class="form-check col-lg-3 col-xl-2">
+                                <input class="form-check-input" type="radio" name="imgId" value="@item.ImageId" id="img_@item.ImageId"
                                 @(Model.Image.ImageId==item.ImageId?"checked":"")>
                                 <label class="form-check-label" for="img_@item.ImageId">
                                     <img class="img-fluid" src="~/@item.FullPath/@item.ImageName" alt="@item.ImageName">
@@ -32,7 +33,7 @@
                             }
                         }
                     </div>
-                    <div class="row" id="tekli">
+                    <div class="row w-50" id="tekli">
                         <input type="file" name="file" id="file" class="form-control">
                     </div>
                 </div>

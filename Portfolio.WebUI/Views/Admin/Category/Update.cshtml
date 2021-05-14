@@ -14,14 +14,15 @@
                     <span asp-validation-for="CategoryName"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="CType"></label>
-                    <input asp-for="CType" class="form-control" value="@Model.CType">
-                    <span asp-validation-for="CType"></span>
+                    <label asp-for="CType" class="form-label">Kategori Türü</label>
+                    <select class="form-select mb-3" asp-for="CType" asp-items="Html.GetEnumSelectList<CategoryType>()">
+                        <option selected>Kategori Türü</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" asp-for="Filter"></label>
-                    <input asp-for="Filter" class="form-control" value="@Model.Filter">
-                    <span asp-validation-for="Filter"></span>
+                    <input asp-for="Filter" class="form-control" value="@Model.Filter" pattern="[A-Za-z.]>
+                    <span asp-validation-for=" Filter"></span>
                 </div>
                 <button type="submit" class="btn btn-success">Kaydet</button>
             </form>
@@ -46,8 +47,9 @@
                             </td>
                             <td>@project.Title</td>
                             <td class="d-flex justify-content-center">
-                                <form action="/Admin/Project/Delete/" method="POST">
+                                <form action="/Admin/Category/DeleteProject/" method="POST">
                                     <input type="hidden" name="ProjectId" value="@project.ProjectId">
+                                    <input type="hidden" name="CategoryId" value="@Model.CategoryId">
                                     <button type="submit" class="btn btn-danger btn-md">Sil</button>
                                 </form>
                             </td>

@@ -15690,18 +15690,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\Testimonial\\Update.cshtml",
       "TargetPath": "Views\\Admin\\Testimonial\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Home\\hakkimdayedek.cshtml",
-      "TargetPath": "Views\\Home\\hakkimdayedek.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SubMenu\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\SubMenu\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Admin\\SubMenu\\Index.cshtml",
-      "TargetPath": "Views\\Admin\\SubMenu\\Index.cshtml",
+      "FilePath": "d:\\Web Programlama\\Portfolio\\Portfolio.WebUI\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"
     },
     {

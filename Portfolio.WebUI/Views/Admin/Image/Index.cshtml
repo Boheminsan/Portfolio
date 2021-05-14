@@ -17,6 +17,7 @@
             <tr class="text-center">
                 <th scope="col" style="width:3%">#</th>
                 <th scope="col">Resim Adı</th>
+                <th scope="col">Klasör</th>
                 <th scope="col" style="width: 25%;">İşlemler</th>
 
             </tr>
@@ -29,12 +30,13 @@
                     <td class="text-center">
                         <img src="~/@img.FullPath/@img.ImageName" alt="@img.ImageName" width="100">
                     </td>
+                    <td class="text-center">@ViewBag.Folder</td>
                     <td class="d-flex justify-content-center">
                         <a href="/Admin/Image/Update/@img.ImageId" class="btn btn-info me-2 btn-md">Düzenle</a>
                         @* <form action="/Admin/Image/Delete/" method="POST">
                             <input type="hidden" name="ImageId" value="@img.ImageId">
                             <button type="submit" class="btn btn-danger btn-md">Sil</button>
-                        </form> *@
+                            </form> *@
 
                     </td>
                 </tr>

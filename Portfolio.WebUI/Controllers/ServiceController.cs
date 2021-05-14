@@ -67,7 +67,7 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpGet]
         public IActionResult Update (int id) {
-            Service entity = context.Services.FirstOrDefault (i => i.ServiceId == id);
+            Service entity = context.Services.Include (p => p.Image).FirstOrDefault (i => i.ServiceId == id);
             ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("services") && p.Service == null).ToList ();
             return View (entity);
         }
@@ -82,8 +82,7 @@ namespace Portfolio.WebUI.Controllers {
             }
             if (ModelState.IsValid) {
                 Image img = new Image ();
-                Service entity = context.Services.FirstOrDefault (i => i.ImageId == model.ServiceId);
-                entity.Title = model.Title;
+                Service entity = context.Services.FirstOrDefault (i => i.ServiceId == model.ServiceId);
                 if (file != null) {
                     string fileFolder = "wwwroot\\assets\\img\\services";
                     string path = Path.Combine (Directory.GetCurrentDirectory (), fileFolder, file.FileName);
@@ -95,19 +94,18 @@ namespace Portfolio.WebUI.Controllers {
                         ImageName = file.FileName,
                         FullPath = "assets\\img\\services"
                     };
+                    entity.Image = img;
                 } else if (imgId != null) {
                     img = context.Images.FirstOrDefault (i => i.ImageId == imgId);
+                    entity.Image = img;
                 } else {
-                    ViewBag.Message = "Resim seçilmedi/yüklenmedi";
-                    ViewBag.Images = context.Images.Where (p => p.FullPath.Contains ("services") && p.Service == null).ToList ();
-                    return View ();
+                    entity.Title = model.Title;
+                    entity.Text = model.Text;
+                    entity.isHome = isHome;
+                    context.Services.Update (entity);
+                    context.SaveChanges ();
+                    return RedirectToAction ("Index");
                 }
-                entity.Image = img;
-                entity.Text = model.Text;
-                entity.isHome = isHome; //radiobutton
-                context.Services.Update (entity);
-                context.SaveChanges ();
-                return RedirectToAction ("Index");
             }
             return View (model);
         }

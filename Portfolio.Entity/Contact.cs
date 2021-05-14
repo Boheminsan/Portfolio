@@ -13,12 +13,12 @@ namespace Portfolio.Entity {
         public string Mail { get; set; }
 
         [Required]
-        [StringLength (30, ErrorMessage = "30 karakterden uzun başlık girdiniz.")]
+        [StringLength (50, ErrorMessage = "50 karakterden uzun başlık girdiniz.")]
 
         public string Title { get; set; }
 
         [Required]
-        [StringLength (500, ErrorMessage = "Bu çok uzun bir mesaj.")]
+        [StringLength (750, ErrorMessage = "Bu çok uzun bir mesaj.")]
         public string Text { get; set; }
         public bool isRead { get; set; }
 

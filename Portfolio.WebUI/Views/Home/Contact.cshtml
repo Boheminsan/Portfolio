@@ -4,35 +4,35 @@
 }
 
 <section class="contact-area">
-    <div class="container mt-3">
+    <div class="container mt-2 py-3">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center contact-title mb-5"> İletişim </h2>
+                <h2 class="text-center contact-title mb-2"> İletişim </h2>
                 <div class="container col-md-8 mt-3">
                     <div asp-validation-for="All"></div>
                     <form asp-controller="Home" asp-action="Contact" class="form-group">
                         <div class="mb-3">
                             <label class="form-label" asp-for="Name">Adınız:</label>
                             <input type="text" class="form-control" asp-for="Name">
-                            <span asp-validation-for="Name"></span>
+                            <span asp-validation-for="Name" class="text-white"></span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" asp-for="Mail">E-mail:</label>
                             <input class="form-control" asp-for="Mail">
-                            <span asp-validation-for="Mail"></span>
+                            <span asp-validation-for="Mail" class="text-white"></span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" asp-for="Title">Başlık:</label>
                             <input class="form-control" asp-for="Title">
-                            <span asp-validation-for="Title"></span>
+                            <span asp-validation-for="Title" class="text-white"></span>
 
                         </div>
                         <div class="mb-3">
                             <label class="form-label" asp-for="Text">Mesajınız:</label>
                             <textarea class="form-control" cols="20" rows="10" asp-for="Text"></textarea>
-                            <span asp-validation-for="Text"></span>
+                            <span asp-validation-for="Text" class="text-white"></span>
                         </div>
-                        <button type="submit" class="btn btn-lg button primary-button"
+                        <button type="submit" class="btn btn-lg button primary-button pb-2"
                             style="border:2px ridge white; display: flex; margin: auto;">Gönder</button>
                     </form>
                 </div>

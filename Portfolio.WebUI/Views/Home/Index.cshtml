@@ -5,19 +5,24 @@
 
 
 <section class="site-banner">
-    <div class="container-fluid">
+    <div class="container-md">
         <div class="row">
-            <div class="col-lg-6 col-md-12 site-title">
+            <div class="col-lg-6 col-sm-12 site-title">
                 <h1 class="title-text text-uppercase">Ben Batuhan.</h1>
                 <h4 class="title-text">Yazılım geliştiriciyim.</h4>
                 <div class="side-buttons">
                     <div class="d-flex flex-row flex-wrap">
-                        <button type="button" class="btn button primary-button">İletişim</button>
-                        <button type="button" class="btn button secondary-button ml-4">Hakkımda</button>
+                        <a href="/Home/Contact" class="btn button primary-button">İletişim</a>
+                        @* <a href="/About" class="btn button secondary-button ml-4">Hakkımda</a> *@
+                        <form asp-controller="Home" asp-action="DownloadCV" method="GET">
+                            <input type="hidden" name="filename" value="resume.pdf">
+                            <button class="btn button secondary-button ml-4">Özgeçmiş <i
+                                    class="fas fa-file-download"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 banner-img">
+            <div class="col-lg-6 col-sm-12 banner-img">
                 <img src="~/assets/img/banner-image.png" alt="banner" class="img-fluid">
             </div>
         </div>
@@ -127,3 +132,22 @@
     </div>
 </section>
 @* end clients section*@
+@section navbar{
+<script>
+    var nav_offset_top = $('.header-area').height() + 40;
+
+    function navbarFixed() {
+        if ($('.header-area').length) {
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+                if (scroll >= nav_offset_top) {
+                    $('.header-area .main-menu').addClass('navbar_fixed');
+                } else {
+                    $('.header-area .main-menu').removeClass('navbar_fixed');
+                }
+            })
+        }
+    }
+    navbarFixed();
+</script>
+}

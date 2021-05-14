@@ -1,6 +1,8 @@
 @model List<MenuItem>
 
-<div class="list-group">
+<button id="adminhide" class="list-group-item list-group-item-action">
+  <i class="fas fa-times"></i> Gizle / Göster</button>
+<div class="list-group" id="sidebar">
   <a href="/Admin/Index/" id="admin"
     class="list-group-item list-group-item-action @(ViewBag.Selected=="Admin"?"active":"") ">Admin Anasayfa</a>
   @foreach (var side in Model)
