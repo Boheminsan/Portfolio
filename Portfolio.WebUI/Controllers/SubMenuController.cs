@@ -22,15 +22,20 @@ namespace Portfolio.WebUI.Controllers {
 
         [HttpPost]
         public IActionResult Create (SubMenu model) {
-            if (ModelState.IsValid) {
-                SubMenu entity = new SubMenu () {
-                    SubMenuName = model.SubMenuName,
-                    Link = model.Link,
-                    MenuItemId = model.MenuItemId
-                };
-                context.SubMenus.Add (entity);
-                context.SaveChanges ();
-                return RedirectToAction ("Index");
+            try {
+                if (ModelState.IsValid) {
+                    SubMenu entity = new SubMenu () {
+                        SubMenuName = model.SubMenuName,
+                        Link = model.Link,
+                        MenuItemId = model.MenuItemId
+                    };
+                    context.SubMenus.Add (entity);
+                    context.SaveChanges ();
+                    return RedirectToAction ("Index");
+                }
+            } catch (System.Exception) {
+                ViewBag.Message = "Olmayan üst menüye alt menü eklenemez.";
+                return View ();
             }
             return View (model);
         }
