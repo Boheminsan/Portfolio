@@ -1,11 +1,14 @@
-using System.Collections.Generic;
 using Portfolio.Entity;
+using System.Collections.Generic;
 
-namespace Portfolio.Data.Concrete {
-    public class AdminSideBarRepository {
+namespace Portfolio.Data.Concrete
+{
+    public class AdminSideBarRepository
+    {
         private static readonly List<MenuItem> _sideMenuList = null;
-        static AdminSideBarRepository () {
-            _sideMenuList = new List<MenuItem> () {
+        static AdminSideBarRepository()
+        {
+            _sideMenuList = new List<MenuItem>() {
                 new MenuItem () { MenuItemId = 1, MenuItemName = "Kategoriler", Link = "Category" },
                 new MenuItem () { MenuItemId = 2, MenuItemName = "Mesajlar", Link = "Contact" },
                 new MenuItem () { MenuItemId = 3, MenuItemName = "Resimler", Link = "Image" },
@@ -18,8 +21,10 @@ namespace Portfolio.Data.Concrete {
                 new MenuItem () { MenuItemId = 10, MenuItemName = "Footer", Link = "Footer" },
             };
         }
-        public static List<MenuItem> SideItems {
-            get {
+        public static List<MenuItem> SideItems
+        {
+            get
+            {
                 return _sideMenuList;
             }
         }

@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Portfolio.Entity {
-    public class Slider {
+namespace Portfolio.Entity
+{
+    public class Slider
+    {
         public int SliderId { get; set; }
         public int ImageId { get; set; }
         public Image Image { get; set; }

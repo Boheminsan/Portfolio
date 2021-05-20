@@ -1,9 +1,9 @@
-using System.Linq;
-using Portfolio.Data.Abstract;
 using Portfolio.Entity;
 
-namespace Portfolio.Data.Abstract {
-    public interface IProjectRepository : IGenericRepository<Project> {
-        void DeleteById (int portId);
+namespace Portfolio.Data.Abstract
+{
+    public interface IProjectRepository : IGenericRepository<Project>
+    {
+        void DeleteById(int portId);
     }
 }

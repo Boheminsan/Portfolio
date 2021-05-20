@@ -1,7 +1,9 @@
 using System;
 
-namespace Portfolio.Data.Abstract {
-    public interface IUnitOfWork : IDisposable {
+namespace Portfolio.Data.Abstract
+{
+    public interface IUnitOfWork : IDisposable
+    {
         IProjectRepository Projects { get; }
         ICategoryRepository Categories { get; }
         IContactRepository Contacts { get; }
@@ -11,6 +13,6 @@ namespace Portfolio.Data.Abstract {
         ISliderRepository Sliders { get; }
         ITestimonialRepository Testimonials { get; }
         IFooterRepository Footers { get; }
-        int SaveChanges ();
+        int SaveChanges();
     }
 }

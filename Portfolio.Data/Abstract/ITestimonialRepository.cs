@@ -1,7 +1,9 @@
 using Portfolio.Entity;
 
-namespace Portfolio.Data.Abstract {
-    public interface ITestimonialRepository : IGenericRepository<Testimonial> {
+namespace Portfolio.Data.Abstract
+{
+    public interface ITestimonialRepository : IGenericRepository<Testimonial>
+    {
 
     }
 }

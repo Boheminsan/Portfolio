@@ -1,5 +1,7 @@
-namespace Portfolio.Entity {
-    public class ProjectCategory {
+namespace Portfolio.Entity
+{
+    public class ProjectCategory
+    {
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int ProjectId { get; set; }

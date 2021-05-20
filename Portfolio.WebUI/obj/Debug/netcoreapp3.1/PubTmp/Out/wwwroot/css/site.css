@@ -1,0 +1,407 @@
+﻿@import url('fonts.css');
+@import url('partials/global.css');
+@import url('partials/variables.css');
+
+/*navigation*/
+
+.header-area .main-menu .navbar .navbar-brand {
+    padding: 0 2rem 0 5rem;
+}
+
+.header-area .main-menu .navbar {
+    padding: 1rem 2rem;
+}
+
+.header-area .main-menu .nav-item .nav-link,
+.dropdown-menu .dropdown-item {
+    font: normal bold 20px/20px var(--raleway);
+    padding: .4rem 1.5rem;
+    color: var(--title-color);
+}
+
+.header-area .main-menu .navbar-nav .active a {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-area .main-menu .navbar-nav a:hover,
+.dropdown-menu .dropdown-item:hover {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+.navbar .login-button {
+    background: var(--gradient-color);
+    background-clip: padding-box;
+    color: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    display: inherit !important;
+}
+
+.navbar .login-button:hover {
+    background: white;
+    background-clip: padding-box;
+    color: black;
+    border: 1px ridge black;
+}
+
+.dropdown-menu {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/*banner area */
+.site-main .site-banner {
+    padding: 2rem 5rem;
+    margin: 3rem 2rem 2rem 2rem;
+}
+
+.site-main .site-banner .site-title h3 {
+    padding-top: 35%;
+    font-weight: 500;
+}
+
+.site-main .site-banner .site-title h3::after {
+    content: " ";
+    height: 2px;
+    width: 18vw;
+    background: black;
+    display: inline-block;
+    margin-left: 5px;
+    transform: translateY(-10px);
+}
+
+.site-main .site-banner .site-title h1 {
+    font-size: 5rem;
+    padding-top: 4rem;
+}
+
+.site-main .site-banner .site-title h4 {
+    font-size: 1.5rem;
+}
+
+.site-main .site-banner .banner-img>img {
+    padding: 1rem 3rem;
+    width: 33rem;
+}
+
+/* start about */
+.site-main .about-area {
+    padding: 2rem 0rem;
+    font: normal 200 20px/30px var(--ralewaylight);
+}
+
+.site-main .about-area .about-div {
+    background: var(--gradient-color);
+}
+
+.site-main .about-area .about-div .about-row {
+    padding: 0rem 2rem;
+}
+
+.site-main .about-area .about-text {
+    padding: 2rem 0rem;
+    color: white;
+}
+
+.site-main .about-area .about-title {
+    display: block;
+    padding: 2rem 0rem;
+    font: normal bold 49px/40px var(--raleway);
+    color: white;
+    margin-top: 1rem;
+}
+
+.site-main .about-area .card,
+.site-main .about-area h3 {
+    background: none;
+    color: white;
+    border-color: white;
+}
+
+.site-main .about-area h3 {
+    font: normal 200 30px/40px var(--raleway);
+}
+
+
+.site-main .about-area .about-title .paragraph>p {
+    padding: .4rem 0;
+}
+
+/* end about */
+
+/* start ide */
+/* .first-row {
+    height: 15rem;
+} */
+
+.site-main .brand-area {
+    padding: 3rem 7rem;
+    margin: 4rem 0rem;
+}
+
+.site-main .brand-area .first-row .col {
+    display: flex;
+    justify-content: center;
+}
+
+.site-main .brand-area .first-row .col>.single-brand {
+    /* border: 1px solid var(--border-color); */
+    text-align: center;
+    padding: 1.8rem 0rem;
+    margin: 1rem 0.5rem;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.site-main .brand-area .first-row .col>.single-brand>img {
+    width: 50%;
+    display: unset;
+}
+
+.site-main .brand-area .first-row .col>.single-brand:hover {
+    box-shadow: var(--box-shadow);
+    transform: scale(1.1);
+}
+
+.site-main .brand-area .first-row .col>.single-brand>img:hover {
+    filter: brightness(0.35);
+}
+
+.site-main .brand-area .ide-title {
+    padding: 2rem;
+}
+
+.site-main .brand-area .ide-title>h2>span {
+    display: block;
+}
+
+/* end ide */
+/* start services */
+.site-main .services-area {
+    padding: 4rem 2rem;
+}
+
+.site-main .services-area .services-title {
+    padding: 0 14rem;
+}
+
+.site-main .services-area .services-title h1 {
+    font-size: 40px;
+}
+
+.site-main .services-area .services {
+    background: rgba(248, 252, 253, .973);
+    padding: 2rem 1rem;
+    margin: 1rem .5rem;
+    transition: box-shadow .4s ease;
+}
+
+.site-main .services-area .services .services-img img {
+    width: 100px !important;
+}
+
+.site-main .services-area .services:hover {
+    box-shadow: var(--box-shadow);
+    transform: scale(1.2);
+    transition: transform 1.2s ease;
+    /* Animation */
+}
+
+
+/* end services */
+
+/* start portfolio */
+.site-main .project-area {
+    padding: 3rem 4rem;
+    margin: 4rem 3rem;
+}
+
+.site-main .project-area .button-group button {
+    background: transparent;
+    border: none;
+    font: normal 500 18px/10px var(--raleway);
+}
+
+.site-main .project-area .button-group {
+    border: 2px dashed var(--border-color);
+    border-radius: 5px;
+    display: inline-flex;
+    padding: .5rem;
+    margin: 0 .5rem .5rem 0;
+}
+
+.site-main .project-area .button-group button+button {
+    padding-left: .5rem;
+}
+
+.site-main .project-area .grid .our-project>.title h4 {
+    font: normal 700 25px/12px var(--raleway);
+}
+
+.site-main .project-area .project-title>h1 {
+    font: normal 700 40px/12px var(--raleway);
+}
+
+.site-main .project-area .grid .our-project .img a:hover img {
+    filter: brightness(1.1) drop-shadow(1px 8px 30px #b1afaf);
+}
+
+button:focus,
+button:active,
+button:hover,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    box-shadow: none !important;
+}
+
+/* end portfolio */
+
+/* start client */
+.site-main .client-area {
+    margin-top: 8rem;
+}
+
+.site-main .client-area .client-title p {
+    padding: 1rem 7rem;
+}
+
+.site-main .client-area .client {
+    background: #ffffff10;
+    box-shadow: var(--box-shadow);
+    margin: 3rem 0rem;
+}
+
+.site-main .client-area .client .client-img {
+    padding: 2rem;
+}
+
+.site-main .client-area .client .about-client {
+    padding-top: 2rem;
+}
+
+.site-main .client-area .client .about-client h4 {
+    font: normal 500 21px/20px var(--raleway);
+}
+
+.site-main .client-area .client .about-client p {
+    font-size: 14px;
+}
+
+.site-main .client-area .owl-carousel .owl-item {
+    display: flex;
+    justify-content: center;
+    padding: 0 1.5rem;
+}
+
+.site-main .client-area .owl-carousel .owl-dots .owl-dot.active span {
+    background: var(--primary-color);
+    width: 12px;
+    height: 12px;
+}
+
+/* end client */
+
+/* start contact */
+.site-main .contact-area {
+    padding: 2rem 0rem;
+    font: normal 200 20px/30px var(--ralewaylight);
+}
+
+.site-main .contact-area .container {
+    background: var(--gradient-color);
+    padding-bottom: 5%;
+}
+
+.site-main .contact-area input,
+.site-main .contact-area textarea {
+    color: black;
+    font: normal 200 20px/20px var(--ralewaylight);
+}
+
+.site-main .contact-area label {
+    color: white;
+    font: normal 200 24px/20px var(--ralewaylight);
+}
+
+.site-main .contact-area .contact-title {
+    display: block;
+    font: normal bold 49px/40px var(--raleway);
+    color: white;
+    padding: 4% 0;
+}
+
+/* end contact  */
+
+
+/* footer*/
+
+footer.footer-area {
+    padding: 5rem 0;
+}
+
+footer.footer-area .footer .social h5 {
+    font: normal 500 23px/30px var(--raleway);
+}
+
+footer.footer-area .footer .social a>i {
+    font-size: 22px;
+    padding: 2rem;
+    color: var(--title-color);
+}
+
+footer.footer-area .footer .social a>i:hover {
+    color: var(--primary-color);
+    /*box-shadow: var(--box-shadow);
+    */
+    transform: scale(1.25);
+}
+
+/* end footer  */
+
+/*start  admin area */
+.table-text {
+    font: normal 100 18px/18px var(--ralewaylight)
+}
+
+.table td {
+    padding: 0rem 1rem;
+}
+
+.btn-admin {
+    height: 3rem;
+    width: 6rem;
+    vertical-align: middle;
+}
+
+table.admin {
+    vertical-align: middle;
+}
+
+.btn:focus,
+.btn:active,
+button:focus,
+button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#image-gallery .modal-footer {
+    display: block;
+}
+
+.thumb {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*end  admin area */

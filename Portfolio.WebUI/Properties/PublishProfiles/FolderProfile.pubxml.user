@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\aktas\Desktop\Publish\</_PublishTargetUrl>
+    <History>True|2021-05-17T15:30:59.0767697Z;True|2021-05-17T01:13:42.0560479+03:00;False|2021-05-17T01:11:56.2912852+03:00;True|2021-05-16T23:31:20.1711692+03:00;True|2021-05-16T22:49:58.8153181+03:00;True|2021-05-16T20:08:19.7686556+03:00;True|2021-05-15T06:24:26.6658282+03:00;True|2021-05-15T06:15:21.7116939+03:00;True|2021-05-15T06:14:28.8527273+03:00;True|2021-05-15T05:53:14.6549605+03:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=185.16.237.10%3bDatabase=PortfolioDB%3bUser Id=baRoot%3bPassword=bhmndbdb%2aB1414%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

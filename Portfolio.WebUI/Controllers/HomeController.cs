@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Data.Abstract;
@@ -46,7 +43,8 @@ namespace Portfolio.WebUI.Controllers {
                 unitOfWork.Contacts.Add (model);
                 TempData["Code"] = "1";
                 unitOfWork.SaveChanges ();
-                return RedirectToAction ("Contact");
+                ModelState.Clear ();
+                return View ("Contact");
             }
             TempData["Code"] = "0";
             return View ();

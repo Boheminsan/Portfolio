@@ -1,6 +1,5 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio.Data.Abstract;
 using Portfolio.Data.Concrete.EFCore;
 using Portfolio.Entity;
 

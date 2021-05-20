@@ -1,5 +1,7 @@
-namespace Portfolio.Entity {
-    public class Image {
+namespace Portfolio.Entity
+{
+    public class Image
+    {
         public int ImageId { get; set; }
         public string ImageName { get; set; }
         public string FullPath { get; set; }

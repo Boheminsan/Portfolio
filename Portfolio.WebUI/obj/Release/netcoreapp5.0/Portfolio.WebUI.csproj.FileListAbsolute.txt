@@ -1,0 +1,8 @@
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.csprojAssemblyReference.cache
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.AssemblyInfoInputs.cache
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.AssemblyInfo.cs
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.csproj.CoreCompileInputs.cache
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.MvcApplicationPartsAssemblyInfo.cache
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.RazorAssemblyInfo.cache
+D:\Web Programlama\Portfolio\Portfolio.WebUI\obj\Release\netcoreapp5.0\Portfolio.WebUI.RazorAssemblyInfo.cs

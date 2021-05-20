@@ -1,7 +1,9 @@
 using Portfolio.Entity;
 
-namespace Portfolio.Data.Abstract {
-    public interface ISubMenuRepository : IGenericRepository<SubMenu> {
+namespace Portfolio.Data.Abstract
+{
+    public interface ISubMenuRepository : IGenericRepository<SubMenu>
+    {
 
     }
 }

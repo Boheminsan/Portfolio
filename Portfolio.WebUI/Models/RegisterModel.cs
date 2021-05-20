@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Portfolio.WebUI.Models {
-    public class RegisterModel {
+namespace Portfolio.WebUI.Models
+{
+    public class RegisterModel
+    {
         [Required]
         public string Email { get; set; }
 

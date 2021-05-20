@@ -1,33 +1,39 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Portfolio.Entity;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Portfolio.Data.Concrete.EFCore {
-    public static class SeedData {
-        public static void EnsurePopulated (IApplicationBuilder app) {
-            var context = app.ApplicationServices.GetRequiredService<PortfolioContext> ();
-            context.Database.Migrate ();
-            if (!context.MenuItems.Any ()) {
+namespace Portfolio.Data.Concrete.EFCore
+{
+    public static class SeedData
+    {
+        public static void EnsurePopulated(IApplicationBuilder app)
+        {
+            var context = app.ApplicationServices.GetRequiredService<PortfolioContext>();
+            context.Database.Migrate();
+            if (!context.MenuItems.Any())
+            {
                 var menu = new List<MenuItem> {
                     new MenuItem () { MenuItemName = "Anasayfa", Link = "/" },
                     new MenuItem () { MenuItemName = "Projeler", Link = "#" },
                     new MenuItem () { MenuItemName = "İletişim", Link = "/Home/contact" },
                     new MenuItem () { MenuItemName = "Hakkımda", Link = "/Home/about" }
                 };
-                context.MenuItems.AddRange (menu);
+                context.MenuItems.AddRange(menu);
             }
-            if (!context.SubMenus.Any ()) {
+            if (!context.SubMenus.Any())
+            {
                 var sub = new List<SubMenu> {
                     new SubMenu () { SubMenuName = "Yapılmış", Link = "/Project/done", MenuItemId = 3 },
                     new SubMenu () { SubMenuName = "Taslak", Link = "/Project/draft", MenuItemId = 3 },
                 };
-                context.SubMenus.AddRange (sub);
+                context.SubMenus.AddRange(sub);
             }
 
-            if (!context.Categories.Any ()) {
+            if (!context.Categories.Any())
+            {
                 var categories = new List<Category> {
                     new Category () {
                     CategoryName = "Web", CType = CategoryType.Tech, Filter = ".web"
@@ -57,10 +63,11 @@ namespace Portfolio.Data.Concrete.EFCore {
                     CategoryName = "Diğer Diller", CType = CategoryType.Lang, Filter = ".etclang"
                     }
                 };
-                context.Categories.AddRange (categories);
+                context.Categories.AddRange(categories);
             }
 
-            if (!context.Projects.Any ()) {
+            if (!context.Projects.Any())
+            {
                 var projects = new List<Project> {
                     new Project () {
                     Title = "Proje1", CoverImage = "prt1.jpg", isDone = true, Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam ipsum repellat rem architecto omnis dolorum ex? Quam, maiores eum.", Images = new List<Image> {
@@ -133,10 +140,11 @@ namespace Portfolio.Data.Concrete.EFCore {
                     }
                     }
                 };
-                context.Projects.AddRange (projects);
+                context.Projects.AddRange(projects);
             }
 
-            if (!context.Sliders.Any ()) {
+            if (!context.Sliders.Any())
+            {
                 var sImages = new List<Slider> {
                     new Slider () { Image = new Image { ImageName = "ide1.png", FullPath = "assets\\img\\ides" }, isHome = true },
                     new Slider () { Image = new Image { ImageName = "ide2.png", FullPath = "assets\\img\\ides" }, isHome = false },
@@ -154,9 +162,10 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Slider () { Image = new Image { ImageName = "ide14.png", FullPath = "assets\\img\\ides" }, isHome = false },
                     new Slider () { Image = new Image { ImageName = "ide15.png", FullPath = "assets\\img\\ides" }, isHome = true }
                 };
-                context.Sliders.AddRange (sImages);
+                context.Sliders.AddRange(sImages);
             }
-            if (!context.Services.Any ()) {
+            if (!context.Services.Any())
+            {
                 var services = new List<Service> {
                     new Service () { Title = "Makine öğrenmesi", Image = new Image { ImageName = "ml.png", FullPath = "assets\\img\\services" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true },
                     new Service () { Title = "Title2", Image = new Image { ImageName = "laptop.png", FullPath = "assets\\img\\services" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false },
@@ -165,10 +174,11 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Service () { Title = "Title5", Image = new Image { ImageName = "network.png", FullPath = "assets\\img\\services" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false },
                     new Service () { Title = "Title6", Image = new Image { ImageName = "ml.png", FullPath = "assets\\img\\services" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true }
                 };
-                context.Services.AddRange (services);
+                context.Services.AddRange(services);
             }
-            if (!context.Contacts.Any ()) {
-                var contact = new [] {
+            if (!context.Contacts.Any())
+            {
+                var contact = new[] {
                     new Contact () {
                     Name = "Ali Pınar",
                     Mail = "yazarbozar6969@hmail.com",
@@ -191,11 +201,12 @@ namespace Portfolio.Data.Concrete.EFCore {
                     isRead = false
                     }
                 };
-                context.Contacts.AddRange (contact);
+                context.Contacts.AddRange(contact);
             }
-            if (!context.Testimonials.Any ()) {
+            if (!context.Testimonials.Any())
+            {
 
-                var test = new [] {
+                var test = new[] {
                     new Testimonial () { Title = "Title1", Image = new Image { ImageName = "client1.jpg", FullPath = "assets\\img\\clients" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true },
                     new Testimonial () { Title = "Title2", Image = new Image { ImageName = "client2.jpg", FullPath = "assets\\img\\clients" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false },
                     new Testimonial () { Title = "Title3", Image = new Image { ImageName = "client3.jpg", FullPath = "assets\\img\\clients" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = true },
@@ -203,10 +214,11 @@ namespace Portfolio.Data.Concrete.EFCore {
                     new Testimonial () { Title = "Title5", Image = new Image { ImageName = "client5.jpg", FullPath = "assets\\img\\clients" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false },
                     new Testimonial () { Title = "Title6", Image = new Image { ImageName = "client6.jpg", FullPath = "assets\\img\\clients" }, Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla beatae illo a deserunt omnis maxime, aperiam eius fugit nobis ut!", isHome = false }
                 };
-                context.Testimonials.AddRange (test);
+                context.Testimonials.AddRange(test);
             }
-            if (!context.Footers.Any ()) {
-                var footer = new [] {
+            if (!context.Footers.Any())
+            {
+                var footer = new[] {
                     new Footer {
                     Icon = "fab fa-facebook-square",
                     Link = "#",
@@ -244,9 +256,9 @@ namespace Portfolio.Data.Concrete.EFCore {
                     SocialMediaName = "LinkedIn"
                     }
                 };
-                context.Footers.AddRange (footer);
+                context.Footers.AddRange(footer);
             }
-            context.SaveChanges ();
+            context.SaveChanges();
         }
     }
 }

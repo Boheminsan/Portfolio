@@ -1,17 +1,16 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio.Data.Abstract;
 using Portfolio.Data.Concrete;
-using Portfolio.Entity;
+using System.Linq;
 
-namespace Portfolio.WebUI.Models.ViewComponents {
-    public class AdminSideBarViewComponent : ViewComponent {
-        public IViewComponentResult Invoke () {
+namespace Portfolio.WebUI.Models.ViewComponents
+{
+    public class AdminSideBarViewComponent : ViewComponent
+    {
+        public IViewComponentResult Invoke()
+        {
             ViewBag.Selected = RouteData.Values["controller"];
-            var menuItems = AdminSideBarRepository.SideItems.ToList ();
-            return View (menuItems);
+            var menuItems = AdminSideBarRepository.SideItems.ToList();
+            return View(menuItems);
         }
     }
 }

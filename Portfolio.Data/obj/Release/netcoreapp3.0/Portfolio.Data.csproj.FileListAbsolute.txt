@@ -1,0 +1,15 @@
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Data.deps.json
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Data.runtimeconfig.json
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Data.runtimeconfig.dev.json
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Data.dll
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Data.pdb
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Entity.dll
+D:\Web Programlama\Portfolio\Portfolio.Data\bin\Release\netcoreapp3.0\Portfolio.Entity.pdb
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.csprojAssemblyReference.cache
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.AssemblyInfoInputs.cache
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.AssemblyInfo.cs
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.csproj.CoreCompileInputs.cache
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.csproj.CopyComplete
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.dll
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.pdb
+D:\Web Programlama\Portfolio\Portfolio.Data\obj\Release\netcoreapp3.0\Portfolio.Data.genruntimeconfig.cache

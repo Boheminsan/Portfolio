@@ -1,21 +1,24 @@
-using System;
-using System.Linq;
-using System.Linq.Expressions;
 using Portfolio.Data.Abstract;
 using Portfolio.Entity;
+using System.Linq;
 
-namespace Portfolio.Data.Concrete.EFCore {
-    public class EFProjectRepository : EFGenericRepository<Project>, IProjectRepository {
-        public EFProjectRepository (PortfolioContext context) : base (context) { }
-        public PortfolioContext PortfolioContext {
+namespace Portfolio.Data.Concrete.EFCore
+{
+    public class EFProjectRepository : EFGenericRepository<Project>, IProjectRepository
+    {
+        public EFProjectRepository(PortfolioContext context) : base(context) { }
+        public PortfolioContext PortfolioContext
+        {
             get { return context as PortfolioContext; }
         }
 
-        public void DeleteById (int portId) {
-            var port = PortfolioContext.Projects.FirstOrDefault (p => p.ProjectId == portId);
-            if (port != null) {
-                PortfolioContext.Projects.Remove (port);
-                PortfolioContext.SaveChanges ();
+        public void DeleteById(int portId)
+        {
+            var port = PortfolioContext.Projects.FirstOrDefault(p => p.ProjectId == portId);
+            if (port != null)
+            {
+                PortfolioContext.Projects.Remove(port);
+                PortfolioContext.SaveChanges();
             }
         }
 
@@ -27,21 +30,24 @@ namespace Portfolio.Data.Concrete.EFCore {
         //     }
         // }
 
-        public void Edit2 (Project entity) {
-            var port = GetById (entity.ProjectId);
-            if (port != null) {
+        public void Edit2(Project entity)
+        {
+            var port = GetById(entity.ProjectId);
+            if (port != null)
+            {
                 port.Text = entity.Text;
                 port.Title = entity.Title;
                 // port.Categories = entity.Categories;
                 port.isDone = entity.isDone;
-                if (!(entity.CoverImage is null)) {
+                if (!(entity.CoverImage is null))
+                {
                     port.CoverImage = entity.CoverImage;
                 }
                 // if (entity.Images.Count != 0) {
                 //     port.Images = entity.Images;
                 //çoklu resim şimdilik dursun
                 // }
-                context.SaveChanges ();
+                context.SaveChanges();
             }
         }
     }
